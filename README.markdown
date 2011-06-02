@@ -60,6 +60,10 @@ browse. A few notable ones:
 ###fun
 - `cloudapp` uploads any file to [CloudApp](http://getcloudapp.com).
 
+###remapping esc to caps lock
+##osx:
+  use [PCKeybordHack](http://pqrs.org/macosx/keyremap4macbook/extra.html#t1)
+
 ##moar custom
 There are a few things I use to make my life awesome. They're not a required
 dependency, but if you make it happen, THEY'LL MAKE **YOU** HAPPEN.
@@ -68,6 +72,7 @@ dependency, but if you make it happen, THEY'LL MAKE **YOU** HAPPEN.
   grc`.
 - If you install the excellent [rvm](http://rvm.beginrescueend.com) to manage
   multiple rubies, your current branch will show up in the prompt. Bonus.
+
 
 ## thanks
 
