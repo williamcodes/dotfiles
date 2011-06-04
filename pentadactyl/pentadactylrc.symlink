@@ -2,5 +2,6 @@
 
 loadplugins '\.(js|penta)$'
 group user
+set hintkeys=suheton
 
 " vim: set ft=pentadactyl:
