@@ -15,6 +15,9 @@ bring in personal settings
 The install rake task will symlink the appropriate files in `.dotfiles` to your
 home directory. Everything is configured and tweaked within `~/.dotfiles`.
 
+(optionally) set zsh as your default shell
+- `chsh -s /bin/zsh`
+
 ## what's inside
 
 - Custom settings for the Janus vim distribution
