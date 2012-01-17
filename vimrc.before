@@ -58,10 +58,9 @@ vmap <silent> <Leader>i( <ESC>:'<,'>Align (<CR>
 
 nmap <silent> <Leader>p :NERDTreeToggle<CR>
 
-"map to CommandT 
-nnoremap go :CommandT<CR>
-nnoremap gu :CommandTBuffer<CR>
-nnoremap gl :CommandTFlush<CR>
+"CtrlP mappings/config
+let g:ctrlp_map = 'go'
+let g:ctrlp_match_window_bottom = 0 " show at top
 
 "make Y consistent with C and D
 nnoremap Y y$
