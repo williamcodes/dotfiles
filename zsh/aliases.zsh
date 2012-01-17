@@ -2,13 +2,13 @@ alias reload!='. ~/.zshrc'
 alias g='gvim'
 
 
-" vagrant
+# vagrant
 alias vs="vagrant status"
 alias vu="vagrant up"
 alias vp="vagrant provision"
 
 
-" ssh keys
+# ssh keys
 # pipe public key to clipboard.
 alias pubkey="more ~/.ssh/id_dsa.public | pbcopy | echo '=> Public key copied to pasteboard.'"
 
@@ -26,7 +26,7 @@ then
   alias la='gls -A --color'
 fi
 
-" ruby
+# ruby
 alias r='rvm use 1.9.3-head'
 
 alias f='RAILS_ENV=fi'
