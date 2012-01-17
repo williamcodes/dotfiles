@@ -1,7 +1,6 @@
 alias reload!='. ~/.zshrc'
 alias g='gvim'
 
-
 # vagrant
 alias vs="vagrant status"
 alias vu="vagrant up"
