@@ -1,3 +1,0 @@
-[submodule "vim/vim.symlink"]
-	path = vim/vim.symlink
-	url = git@github.com:thedeeno/vimfiles.git
