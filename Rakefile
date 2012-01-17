@@ -3,13 +3,10 @@ require 'erb'
 
 desc "install the dot files into user's home directory"
 task :install do
-  linkables = Dir.glob('*/**{.symlink}')
-
-  skip_all = false
-  overwrite_all = false
-  backup_all = false
-
+  replace_all = false
   Dir['*'].each do |file|
+    next if %w[Rakefile README.rdoc LICENSE].include? file
+    
     if File.exist?(File.join(ENV['HOME'], ".#{file.sub('.erb', '')}"))
       if File.identical? file, File.join(ENV['HOME'], ".#{file.sub('.erb', '')}")
         puts "identical ~/.#{file.sub('.erb', '')}"
@@ -51,3 +48,4 @@ def link_file(file)
     system %Q{ln -s "$PWD/#{file}" "$HOME/.#{file}"}
   end
 end
+
