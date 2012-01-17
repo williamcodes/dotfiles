@@ -12,6 +12,10 @@ alias vp="vagrant provision"
 # pipe public key to clipboard.
 alias pubkey="more ~/.ssh/id_dsa.public | pbcopy | echo '=> Public key copied to pasteboard.'"
 
+# ls aliases
+#alias ll='ls -l'
+#alias la='ls -A'
+#alias l='ls -CF'
 
 # grc overides for ls
 if $(gls &>/dev/null)

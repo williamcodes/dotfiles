@@ -1,2 +1,7 @@
 export PS1="\w$ "
-export EDITOR="mate_wait"
+export EDITOR="gvim"
+export BROWSER="firefox"
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
