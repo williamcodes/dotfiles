@@ -1,0 +1,177 @@
+" store swap files in one location
+" set directory=~/.vim/swap,.
+set noswapfile
+set backup
+set backupdir=~/.vim/backup
+set directory=~/.vim/tmp
+
+" ----------------------------------------------------------------------------
+"  Remapping
+" ----------------------------------------------------------------------------
+
+let mapleader = 'g'
+
+" alias leader in normal mode
+" nmap , \
+
+" reflow paragraph with Q in normal and visual mode
+nnoremap Q gqap
+vnoremap Q gq
+
+" sane movement with wrap turned on
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+nnoremap <Down> gj
+nnoremap <Up> gk
+vnoremap <Down> gj
+vnoremap <Up> gk
+inoremap <Down> <C-o>gj
+inoremap <Up> <C-o>gk
+
+" add a minibuffer shortcut which is similar to vimperator
+nmap gt :MBEbn<CR>
+nmap gT :MBEbp<CR>
+
+" remap window navigation
+noremap <C-J> <C-W>j
+noremap <C-K> <C-W>k
+noremap <C-H> <C-W>h
+noremap <C-L> <C-W>n
+
+" create shortcut for deleting a window
+nmap gc :bd<CR>
+
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" clear search buffer (so highlight goes away)
+nmap <silent> <leader>e :let @/=""<CR>
+
+"align plugin mappings
+vmap <silent> <Leader>i= <ESC>:'<,'>Align =<CR>
+vmap <silent> <Leader>i\| <ESC>:'<,'>Align \|<CR>
+vmap <silent> <Leader>i, <ESC>:'<,'>Align ,<CR>
+vmap <silent> <Leader>i( <ESC>:'<,'>Align (<CR>
+
+nmap <silent> <Leader>p :NERDTreeToggle<CR>
+
+"map to CommandT 
+nnoremap go :CommandT<CR>
+nnoremap gu :CommandTBuffer<CR>
+nnoremap gl :CommandTFlush<CR>
+
+"make Y consistent with C and D
+nnoremap Y y$
+
+"key mapping for vimgrep result navigation
+map <A-o> :copen<CR>
+map <A-q> :cclose<CR>
+map <A-j> :cnext<CR>
+map <A-k> :cprevious<CR>
+
+" remap ga to vim-rails alternate file command
+nmap ga :A<CR>
+" nmap gr :R<CR>
+
+" For local replace
+nnoremap gr gd[{V%:s/<C-R>///gc<left><left><left>
+
+" For global replace
+nnoremap gR gD:%s/<C-R>///gc<left><left><left>}
+
+" ---------------------------------------------------------------------------
+" White space management
+" ---------------------------------------------------------------------------
+
+function! StripWhitespace ()
+    exec ':%s/ \+$//gc'
+endfunction
+map <leader>s :call StripWhitespace ()<CR>
+
+" ----------------------------------------------------------------------------
+" smart inserting
+" ----------------------------------------------------------------------------
+set formatoptions-=o "dont continue comments when pushing o/O
+
+"smart indent when entering insert mode with i on empty lines
+function! IndentWithI()
+    if len(getline('.')) == 0
+        return "\"_ddO"
+    else
+        return "i"
+    endif
+endfunction
+nnoremap <expr> i IndentWithI()
+
+" ----------------------------------------------------------------------------
+" snipmate
+" ----------------------------------------------------------------------------
+try
+  source ~/.vim/snippets/support_functions.vim
+catch
+  source ~/vimfiles/snippets/support_functions.vim
+endtry
+autocmd vimenter * call s:SetupSnippets()
+function! s:SetupSnippets()
+
+    "if we're in a rails env then read in the rails snippets
+    if filereadable("./config/environment.rb")
+        call ExtractSnips("~/.vim/snippets/ruby-rails", "ruby")
+        call ExtractSnips("~/.vim/snippets/eruby-rails", "eruby")
+    endif
+
+    call ExtractSnips("~/.vim/snippets/html", "eruby")
+    call ExtractSnips("~/.vim/snippets/html", "xhtml")
+    call ExtractSnips("~/.vim/snippets/html", "php")
+endfunction
+
+"jump to last cursor position when opening a file
+"dont do it when writing a commit log entry
+autocmd BufReadPost * call SetCursorPosition()
+function! SetCursorPosition()
+    if &filetype !~ 'commit\c'
+        if line("'\"") > 0 && line("'\"") <= line("$")
+            exe "normal! g`\""
+            normal! zz
+        endif
+    end
+endfunction
+
+"define :HighlightLongLines command to highlight the offending parts of
+"lines that are longer than the specified length (defaulting to 80)
+command! -nargs=? HighlightLongLines call s:HighlightLongLines('<args>')
+function! s:HighlightLongLines(width)
+    let targetWidth = a:width != '' ? a:width : 79
+    if targetWidth > 0
+        exec 'match Todo /\%>' . (targetWidth) . 'v/'
+    else
+        echomsg "Usage: HighlightLongLines [natural number]"
+    endif
+endfunction
+
+" ----------------------------------------------------------------------------
+" NERDTree
+" ----------------------------------------------------------------------------
+
+let NERDTreeQuitOnOpen = 1
+
+" ---------------------------------------------------------------------------
+" NerdCommenter
+" ---------------------------------------------------------------------------
+
+let NERDSpaceDelims = 1
+
+" ---------------------------------------------------------------------------
+" Speed
+" ---------------------------------------------------------------------------
+" Turn off active error checking for slow-to-compile languages
+"
+" there may be a way to speed up the checking but this fix works and I care 
+" more about fast buffer switching than syntax checking. 
+" ---------------------------------------------------------------------------
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'active_filetypes': [],
+                           \ 'passive_filetypes': ['haml', 'scss', 'sass'] }

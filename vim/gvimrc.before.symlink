@@ -1,0 +1,3 @@
+colorscheme molokai
+set guioptions-=T          " turn off needless toolbar on gvim/mvim
+set showtabline=0          " never show the tab bar
