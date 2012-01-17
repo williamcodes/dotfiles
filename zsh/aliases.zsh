@@ -7,11 +7,12 @@ alias vs="vagrant status"
 alias vu="vagrant up"
 alias vp="vagrant provision"
 
-
 # ssh keys
 # pipe public key to clipboard.
 alias pubkey="more ~/.ssh/id_dsa.public | pbcopy | echo '=> Public key copied to pasteboard.'"
 
+# cd
+alias ..='cd ..'
 
 # ls aliases
 alias ll='ls -l --color'
@@ -31,7 +32,7 @@ alias migrate='rake db:migrate db:test:clone'
 # git
 alias gl='git pull --prune'
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
-alias gp='git push origin HEAD'
+alias gp='git push'
 alias gd='git diff'
 alias gc='git commit'
 alias gca='git commit -a'

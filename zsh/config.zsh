@@ -7,13 +7,14 @@ fi
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
-fpath=($ZSH/zsh/functions $fpath)
+fpath=(~/.zsh/functions $fpath)
 
-autoload -U $ZSH/zsh/functions/*(:t)
+autoload -U ~/.zsh/functions/*(:t)
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
+REPORTTIME=10 # print elapsed time when more than 10 seconds
 
 setopt NO_BG_NICE # don't nice background tasks
 setopt NO_HUP
