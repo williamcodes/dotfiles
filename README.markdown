@@ -1,6 +1,4 @@
-# holman does dotfiles
-
-## dotfiles
+# dotfiles
 
 Your dotfiles are how you personalize your system. These are mine. The very
 prejudiced mix: OS X, zsh, Ruby, Rails, git, homebrew, rvm, vim. If you
