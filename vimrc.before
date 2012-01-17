@@ -2,8 +2,8 @@
 " set directory=~/.vim/swap,.
 set noswapfile
 set backup
-set backupdir=~/.vim/backup
-set directory=~/.vim/tmp
+set backupdir=~/.janus/backup
+set directory=~/.janus/tmp
 
 " ----------------------------------------------------------------------------
 "  Remapping
