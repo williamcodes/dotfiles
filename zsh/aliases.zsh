@@ -12,29 +12,19 @@ alias vp="vagrant provision"
 # pipe public key to clipboard.
 alias pubkey="more ~/.ssh/id_dsa.public | pbcopy | echo '=> Public key copied to pasteboard.'"
 
-# ls aliases
-#alias ll='ls -l'
-#alias la='ls -A'
-#alias l='ls -CF'
 
-# grc overides for ls
-if $(gls &>/dev/null)
-then
-  alias ls="gls -F --color"
-  alias l="gls -lAh --color"
-  alias ll="gls -l --color"
-  alias la='gls -A --color'
-fi
+# ls aliases
+alias ll='ls -l --color'
+alias la='ls -A --color'
+alias l='ls -CF --color'
+alias ls='ls --color'
 
 # ruby
 alias r='rvm use 1.9.3-head'
-
 alias f='RAILS_ENV=fi'
-
 alias sc='script/console'
 alias sg='script/generate'
 alias sd='script/destroy'
-
 alias migrate='rake db:migrate db:test:clone'
 
 
