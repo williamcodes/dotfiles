@@ -1,9 +1,6 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-# set zsh custom directory to ~/.zsh
-ZSH_CUSTOM="$HOME/.zsh"
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -29,8 +26,6 @@ ZSH_THEME="pygmalion"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git extract)
-
-fpath=(~/.zsh/completions $fpath)
 
 source $ZSH/oh-my-zsh.sh
 
