@@ -36,4 +36,5 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
+setopt DVORAK #use dvorak as the basis for spell checking
 
