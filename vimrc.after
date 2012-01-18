@@ -1,0 +1,10 @@
+" customize buffer gator
+let g:buffergator_suppress_keymaps = 1
+let g:buffergator_sort_regime = "mru"
+
+" unmap janus included mapping to speed up open times. This was mapped to
+" :nohls
+unmap <leader>ul
+
+nnoremap <leader>t :BuffergatorOpen<CR>j<CR>
+nnoremap <leader>u :BuffergatorOpen<CR>

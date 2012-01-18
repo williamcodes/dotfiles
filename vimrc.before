@@ -30,10 +30,6 @@ vnoremap <Up> gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 
-" add a minibuffer shortcut which is similar to vimperator
-nmap gt :MBEbn<CR>
-nmap gT :MBEbp<CR>
-
 " remap window navigation
 noremap <C-J> <C-W>j
 noremap <C-K> <C-W>k
