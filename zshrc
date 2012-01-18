@@ -30,6 +30,8 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git extract)
 
+fpath=(~/.zsh/completions $fpath)
+
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
