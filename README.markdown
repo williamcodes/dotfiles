@@ -2,7 +2,7 @@
 
 This repo contains my development env settings. I use a customized janus vim distribution for the editor and zsh for the shell. It's optimized for my rails/javascript workflow.
 
-### install
+## install
 
 ```sh
 # grab oh-my-zsh (use my fork until my change are merged)
