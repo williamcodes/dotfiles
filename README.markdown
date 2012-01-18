@@ -16,7 +16,7 @@ The install rake task will symlink the appropriate files in `.dotfiles` to your
 home directory. Everything is configured and tweaked within `~/.dotfiles`.
 
 (optionally) set zsh as your default shell
-- `chsh -s /bin/zsh`
+- `chsh -s $(which zsh)
 
 ## what's inside
 
