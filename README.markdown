@@ -1,6 +1,6 @@
 # thedeeno's dotfiles
 
-This is the settings for  my development env. I use a customized janus vim distribution for the editor and zsh for the shell. It's optimized for my rails/javascript development workflow.
+This repo contains my development env settings. I use a customized janus vim distribution for the editor and zsh for the shell. It's optimized for my rails/javascript workflow.
 
 ## install
 
