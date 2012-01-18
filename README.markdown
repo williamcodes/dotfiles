@@ -1,40 +1,42 @@
-# My dotfiles
+# thedeeno's dotfiles
+
+This is the settings for  my development env. I use a customized janus vim distribution for the editor and zsh for the shell. It's optimized for my rails/javascript development workflow.
 
 ## install
-grab oh-my-zsh
-- `git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh`
 
-install janus
-- `curl -Lo- http://bit.ly/janus-bootstrap | bash`
+```sh
+# grab oh-my-zsh
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
-bring in personal settings
-- `git clone git://github.com/thedeeno/dotfiles ~/.dotfiles`
-- `cd ~/.dotfiles`
-- `rake install`
+# install janus
+curl -Lo- http://bit.ly/janus-bootstrap | bash
 
-The install rake task will symlink the appropriate files in `.dotfiles` to your
-home directory. Everything is configured and tweaked within `~/.dotfiles`.
+# bring in personal settings
+git clone git://github.com/thedeeno/dotfiles ~/.dotfiles 
+cd ~/.dotfiles
+rake install
 
-(optionally) set zsh as your default shell
-- `chsh -s $(which zsh)
+# (optionally) set zsh as your default shell
+chsh -s $(which zsh)
+```
+
+`rake install` will symlink the appropriate files in `.dotfiles` to your home directory. Everything is configured and tweaked within `~/.dotfiles`.
 
 ## what's inside
 
-- Custom settings for the Janus vim distribution
+- Custom settings for Janus vim distribution
 - Custom settings for Oh-My-Zsh
 - Bash customizations
 - Some useful commandline tools
+- Many aliases
 
-###features
-- `c` is an autocomplete shortcut to your projects directory. For example, 
+###notes
+- `c` is an autocomplete shortcut for `~/code`. For example, 
   `c myp<tab>` will autocomplete to `~/code/myproject`.
+- `h` autocompletes your home directory.
 - `check [filename]` is a quick script that tells you whether a domain is
   available to register.
-- `smartextract [filename]` will extract about a billion different
-  compressed/uncompressed/whatever files and you'll never have to remember the
-  syntax.
-- `backup` is a quick hook into `rsync` to backup a selection of files. Check
-  out the comments for more details.
+- `backup` is a quick hook into `rsync` to backup a selection of files.
 
 ## thanks
 
