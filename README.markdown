@@ -5,8 +5,8 @@ This repo contains my development env settings. I use a customized janus vim dis
 ## install
 
 ```sh
-# grab oh-my-zsh
-git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+# grab oh-my-zsh (use my fork until my change is merged)
+git clone git://github.com/thedeeno/oh-my-zsh.git ~/.oh-my-zsh
 
 # install janus
 curl -Lo- http://bit.ly/janus-bootstrap | bash
