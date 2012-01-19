@@ -9,7 +9,7 @@ set directory=~/.janus/tmp
 "  Remapping
 " ----------------------------------------------------------------------------
 
-let mapleader = 'g'
+" let mapleader = 'g'
 
 " alias leader in normal mode
 " nmap , \
