@@ -57,6 +57,7 @@ nmap <silent> <Leader>p :NERDTreeToggle<CR>
 
 "CtrlP mappings/config
 let g:ctrlp_map = 'go'
+let g:ctrlp_match_window_reversed = 0 " show listings top down
 let g:ctrlp_match_window_bottom = 0 " show at top
 
 "make Y consistent with C and D
