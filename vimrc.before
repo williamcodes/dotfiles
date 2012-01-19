@@ -37,7 +37,7 @@ noremap <C-H> <C-W>h
 noremap <C-L> <C-W>n
 
 " create shortcut for deleting a window
-nmap gc :bd<CR>
+nmap gd :bd<CR>
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>evb :e $MYVIMRC.before<CR>
