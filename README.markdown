@@ -18,6 +18,10 @@ rake install
 
 # (optionally) set zsh as your default shell
 chsh -s $(which zsh)
+
+# ack also might need to be symlinked (on ubuntu)
+sudo apt-get install ack-grep
+sudo ln -s /usr/bin/ack-grep /usr/local/bin/ack
 ```
 
 `rake install` will symlink the appropriate files in `.dotfiles` to your home directory. Everything is configured and tweaked within `~/.dotfiles`.
