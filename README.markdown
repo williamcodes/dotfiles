@@ -16,6 +16,9 @@ git clone git://github.com/thedeeno/dotfiles ~/.dotfiles
 cd ~/.dotfiles
 rake install
 
+# install and run zsh
+sudo apt-get install zsh
+zsh
 # (optionally) set zsh as your default shell
 chsh -s $(which zsh)
 
@@ -34,7 +37,7 @@ sudo ln -s /usr/bin/ack-grep /usr/local/bin/ack
 - Some useful commandline tools
 - Many aliases
 
-###notes
+## notes
 - `c` is an autocomplete shortcut for `~/code`. For example, 
   `c myp<tab>` will autocomplete to `~/code/myproject`.
 - `h` autocompletes your home directory.
