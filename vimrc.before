@@ -86,7 +86,7 @@ nnoremap gR gD:%s/<C-R>///gc<left><left><left>}
 function! StripWhitespace ()
     exec ':%s/ \+$//gc'
 endfunction
-map <leader>s :call StripWhitespace ()<CR>
+nmap <leader>sw :call StripWhitespace ()<CR>
 
 " ---------------------------------------------------------------------------
 " Syntax highlighting
