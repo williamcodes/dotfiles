@@ -7,4 +7,4 @@ let g:buffergator_sort_regime = "mru"
 unmap <leader>ul
 
 nnoremap <leader>t :BuffergatorOpen<CR>j<CR>
-nnoremap <leader>u :BuffergatorOpen<CR>
+nnoremap <leader>u :BuffergatorToggle<CR>
