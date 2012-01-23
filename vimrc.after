@@ -11,6 +11,9 @@ unmap <leader>ul
 unmap <leader>n
 nnoremap <leader>n :nohlsearch<CR>
 
+" overide built in ack mapping
+unmap <leader>f
+map <C-f> :Ack<space>
 
 " tired of hitting shift, remap symbols and numbers
 inoremap 1 !
