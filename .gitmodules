@@ -1,0 +1,6 @@
+[submodule "janus/align"]
+	path = janus/align
+	url = https://github.com/vim-scripts/Align.git
+[submodule "janus/auto_align"]
+	path = janus/auto_align
+	url = https://github.com/vim-scripts/AutoAlign.git
