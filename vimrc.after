@@ -1,3 +1,6 @@
+" add keystrokes to status line
+set showcmd
+
 " customize buffer gator
 let g:buffergator_suppress_keymaps = 1
 nnoremap <leader>u :BuffergatorToggle<CR>
