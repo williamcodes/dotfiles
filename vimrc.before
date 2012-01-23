@@ -12,8 +12,9 @@ set directory=~/.janus/tmp
 " let mapleader = 'g'
 
 " alias leader in normal mode
-nmap , \
-nmap g \
+map g, \\
+map , \
+map g \
 
 " reflow paragraph with Q in normal and visual mode
 nnoremap Q gqap
