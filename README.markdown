@@ -7,6 +7,8 @@ This repo contains my development env settings. I use a customized janus vim dis
 ```sh
 # grab oh-my-zsh (use my fork until my change are merged)
 git clone git://github.com/thedeeno/oh-my-zsh.git ~/.oh-my-zsh
+cd ~/.oh-my-zsh
+git checkout -b local_custom origin/local_custom
 
 # install janus
 curl -Lo- http://bit.ly/janus-bootstrap | bash
@@ -17,6 +19,9 @@ cd ~/.dotfiles
 git submodule update --init
 rake install
 
+# install and run zsh
+sudo apt-get install zsh
+zsh
 # (optionally) set zsh as your default shell
 chsh -s $(which zsh)
 
@@ -35,7 +40,7 @@ sudo ln -s /usr/bin/ack-grep /usr/local/bin/ack
 - Some useful commandline tools
 - Many aliases
 
-###notes
+## notes
 - `c` is an autocomplete shortcut for `~/code`. For example, 
   `c myp<tab>` will autocomplete to `~/code/myproject`.
 - `h` autocompletes your home directory.
