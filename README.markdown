@@ -11,9 +11,10 @@ git clone git://github.com/thedeeno/oh-my-zsh.git ~/.oh-my-zsh
 # install janus
 curl -Lo- http://bit.ly/janus-bootstrap | bash
 
-# bring in personal settings
+# install dotfiles
 git clone git://github.com/thedeeno/dotfiles ~/.dotfiles 
 cd ~/.dotfiles
+git submodule update --init
 rake install
 
 # (optionally) set zsh as your default shell
