@@ -4,3 +4,6 @@
 [submodule "janus/auto_align"]
 	path = janus/auto_align
 	url = https://github.com/vim-scripts/AutoAlign.git
+[submodule "janus/vim-indent-guides"]
+	path = janus/vim-indent-guides
+	url = git://github.com/nathanaelkane/vim-indent-guides.git
