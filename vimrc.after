@@ -42,3 +42,7 @@ inoremap 9 [
 inoremap 0 ]
 inoremap [ (
 inoremap ] )
+
+" pinky is getting really tired, map ; to : to save shifts
+nnoremap ; :
+vnoremap ; :
