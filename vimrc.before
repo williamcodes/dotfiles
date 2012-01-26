@@ -52,7 +52,7 @@ vmap <silent> <Leader>i\| <ESC>:'<,'>Align \|<CR>
 vmap <silent> <Leader>i, <ESC>:'<,'>Align ,<CR>
 vmap <silent> <Leader>i( <ESC>:'<,'>Align (<CR>
 
-nmap <silent> <Leader>p :NERDTreeToggle<CR>
+nmap <silent> <Leader>p :NERDTreeFind<CR>
 
 "CtrlP mappings/config
 let g:ctrlp_map = '<leader>o'

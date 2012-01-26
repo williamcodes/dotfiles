@@ -8,8 +8,7 @@ nnoremap <leader>u :BuffergatorToggle<CR>
 " unmap janus included mapping to speed up open times. This was mapped to
 " :nohls
 unmap <leader>ul
-unmap <leader>n
-nnoremap <leader>n :nohlsearch<CR>
+nnoremap <leader>e :nohlsearch<CR>
 
 " overide built in ack mapping
 unmap <leader>f
