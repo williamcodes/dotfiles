@@ -38,6 +38,9 @@ noremap <C-K> <C-W>k
 noremap <C-H> <C-W>h
 noremap <C-L> <C-W>n
 
+" close buffer
+nnoremap <leader>dd :bd<CR>
+
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>evb :e $MYVIMRC.before<CR>
 nmap <silent> <leader>eva :e $MYVIMRC.after<CR>
