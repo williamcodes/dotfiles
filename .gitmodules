@@ -7,3 +7,6 @@
 [submodule "janus/vim-indent-guides"]
 	path = janus/vim-indent-guides
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "vim-pasta"]
+	path = vim-pasta
+	url = git://github.com/sickill/vim-pasta.git
