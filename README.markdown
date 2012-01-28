@@ -8,10 +8,10 @@ This repo contains my development env settings. I use a customized janus vim dis
 # install packages
 sudo apt-get install git-core git-gui gitg meld vim-gnome curl
 
-sudo apt-get build-essential bison openssl libreadline5 zlib1g zlib1g-dev libssl-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libmysqlclient-dev libxslt-dev libxml2-dev 
+sudo apt-get install build-essential bison openssl libreadline5 zlib1g zlib1g-dev libssl-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libmysqlclient-dev libxslt-dev libxml2-dev 
 
 # resolve gtk warning
-gtk2-engines-pixbuf
+sudo apt-get install gtk2-engines-pixbuf
 
 # install rvm and build 1.9.3-head
 sudo apt-get install automake
