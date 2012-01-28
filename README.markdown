@@ -6,7 +6,7 @@ This repo contains my development env settings. I use a customized janus vim dis
 
 ```sh
 # install packages
-sudo apt-get install git-core git-gui gitg meld vim-gnome
+sudo apt-get install git-core git-gui gitg meld vim-gnome curl
 
 # install rvm and build 1.9.3-head
 sudo apt-get install automake
