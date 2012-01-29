@@ -66,6 +66,25 @@ sudo ln -s /usr/bin/ack-grep /usr/local/bin/ack
   available to register.
 - `backup` is a quick hook into `rsync` to backup a selection of files.
 
+## ssh setup notes (only relevant for me)
+
+After generating a new key pair on a new machine do the following to add
+it to servers:
+
+- login to servers with lish 
+  - change `/etc/ssh/sshd_config` `PasswordAuthenticate` to `yes`
+  - `sudo service ssh restart`
+- on client
+  - `ssh-copy-id username@host` # to append pub key to server user
+- on server
+  - copy appended key in `$HOME/.ssh/authorized_keys` 
+  - append copy to `/home/<gitolite-user>/.ssh/authorized_keys` honoring the command prefix
+- verify ssh only login
+- verify `git clone <user>@<host>:gitolite-admin.git`
+- revert sshd config
+  - change `/etc/ssh/sshd_config` `PasswordAuthenticate` to `no`
+  - `sudo service ssh restart`
+
 ## thanks
 
 I forked [Zach Holeman's](http://github.com/holman) and later merged in 
