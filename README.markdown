@@ -19,9 +19,9 @@ sudo apt-get install automake
 # download setup rvm
 bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
 
-# install 1.9.3-head
-rvm install 1.9.3-head
-rvm use 1.9.3-head --default
+# install 1.9.3
+rvm install 1.9.3
+rvm use 1.9.3 --default
 
 # grab oh-my-zsh (use my fork until my change are merged)
 git clone git://github.com/thedeeno/oh-my-zsh.git ~/.oh-my-zsh
