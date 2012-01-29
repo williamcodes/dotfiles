@@ -5,4 +5,4 @@ export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 # this way gem's in a bundle will be correctly resolved.
 # if this isn't done, running gems without 'bundle exec <gem_name>' will 
 # probably use the rvm systems gems instead of the bundle's gems.
-PATH=~/.bundle/bin:$PATH:$HOME/bin
+PATH=$HOME/bin:~/.bundle/bin:$PATH
