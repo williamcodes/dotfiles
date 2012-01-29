@@ -50,6 +50,24 @@ sudo ln -s /usr/bin/ack-grep /usr/local/bin/ack
 
 `rake install` will symlink the appropriate files in `.dotfiles` to your home directory. Everything is configured and tweaked within `~/.dotfiles`.
 
+### phantomjs
+
+Optionally build and install phantomjs (headless browser). The
+latest instructions are [here](http://code.google.com/p/phantomjs/wiki/BuildInstructions), but the following should probably work:
+
+```sh
+sudo apt-get install libqt4-dev libqtwebkit-dev qt4-qmake
+cd ~/code
+git clone git://github.com/ariya/phantomjs.git && cd phantomjs
+git checkout master # or whatever version you want
+qmake-qt4 && make
+
+# link it to your path
+ln -s ~/code/phantomjs/bin/phantomjs ~/bin/phantomjs
+
+# test
+phantomjs --version
+```
 ## what's inside
 
 - Custom settings for Janus vim distribution
