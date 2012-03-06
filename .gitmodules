@@ -10,3 +10,6 @@
 [submodule "vim-pasta"]
 	path = vim-pasta
 	url = git://github.com/sickill/vim-pasta.git
+[submodule "janus/argumentrewrap"]
+	path = janus/argumentrewrap
+	url = https://github.com/jakobwesthoff/argumentrewrap.git
