@@ -8,7 +8,7 @@
 	path = janus/vim-indent-guides
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
 [submodule "vim-pasta"]
-	path = vim-pasta
+	path = janus/vim-pasta
 	url = git://github.com/sickill/vim-pasta.git
 [submodule "janus/argumentrewrap"]
 	path = janus/argumentrewrap
