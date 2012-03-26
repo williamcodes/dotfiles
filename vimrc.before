@@ -15,6 +15,14 @@ set directory=~/.janus/tmp
 map g, \\
 map , \
 map g \
+nmap f \\f
+nmap F \\F
+nmap t \\t
+nmap T \\T
+vmap f \\f
+vmap F \\F
+vmap t \\t
+vmap T \\T
 
 " reflow paragraph with Q in normal and visual mode
 nnoremap Q gqap
@@ -81,6 +89,9 @@ nnoremap <leader>r gd[{V%:s/<C-R>///gc<left><left><left>
 
 " For global replace
 nnoremap <leader>R gD:%s/<C-R>///gc<left><left><left>}
+
+" ArgumentReWrap plugin
+nnoremap <silent> <leader>r :call argumentrewrap#RewrapArguments()<CR>
 
 " ---------------------------------------------------------------------------
 " Window Management
