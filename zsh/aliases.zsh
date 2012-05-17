@@ -17,7 +17,7 @@ alias ..='cd ..'
 alias ll='ls -l --color'
 alias la='ls -A --color'
 alias l='ls -CF --color'
-alias ls='ls --color'
+alias ls='ls --color -l'
 
 # ruby
 alias r='rvm use 1.9.3-head'
