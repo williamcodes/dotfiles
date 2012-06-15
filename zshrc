@@ -34,3 +34,6 @@ source $ZSH/oh-my-zsh.sh
 setopt DVORAK #use dvorak as the basis for spell checking
 export EDITOR='gvim'
 
+unsetopt correct_all
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
