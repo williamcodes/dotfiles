@@ -4,7 +4,7 @@ set noswapfile
 set backup
 set backupdir=~/.janus/backup
 set directory=~/.janus/tmp
-set rnu " use relative numbering
+" set rnu " use relative numbering
 
 " ----------------------------------------------------------------------------
 "  Remapping
