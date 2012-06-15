@@ -13,9 +13,9 @@ set rnu " use relative numbering
 " let mapleader = 'g'
 
 " alias leader in normal mode
-map g, \\
 map , \
 map g \
+map ^ G
 nmap f \\f
 nmap F \\F
 nmap t \\t
@@ -92,7 +92,7 @@ nnoremap <leader>r gd[{V%:s/<C-R>///gc<left><left><left>
 nnoremap <leader>R gD:%s/<C-R>///gc<left><left><left>}
 
 " ArgumentReWrap plugin
-nnoremap <silent> <leader>r :call argumentrewrap#RewrapArguments()<CR>
+nnoremap <silent> <leader>a :call argumentrewrap#RewrapArguments()<CR>
 
 " ---------------------------------------------------------------------------
 " Window Management
