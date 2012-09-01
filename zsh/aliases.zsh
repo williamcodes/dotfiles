@@ -40,6 +40,12 @@ alias gb='git branch'
 alias gs='git status -sb'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 
+# knife
+alias kcu='knife cookbook upload'
+alias krff='knife role from file' 
+
+# shortcut to add aliases
+alias 'zea'='gvim ~/.dotfiles/zsh/aliases.zsh'
 
 # todo.sh: https://github.com/ginatrapani/todo.txt-cli
 function t() { 
