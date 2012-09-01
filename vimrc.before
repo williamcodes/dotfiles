@@ -15,7 +15,10 @@ set directory=~/.janus/tmp
 " alias leader in normal mode
 map , \
 map g \
+map <F8> "+p
 map ^ G
+nmap <leader>c :q<CR>
+map // :nohlsearch<CR>; echo 'Search highlight cleared' <CR>
 nmap f \\f
 nmap F \\F
 nmap t \\t
@@ -124,12 +127,6 @@ map <leader>H              :wincmd H<cr>
 map <leader>K              :wincmd K<cr>
 map <leader>L              :wincmd L<cr>
 map <leader>J              :wincmd J<cr>
-
-" resizing
-nmap <left>  :3wincmd <<cr>
-nmap <right> :3wincmd ><cr>
-nmap <up>    :3wincmd +<cr>
-nmap <down>  :3wincmd -<cr>
 
 " ---------------------------------------------------------------------------
 " White space management
