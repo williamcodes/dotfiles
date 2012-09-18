@@ -25,17 +25,6 @@ set ignorecase smartcase
 map , \
 map g \
 map <F8> "+p
-map ^ G
-nmap <leader>c :q<CR>
-map // :nohlsearch<CR>; echo 'Search highlight cleared' <CR>
-nmap f \\f
-nmap F \\F
-nmap t \\t
-nmap T \\T
-vmap f \\f
-vmap F \\F
-vmap t \\t
-vmap T \\T
 
 " reflow paragraph with Q in normal and visual mode
 nnoremap Q gqap
