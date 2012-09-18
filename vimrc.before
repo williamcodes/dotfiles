@@ -19,6 +19,14 @@ set ignorecase smartcase
 :set background=dark
 :color grb256
 
+" ----------------------------------------------------------------------------
+"  Remapping
+" ----------------------------------------------------------------------------
+" Clear the search buffer when hitting return
+function! MapCR()
+  nnoremap <cr> :nohlsearch<cr>
+endfunction
+call MapCR()
 " let mapleader = 'g'
 
 " alias leader in normal mode
@@ -55,9 +63,6 @@ nnoremap <leader>dd :bd<CR>
 nmap <silent> <leader>evb :e $MYVIMRC.before<CR>
 nmap <silent> <leader>eva :e $MYVIMRC.after<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
-
-" clear search buffer (so highlight goes away)
-nmap <silent> <leader>e :let @/=""<CR>
 
 "align plugin mappings
 vmap <silent> <Leader>i= <ESC>:'<,'>Align =<CR>
