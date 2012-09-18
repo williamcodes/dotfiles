@@ -96,6 +96,12 @@ nnoremap <leader>R gD:%s/<C-R>///gc<left><left><left>}
 nnoremap <silent> <leader>a :call argumentrewrap#RewrapArguments()<CR>
 
 " ---------------------------------------------------------------------------
+" OPEN FILES IN DIRECTORY OF CURRENT FILE
+" ---------------------------------------------------------------------------
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>e :edit %%
+map <leader>v :view %%
+
 " Window Management
 " ---------------------------------------------------------------------------
 " opening and switching
