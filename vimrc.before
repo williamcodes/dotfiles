@@ -7,8 +7,11 @@ set directory=~/.janus/tmp
 " set rnu " use relative numbering
 
 " ----------------------------------------------------------------------------
-"  Remapping
+" COLOR
 " ----------------------------------------------------------------------------
+:set t_Co=256 " 256 colors
+:set background=dark
+:color grb256
 
 " let mapleader = 'g'
 
