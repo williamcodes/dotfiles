@@ -6,6 +6,12 @@ set backupdir=~/.janus/backup
 set directory=~/.janus/tmp
 " set rnu " use relative numbering
 
+" ---------------------------------------------------------------------------
+" Core
+" ---------------------------------------------------------------------------
+" make searches case-sensitive only if they contain upper-case characters
+set ignorecase smartcase
+
 " ----------------------------------------------------------------------------
 " COLOR
 " ----------------------------------------------------------------------------
