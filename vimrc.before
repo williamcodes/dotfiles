@@ -87,7 +87,7 @@ nmap <leader>a :A<CR>
 " nmap gr :R<CR>
 
 " For local replace
-nnoremap <leader>r gd[{V%:s/<C-R>///gc<left><left><left>
+nnoremap <F2> gd[{V%:s/<C-R>///gc<left><left><left>
 
 " For global replace
 nnoremap <leader>R gD:%s/<C-R>///gc<left><left><left>}
