@@ -27,12 +27,16 @@ function! MapCR()
   nnoremap <cr> :nohlsearch<cr>
 endfunction
 call MapCR()
+" easy switch to last buffer
+nnoremap <leader><leader> <c-^>
 " let mapleader = 'g'
 
 " alias leader in normal mode
-map , \
-map g \
+let mapleader=","
+
 map <F8> "+p
+nmap <leader>q :q<CR>
+nmap <leader>f /
 
 " reflow paragraph with Q in normal and visual mode
 nnoremap Q gqap
@@ -69,6 +73,7 @@ vmap <silent> <Leader>i= <ESC>:'<,'>Align =<CR>
 vmap <silent> <Leader>i\| <ESC>:'<,'>Align \|<CR>
 vmap <silent> <Leader>i, <ESC>:'<,'>Align ,<CR>
 vmap <silent> <Leader>i( <ESC>:'<,'>Align (<CR>
+vmap <Leader>i <ESC>:'<,'>Align 
 
 nmap <silent> <Leader>p :NERDTreeFind<CR>
 
@@ -184,14 +189,50 @@ map <leader>k              :call WinMove('k')<cr>
 map <leader>l              :call WinMove('l')<cr>
 map <leader>j              :call WinMove('j')<cr>
 
-map <leader>wc :wincmd q<cr>
-map <leader>wr <C-W>r
-
 " closing, rotating, and moving
 map <leader>H              :wincmd H<cr>
 map <leader>K              :wincmd K<cr>
 map <leader>L              :wincmd L<cr>
 map <leader>J              :wincmd J<cr>
+
+" move load from right pinky and ring finger to index fingers
+nmap <leader>w :w<CR>
+" nmap 6 :
+" imap 7 _
+" nmap 8 "
+" imap 8 "
+" nmap * '
+" imap * '
+" imap jv {
+" imap fn }
+imap ` <BS>
+" nmap <leader>r p
+
+" inoremap 1 !
+" inoremap 2 @
+" inoremap 3 #
+" inoremap 4 $
+" inoremap 5 %
+" inoremap 6 ^
+" inoremap 7 &
+" inoremap 8 *
+" inoremap 9 [
+" inoremap 0 ]
+
+" inoremap ! 1
+" inoremap @ 2
+" inoremap # 3
+" inoremap $ 4
+" inoremap % 5
+" inoremap ^ 6
+" inoremap & 7
+" inoremap * 8
+" inoremap ( 9
+" inoremap ) 0
+
+" disable vimwiki
+call janus#disable_plugin('vimwiki')
+call janus#disable_plugin('buffergator')
 
 " ---------------------------------------------------------------------------
 " White space management
@@ -269,3 +310,56 @@ let NERDSpaceDelims = 1
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': ['haml', 'scss', 'sass'] }
+" add keystrokes to status line
+set showcmd
+
+" customize buffer gator
+nnoremap <leader>u :BuffergatorToggle<CR>
+
+" unmap janus included mapping to speed up open times. This was mapped to
+" :nohls
+unmap <leader>ul
+nnoremap <leader>ee :nohlsearch<CR>
+
+" overide built in ack mapping
+unmap <leader>f
+map <C-f> :Ack<space>
+
+let g:EasyMotion_leader_key = '<Leader>'
+
+" configure mapit
+"
+runtime macros/matchit.vim
+
+" tired of hitting shift, remap symbols and numbers
+" inoremap 1 !
+" inoremap 2 @
+" inoremap 3 #
+" inoremap 4 $
+" inoremap 5 %
+" inoremap 6 ^
+" inoremap 7 &
+" inoremap 8 *
+" inoremap 9 [
+" inoremap 0 ]
+
+" inoremap ! 1
+" inoremap @ 2
+" inoremap # 3
+" inoremap $ 4
+" inoremap % 5
+" inoremap ^ 6
+" inoremap & 7
+" inoremap * 8
+" inoremap ( 9
+" inoremap ) 0
+
+" " swap () with []
+" inoremap 9 [
+" inoremap 0 ]
+" inoremap [ (
+" inoremap ] )
+
+" pinky is getting really tired, map ; to : to save shifts
+nnoremap ; :
+vnoremap ; :
