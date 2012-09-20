@@ -3,23 +3,23 @@ require 'erb'
 
 desc "install the dot files into user's home directory"
 task :install do
-  replace_all = false
+  overwrite_all = false
   Dir['*'].each do |file|
     next if %w[Rakefile README.markdown LICENSE].include? file
-    
-    if File.exist?(File.join(ENV['HOME'], ".#{file.sub('.erb', '')}"))
-      if File.identical? file, File.join(ENV['HOME'], ".#{file.sub('.erb', '')}")
-        puts "identical ~/.#{file.sub('.erb', '')}"
-      elsif replace_all
-        replace_file(file)
+    target = File.join(ENV['HOME'], ".#{file.sub('.erb', '')}")
+    if File.exist?(target) or File.symlink?(target)
+      if File.identical? file, target
+        puts "identical #{target}"
+      elsif overwrite_all
+        overwrite(file, target)
       else
-        print "overwrite ~/.#{file.sub('.erb', '')}? [ynaq] "
+        print "overwrite #{target}? [ynaq] "
         case $stdin.gets.chomp
         when 'a'
-          replace_all = true
-          replace_file(file)
+          overwrite_all = true
+          overwrite(file, target)
         when 'y'
-          replace_file(file)
+          overwrite(file, target)
         when 'q'
           exit
         else
@@ -32,9 +32,15 @@ task :install do
   end
 end
 
-def replace_file(file)
-  system %Q{rm -rf "$HOME/.#{file.sub('.erb', '')}"}
-  link_file(file)
+def overwrite(file, target)
+  if File.symlink?(target)
+    puts "relink #{target} -> #{File.join(Dir.pwd, file)} (was #{File.readlink(target)})"
+    system %Q{ln -sf "$PWD/#{file}" "$HOME/.#{file}"}
+  else
+    puts "linking ~/.#{file}"
+    system %Q{rm -rf "#{target}"}
+    link_file(file)     
+  end    
 end
 
 def link_file(file)
