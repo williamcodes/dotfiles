@@ -33,6 +33,12 @@ filetype plugin indent on     " required!
 " ---------------------------------------------------------------------------
 " Core
 " ---------------------------------------------------------------------------
+
+set number            " Show line numbers
+set ruler             " Show line and column number
+syntax enable         " Turn on syntax highlighting allowing local overrides
+set encoding=utf-8    " Set default encoding to UTF-8
+
 " store swap files in one location
 " set directory=~/.vim/swap,.
 set noswapfile
@@ -46,6 +52,83 @@ set hidden
 " set rnu
 " add keystrokes to status line
 set showcmd
+
+" ----------------------------------------------------------------------------
+" Status Line
+" ----------------------------------------------------------------------------
+if has("statusline") && !&cp
+  set laststatus=2  " always show the status bar
+
+  " Start the status line
+  set statusline=%f\ %m\ %r
+  set statusline+=Line:%l/%L[%p%%]
+  set statusline+=Col:%v
+  set statusline+=Buf:#%n
+  set statusline+=[%b][0x%B]
+endif
+
+
+" ----------------------------------------------------------------------------
+" Search
+" ----------------------------------------------------------------------------
+
+set hlsearch    " highlight matches
+set incsearch   " incremental searching
+set ignorecase  " searches are case insensitive...
+set smartcase   " ... unless they contain at least one capital letter
+
+" ----------------------------------------------------------------------------
+" Wild settings
+" ----------------------------------------------------------------------------
+
+" TODO: Investigate the precise meaning of these settings
+" set wildmode=list:longest,list:full
+
+" Disable output and VCS files
+set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
+
+" Disable archive files
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
+
+" Ignore bundler and sass cache
+set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
+
+" Disable temp and backup files
+set wildignore+=*.swp,*~,._*
+
+" ----------------------------------------------------------------------------
+" File Types
+" ----------------------------------------------------------------------------
+
+" Some file types should wrap their text
+function! s:setupWrapping()
+  set wrap
+  set linebreak
+  set textwidth=72
+  set nolist
+endfunction
+
+" Turn on filetype plugins (:help filetype-plugin)
+filetype plugin indent on
+
+if has("autocmd")
+  " In Makefiles, use real tabs, not tabs expanded to spaces
+  au FileType make setlocal noexpandtab
+
+  " Make sure all mardown files have the correct filetype set and setup wrapping
+  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown | call s:setupWrapping()
+
+  " Treat JSON files like JavaScript
+  au BufNewFile,BufRead *.json set ft=javascript
+
+  " make Python follow PEP8 for whitespace ( http://www.python.org/dev/peps/pep-0008/ )
+  au FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4
+
+  " Remember last location in file, but not for commit messages.
+  " see :help last-position-jump
+  au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g`\"" | endif
+endif
 
 " ----------------------------------------------------------------------------
 " COLOR
@@ -167,6 +250,34 @@ imap ` <BS>
 " inoremap ) 0
 
 " ---------------------------------------------------------------------------
+" Whitespace 
+" ---------------------------------------------------------------------------
+
+set nowrap                        " don't wrap lines
+set tabstop=2                     " a tab is two spaces
+set shiftwidth=2                  " an autoindent (with <<) is two spaces
+set expandtab                     " use spaces, not tabs
+set list                          " Show invisible characters
+set backspace=indent,eol,start    " backspace through everything in insert mode
+
+if exists("g:enable_mvim_shift_arrow")
+  let macvim_hig_shift_movement = 1 " mvim shift-arrow-keys
+endif
+
+" List chars
+set listchars=""                  " Reset the listchars
+set listchars=tab:\ \             " a tab should display as "  ", trailing whitespace as "."
+set listchars+=trail:.            " show trailing spaces as dots
+set listchars+=extends:>          " The character to show in the last column when wrap is
+                                  " off and the line continues beyond the right of the screen
+set listchars+=precedes:<         " The character to show in the last column when wrap is
+                                  " off and the line continues beyond the right of the screen
+function! StripWhitespace ()
+    exec ':%s/ \+$//gc'
+endfunction
+nmap <leader>sw :call StripWhitespace ()<CR>
+
+" ---------------------------------------------------------------------------
 " OPEN FILES IN DIRECTORY OF CURRENT FILE
 " ---------------------------------------------------------------------------
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
@@ -256,15 +367,6 @@ map <leader>H              :wincmd H<cr>
 map <leader>K              :wincmd K<cr>
 map <leader>L              :wincmd L<cr>
 map <leader>J              :wincmd J<cr>
-
-" ---------------------------------------------------------------------------
-" White space management
-" ---------------------------------------------------------------------------
-
-function! StripWhitespace ()
-    exec ':%s/ \+$//gc'
-endfunction
-nmap <leader>sw :call StripWhitespace ()<CR>
 
 " ---------------------------------------------------------------------------
 " Syntax highlighting
