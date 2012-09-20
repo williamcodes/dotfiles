@@ -33,6 +33,13 @@ git clone git://github.com/thedeeno/dotfiles ~/code/dotfiles
 cd ~/code/dotfiles
 rake install
 
+# install vundle
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
+# exec vundle install
+from vim run
+:BundleInstall
+
 # install and run zsh
 sudo apt-get install zsh
 zsh
