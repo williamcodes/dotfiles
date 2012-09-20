@@ -11,12 +11,19 @@ Bundle 'gmarik/vundle'
 " My Bundles here
 
 " original repos on github
-Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails.git'
+Bundle 'tpope/vim-haml.git'
+Bundle 'tpope/vim-surround.git'
+Bundle 'tomtom/tcomment_vim.git'
+Bundle 'flazz/vim-colorschemes'
+Bundle 'sjbach/lusty'
+Bundle 'altercation/vim-colors-solarized'
+
 " vim-scripts repos
-Bundle 'FuzzyFinder'
+Bundle 'LustyExplorer'
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
 
