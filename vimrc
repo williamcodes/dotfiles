@@ -5,7 +5,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Bundle 'gmarik/vundle'
 
 " My Bundles here
@@ -20,6 +20,7 @@ Bundle 'tpope/vim-surround.git'
 Bundle 'tomtom/tcomment_vim.git'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'vim-ruby/vim-ruby'
 
 " vim-scripts repos
 
