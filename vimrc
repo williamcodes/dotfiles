@@ -73,6 +73,12 @@ set incsearch   " incremental searching
 set ignorecase  " searches are case insensitive...
 set smartcase   " ... unless they contain at least one capital letter
 
+" Clear the search buffer when hitting return
+function! MapCR()
+  nnoremap <cr> :nohlsearch<cr>
+endfunction
+call MapCR()
+
 " ----------------------------------------------------------------------------
 " Wild settings
 " ----------------------------------------------------------------------------
@@ -136,11 +142,6 @@ endif
 " ----------------------------------------------------------------------------
 "  Remapping
 " ----------------------------------------------------------------------------
-" Clear the search buffer when hitting return
-function! MapCR()
-  nnoremap <cr> :nohlsearch<cr>
-endfunction
-call MapCR()
 " easy switch to last buffer
 nnoremap <leader><leader> <c-^>
 " let mapleader = 'g'
