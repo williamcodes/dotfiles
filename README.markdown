@@ -1,6 +1,6 @@
 # thedeeno's dotfiles
 
-This repo contains my development env settings. I use a customized janus vim distribution for the editor and zsh for the shell. It's optimized for my rails/javascript workflow.
+my ~/
 
 ## install
 
@@ -10,16 +10,16 @@ sudo apt-get install git-core git-gui gitg meld vim-gnome curl
 
 sudo apt-get install build-essential bison openssl libreadline5 zlib1g zlib1g-dev libssl-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libmysqlclient-dev libxslt-dev libxml2-dev 
 
-# resolve gtk warning
+# resolve gtk warning (if you get it)
 sudo apt-get install gtk2-engines-pixbuf
 
 # install rvm and build 1.9.3-head
 sudo apt-get install automake
 
-# download setup rvm
+## download setup rvm
 bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
 
-# install 1.9.3
+## install 1.9.3
 rvm install 1.9.3
 rvm use 1.9.3 --default
 
@@ -28,13 +28,9 @@ git clone git://github.com/thedeeno/oh-my-zsh.git ~/.oh-my-zsh
 cd ~/.oh-my-zsh
 git checkout -b local_custom origin/local_custom
 
-# install janus
-curl -Lo- http://bit.ly/janus-bootstrap | bash
-
 # install dotfiles
-git clone git://github.com/thedeeno/dotfiles ~/.dotfiles 
-cd ~/.dotfiles
-git submodule update --init
+git clone git://github.com/thedeeno/dotfiles ~/code/dotfiles 
+cd ~/code/dotfiles
 rake install
 
 # install and run zsh
@@ -48,7 +44,7 @@ sudo apt-get install ack-grep
 sudo ln -s /usr/bin/ack-grep /usr/local/bin/ack
 ```
 
-`rake install` will symlink the appropriate files in `.dotfiles` to your home directory. Everything is configured and tweaked within `~/.dotfiles`.
+`rake install` will symlink the appropriate files to your home directory. Everything is configured and tweaked within `dotfiles`.
 
 ### phantomjs
 
