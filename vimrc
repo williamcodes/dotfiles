@@ -168,10 +168,14 @@ let mapleader=","
 
 map <F8> "+p
 nmap <leader>q :q<CR>
-nmap <leader>f /
+nmap <leader>s /
 
 " overide built in ack mapping
 map <C-f> :Ack<space>
+
+" command-T
+nnoremap <silent> <Leader>f :CommandT<CR>
+nnoremap <silent> <Leader>b :CommandTBuffer<CR>
 
 " reflow paragraph with Q in normal and visual mode
 nnoremap Q gqap
