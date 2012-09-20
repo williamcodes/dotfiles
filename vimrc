@@ -2,8 +2,8 @@
 " set directory=~/.vim/swap,.
 set noswapfile
 set backup
-set backupdir=~/.janus/backup
-set directory=~/.janus/tmp
+set backupdir=~/.vim/backup
+set directory=~/.vim/tmp
 " set rnu " use relative numbering
 
 " ---------------------------------------------------------------------------
@@ -230,10 +230,6 @@ imap ` <BS>
 " inoremap ( 9
 " inoremap ) 0
 
-" disable vimwiki
-call janus#disable_plugin('vimwiki')
-call janus#disable_plugin('buffergator')
-
 " ---------------------------------------------------------------------------
 " White space management
 " ---------------------------------------------------------------------------
@@ -315,11 +311,6 @@ set showcmd
 
 " customize buffer gator
 nnoremap <leader>u :BuffergatorToggle<CR>
-
-" unmap janus included mapping to speed up open times. This was mapped to
-" :nohls
-unmap <leader>ul
-nnoremap <leader>ee :nohlsearch<CR>
 
 " overide built in ack mapping
 unmap <leader>f
