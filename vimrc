@@ -29,19 +29,23 @@ Bundle 'LustyExplorer'
 
 filetype plugin indent on     " required!
 
+
+" ---------------------------------------------------------------------------
+" Core
+" ---------------------------------------------------------------------------
 " store swap files in one location
 " set directory=~/.vim/swap,.
 set noswapfile
 set backup
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
-" set rnu " use relative numbering
-
-" ---------------------------------------------------------------------------
-" Core
-" ---------------------------------------------------------------------------
 " make searches case-sensitive only if they contain upper-case characters
 set ignorecase smartcase
+set hidden
+" use relative numbering
+" set rnu
+" add keystrokes to status line
+set showcmd
 
 " ----------------------------------------------------------------------------
 " COLOR
@@ -69,6 +73,9 @@ map <F8> "+p
 nmap <leader>q :q<CR>
 nmap <leader>f /
 
+" overide built in ack mapping
+map <C-f> :Ack<space>
+
 " reflow paragraph with Q in normal and visual mode
 nnoremap Q gqap
 vnoremap Q gq
@@ -80,12 +87,8 @@ vnoremap j gj
 vnoremap k gk
 nnoremap <Down> gj
 nnoremap <Up> gk
-vnoremap <Down> gj
-vnoremap <Up> gk
-inoremap <Down> <C-o>gj
-inoremap <Up> <C-o>gk
 
-" remap window navigation
+" window navigation
 noremap <C-J> <C-W>j
 noremap <C-K> <C-W>k
 noremap <C-H> <C-W>h
@@ -94,30 +97,17 @@ noremap <C-L> <C-W>n
 " close buffer
 nnoremap <leader>dd :bd<CR>
 
-" Quickly edit/reload the vimrc file
-nmap <silent> <leader>evb :e $MYVIMRC.before<CR>
-nmap <silent> <leader>eva :e $MYVIMRC.after<CR>
+" quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
-"align plugin mappings
-vmap <silent> <Leader>i= <ESC>:'<,'>Align =<CR>
-vmap <silent> <Leader>i\| <ESC>:'<,'>Align \|<CR>
-vmap <silent> <Leader>i, <ESC>:'<,'>Align ,<CR>
-vmap <silent> <Leader>i( <ESC>:'<,'>Align (<CR>
+" align plugin mappings
 vmap <Leader>i <ESC>:'<,'>Align 
 
-nmap <silent> <Leader>p :NERDTreeFind<CR>
-
-"CtrlP mappings/config
-let g:ctrlp_map = '<leader>o'
-let g:ctrlp_match_window_reversed = 0 " show listings top down
-let g:ctrlp_match_window_bottom = 0 " show at top
-set wildignore+=*/tmp/*,*/bin/*
-
-"make Y consistent with C and D
+" make Y consistent with C and D
 nnoremap Y y$
 
-"key mapping for vimgrep result navigation
+" key mapping for vimgrep result navigation
 map <A-o> :copen<CR>
 map <A-q> :cclose<CR>
 map <A-j> :cnext<CR>
@@ -127,14 +117,54 @@ map <A-k> :cprevious<CR>
 nmap <leader>a :A<CR>
 " nmap gr :R<CR>
 
-" For local replace
+" for local replace
 nnoremap <F2> gd[{V%:s/<C-R>///gc<left><left><left>
 
-" For global replace
+" for global replace
 nnoremap <leader>R gD:%s/<C-R>///gc<left><left><left>}
 
 " ArgumentReWrap plugin
-nnoremap <silent> <leader>a :call argumentrewrap#RewrapArguments()<CR>
+" nnoremap <silent> <leader>a :call argumentrewrap#RewrapArguments()<CR>
+
+" map ; to : to save shifts
+nnoremap ; :
+vnoremap ; :
+
+" write file easier
+nmap <leader>w :w<CR>
+imap ` <BS>
+
+" shift symbols
+" nmap 6 :
+" imap 7 _
+" nmap 8 "
+" imap 8 "
+" nmap * '
+" imap * '
+" imap jv {
+" imap fn }
+
+" inoremap 1 !
+" inoremap 2 @
+" inoremap 3 #
+" inoremap 4 $
+" inoremap 5 %
+" inoremap 6 ^
+" inoremap 7 &
+" inoremap 8 *
+" inoremap 9 [
+" inoremap 0 ]
+
+" inoremap ! 1
+" inoremap @ 2
+" inoremap # 3
+" inoremap $ 4
+" inoremap % 5
+" inoremap ^ 6
+" inoremap & 7
+" inoremap * 8
+" inoremap ( 9
+" inoremap ) 0
 
 " ---------------------------------------------------------------------------
 " OPEN FILES IN DIRECTORY OF CURRENT FILE
@@ -150,7 +180,7 @@ map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
 map <leader>a :call RunTests('')<cr>
 map <leader>c :w\|:!script/features<cr>
-map <leader>w :w\|:!script/features --profile wip<cr>
+map <leader>cw :w\|:!script/features --profile wip<cr>
 function! RunTestFile(...)
   if a:0
     let command_suffix = a:1 
@@ -198,6 +228,7 @@ function! RunTests(filename)
     end
   end
 endfunction
+
 " ---------------------------------------------------------------------------
 " Window Management
 " ---------------------------------------------------------------------------
@@ -226,41 +257,6 @@ map <leader>K              :wincmd K<cr>
 map <leader>L              :wincmd L<cr>
 map <leader>J              :wincmd J<cr>
 
-" move load from right pinky and ring finger to index fingers
-nmap <leader>w :w<CR>
-" nmap 6 :
-" imap 7 _
-" nmap 8 "
-" imap 8 "
-" nmap * '
-" imap * '
-" imap jv {
-" imap fn }
-imap ` <BS>
-" nmap <leader>r p
-
-" inoremap 1 !
-" inoremap 2 @
-" inoremap 3 #
-" inoremap 4 $
-" inoremap 5 %
-" inoremap 6 ^
-" inoremap 7 &
-" inoremap 8 *
-" inoremap 9 [
-" inoremap 0 ]
-
-" inoremap ! 1
-" inoremap @ 2
-" inoremap # 3
-" inoremap $ 4
-" inoremap % 5
-" inoremap ^ 6
-" inoremap & 7
-" inoremap * 8
-" inoremap ( 9
-" inoremap ) 0
-
 " ---------------------------------------------------------------------------
 " White space management
 " ---------------------------------------------------------------------------
@@ -276,7 +272,7 @@ nmap <leader>sw :call StripWhitespace ()<CR>
 au BufRead,BufNewFile *.hamlc set ft=haml
 
 " ----------------------------------------------------------------------------
-" smart inserting
+" Smart Inserting
 " ----------------------------------------------------------------------------
 set formatoptions-=o "dont continue comments when pushing o/O
 
@@ -314,18 +310,6 @@ function! s:HighlightLongLines(width)
     endif
 endfunction
 
-" ----------------------------------------------------------------------------
-" NERDTree
-" ----------------------------------------------------------------------------
-
-let NERDTreeQuitOnOpen = 1
-
-" ---------------------------------------------------------------------------
-" NerdCommenter
-" ---------------------------------------------------------------------------
-
-let NERDSpaceDelims = 1
-
 " ---------------------------------------------------------------------------
 " Speed
 " ---------------------------------------------------------------------------
@@ -337,51 +321,3 @@ let NERDSpaceDelims = 1
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': ['haml', 'scss', 'sass'] }
-" add keystrokes to status line
-set showcmd
-
-" customize buffer gator
-nnoremap <leader>u :BuffergatorToggle<CR>
-
-" overide built in ack mapping
-unmap <leader>f
-map <C-f> :Ack<space>
-
-let g:EasyMotion_leader_key = '<Leader>'
-
-" configure mapit
-"
-runtime macros/matchit.vim
-
-" tired of hitting shift, remap symbols and numbers
-" inoremap 1 !
-" inoremap 2 @
-" inoremap 3 #
-" inoremap 4 $
-" inoremap 5 %
-" inoremap 6 ^
-" inoremap 7 &
-" inoremap 8 *
-" inoremap 9 [
-" inoremap 0 ]
-
-" inoremap ! 1
-" inoremap @ 2
-" inoremap # 3
-" inoremap $ 4
-" inoremap % 5
-" inoremap ^ 6
-" inoremap & 7
-" inoremap * 8
-" inoremap ( 9
-" inoremap ) 0
-
-" " swap () with []
-" inoremap 9 [
-" inoremap 0 ]
-" inoremap [ (
-" inoremap ] )
-
-" pinky is getting really tired, map ; to : to save shifts
-nnoremap ; :
-vnoremap ; :
