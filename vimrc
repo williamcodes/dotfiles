@@ -19,11 +19,9 @@ Bundle 'tpope/vim-haml.git'
 Bundle 'tpope/vim-surround.git'
 Bundle 'tomtom/tcomment_vim.git'
 Bundle 'flazz/vim-colorschemes'
-Bundle 'sjbach/lusty'
 Bundle 'altercation/vim-colors-solarized'
 
 " vim-scripts repos
-Bundle 'LustyExplorer'
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
 
