@@ -136,9 +136,16 @@ endif
 " ----------------------------------------------------------------------------
 " COLOR
 " ----------------------------------------------------------------------------
-:set t_Co=256 " 256 colors
-:set background=dark
-:color grb256
+syntax enable
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
+colorscheme solarized
+" :color grb256
+" colorscheme molokai
+
 " ----------------------------------------------------------------------------
 " GUI options
 " ----------------------------------------------------------------------------
