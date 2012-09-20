@@ -22,11 +22,9 @@ Bundle 'flazz/vim-colorschemes'
 Bundle 'altercation/vim-colors-solarized'
 
 " vim-scripts repos
+
 " non github repos
-" Bundle 'git://git.wincent.com/command-t.git'
-
-filetype plugin indent on     " required!
-
+Bundle 'git://git.wincent.com/command-t.git'
 
 " ---------------------------------------------------------------------------
 " Core
