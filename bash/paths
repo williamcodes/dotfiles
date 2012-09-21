@@ -1,8 +1,2 @@
 export PATH="~/bin:~/.bin:/usr/local/homebrew/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:$PATH"
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
-
-# make sure to prepend ~/.bundle/bin to the path after rvm sets itself up
-# this way gem's in a bundle will be correctly resolved.
-# if this isn't done, running gems without 'bundle exec <gem_name>' will 
-# probably use the rvm systems gems instead of the bundle's gems.
-PATH=$HOME/bin:~/.bundle/bin:$PATH
