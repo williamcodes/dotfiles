@@ -31,7 +31,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-#use dvorak as the basis for spell checking
+# use dvorak as the basis for spell checking
 # setopt DVORAK
 
 export EDITOR='gvim'
