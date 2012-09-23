@@ -21,6 +21,7 @@ Bundle 'tomtom/tcomment_vim.git'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'scrooloose/nerdtree'
 
 " vim-scripts repos
 
