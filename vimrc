@@ -22,6 +22,7 @@ Bundle 'flazz/vim-colorschemes'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'scrooloose/nerdtree'
+Bundle 'ervandew/supertab'
 
 " vim-scripts repos
 
