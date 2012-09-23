@@ -23,11 +23,12 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'scrooloose/nerdtree'
 Bundle 'ervandew/supertab'
+Bundle 'kien/ctrlp.vim'
 
 " vim-scripts repos
 
 " non github repos
-Bundle 'git://git.wincent.com/command-t.git'
+" Bundle 'git://git.wincent.com/command-t.git'
 
 " ---------------------------------------------------------------------------
 " Core
@@ -182,9 +183,9 @@ nmap <leader>s /
 " overide built in ack mapping
 map <C-f> :Ack<space>
 
-" command-T
-nnoremap <silent> <Leader>f :CommandT<CR>
-nnoremap <silent> <Leader>b :CommandTBuffer<CR>
+" ctrl-P
+nnoremap <silent> <Leader>f :CtrlP<CR>
+nnoremap <silent> <Leader>b :CtrlPMRU<CR>
 
 " reflow paragraph with Q in normal and visual mode
 nnoremap Q gqap
