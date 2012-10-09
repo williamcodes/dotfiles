@@ -247,7 +247,6 @@ vnoremap ; :
 
 " write file easier
 nmap <leader>w :w<CR>
-imap ` <BS>
 
 " shift symbols
 " nmap 6 :
