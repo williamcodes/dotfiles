@@ -329,15 +329,10 @@ function! WinMove(key)
 endfunction
 
 " window navigation
-noremap <C-J> <C-W>j
-noremap <C-K> <C-W>k
-noremap <C-H> <C-W>h
-noremap <C-L> <C-W>l
-
-map <leader>h              :call WinMove('h')<cr>
-map <leader>k              :call WinMove('k')<cr>
-map <leader>l              :call WinMove('l')<cr>
-map <leader>j              :call WinMove('j')<cr>
+map <C-h> :call WinMove('h')<cr>
+map <C-k> :call WinMove('k')<cr>
+map <C-l> :call WinMove('l')<cr>
+map <C-j> :call WinMove('j')<cr>
 
 " closing, rotating, and moving
 map <leader>H              :wincmd H<cr>
