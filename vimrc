@@ -184,6 +184,8 @@ map <F8> "+p
 nmap <leader>q :q<CR>
 nmap <leader>s /
 
+nmap <leader>n :NERDTree<CR>
+
 " overide built in ack mapping
 map <C-f> :Ack<space>
 
