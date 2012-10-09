@@ -204,11 +204,6 @@ nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
-" window navigation
-noremap <C-J> <C-W>j
-noremap <C-K> <C-W>k
-noremap <C-H> <C-W>h
-noremap <C-L> <C-W>n
 
 " close buffer
 nnoremap <leader>dd :bd<CR>
@@ -332,6 +327,12 @@ function! WinMove(key)
     exec "wincmd ".a:key
   endif
 endfunction
+
+" window navigation
+noremap <C-J> <C-W>j
+noremap <C-K> <C-W>k
+noremap <C-H> <C-W>h
+noremap <C-L> <C-W>l
 
 map <leader>h              :call WinMove('h')<cr>
 map <leader>k              :call WinMove('k')<cr>
