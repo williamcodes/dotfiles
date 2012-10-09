@@ -24,6 +24,7 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'scrooloose/nerdtree'
 Bundle 'ervandew/supertab'
 Bundle 'kien/ctrlp.vim'
+Bundle 'mileszs/ack.vim'
 
 " vim-scripts repos
 
