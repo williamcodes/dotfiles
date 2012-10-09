@@ -217,7 +217,7 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " align plugin mappings
-vmap <Leader>i <ESC>:'<,'>Align 
+vmap <Leader>i <C-c>:'<,'>Align
 
 " make Y consistent with C and D
 nnoremap Y y$
