@@ -25,6 +25,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'ervandew/supertab'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
+Bundle 'skalnik/vim-vroom'
 
 " vim-scripts repos
 
@@ -316,62 +317,6 @@ map <leader>e :edit %%
 map <leader>v :view %%
 
 " ---------------------------------------------------------------------------
-" RUNNING TESTS - thank you gary bernhardt
-" ---------------------------------------------------------------------------
-map <leader>t :call RunTestFile()<cr>
-map <leader>T :call RunNearestTest()<cr>
-map <leader>a :call RunTests('')<cr>
-map <leader>c :w\|:!script/features<cr>
-map <leader>cw :w\|:!script/features --profile wip<cr>
-function! RunTestFile(...)
-  if a:0
-    let command_suffix = a:1 
-  else 
-    let command_suffix = "" 
-  endif 
-  " Run the tests for the previously-marked file.
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
-  if in_test_file
-    call SetTestFile()
-  elseif !exists("t:grb_test_file")
-    return
-  end
-  call RunTests(t:grb_test_file . command_suffix)
-endfunction
-
-function! RunNearestTest()
-  let spec_line_number = line('.')
-  call RunTestFile(":" . spec_line_number . " -b")
-endfunction
-
-function! SetTestFile()
-  " Set the spec file that tests will be run for.
-  let t:grb_test_file=@%
-endfunction
-
-function! RunTests(filename)
-  " Write the file and run tests for the given filename
-  :w
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  if match(a:filename, '\.feature$') != -1
-    exec ":!script/features " . a:filename
-  else
-    if filereadable("script/test")
-      exec ":!script/test " . a:filename
-    elseif filereadable("Gemfile")
-      exec ":!bundle exec rspec --color " . a:filename
-    else
-      exec ":!rspec --color " . a:filename
-    end
-  end
-endfunction
-
-" ---------------------------------------------------------------------------
 " Window Management
 " ---------------------------------------------------------------------------
 " opening and switching
@@ -454,3 +399,11 @@ endfunction
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': ['haml', 'scss', 'sass'] }
+
+" ---------------------------------------------------------------------------
+" Vroom config
+" ---------------------------------------------------------------------------
+let g:vroom_map_keys = 0
+let g:vroom_cucumber_path = "cucumber"
+map <Leader>t :VroomRunTestFile<CR>
+map <Leader>T :VroomRunNearestTest<CR>
