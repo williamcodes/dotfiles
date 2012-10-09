@@ -26,6 +26,7 @@ Bundle 'ervandew/supertab'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'skalnik/vim-vroom'
+Bundle 'vim-scripts/bufkill.vim'
 
 " vim-scripts repos
 
