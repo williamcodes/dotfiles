@@ -187,6 +187,8 @@ map <C-f> :Ack<space>
 nnoremap <silent> <Leader>f :CtrlP<CR>
 nnoremap <silent> <Leader>b :CtrlPMRU<CR>
 
+inoremap <C-l>  => 
+
 " reflow paragraph with Q in normal and visual mode
 nnoremap Q gqap
 vnoremap Q gq
