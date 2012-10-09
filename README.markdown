@@ -53,6 +53,18 @@ sudo ln -s /usr/bin/ack-grep /usr/local/bin/ack
 
 `rake install` will symlink the appropriate files to your home directory. Everything is configured and tweaked within `dotfiles`.
 
+# solarized
+
+## overwrite gnome color profiles with solarized light/dark
+
+Create two new color profiles with gnome terminal's preferences gui
+(it's not accessible from the command line).
+
+cd ~/code
+git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git
+cd gnome-terminal-colors-solarized
+./install.sh
+
 ### phantomjs
 
 Optionally build and install phantomjs (headless browser). The
