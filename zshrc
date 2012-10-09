@@ -34,6 +34,6 @@ source $ZSH/oh-my-zsh.sh
 # use dvorak as the basis for spell checking
 # setopt DVORAK
 
-export EDITOR='gvim'
+export EDITOR='vim'
 
 unsetopt correct_all
