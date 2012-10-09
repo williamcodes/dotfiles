@@ -204,9 +204,6 @@ nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
-nnoremap <Down> gj
-nnoremap <Up> gk
-
 " window navigation
 noremap <C-J> <C-W>j
 noremap <C-K> <C-W>k
