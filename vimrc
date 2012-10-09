@@ -143,9 +143,10 @@ endif
 " ----------------------------------------------------------------------------
 syntax enable
 if has('gui_running')
-    set background=light
+  set background=light
 else
-    set background=dark
+  set background=dark
+  set t_Co=256
 endif
 colorscheme solarized
 " :color grb256
