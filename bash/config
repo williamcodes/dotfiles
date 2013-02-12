@@ -1,4 +1,4 @@
-export EDITOR="gvim"
+export EDITOR="vim"
 export BROWSER="firefox"
 
 # check the window size after each command and, if necessary,
