@@ -180,6 +180,12 @@ nnoremap <leader><leader> <c-^>
 " alias leader in normal mode
 let mapleader=","
 
+" The Smash Escape - also without cursor movement
+inoremap jk <Esc>`^
+inoremap kj <Esc>`^
+cnoremap jk <Esc>`^
+cnoremap kj <Esc>`^
+
 map <F8> "+p
 nmap <leader>q :q<CR>
 nmap <leader>s /
