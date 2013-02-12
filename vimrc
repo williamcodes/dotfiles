@@ -415,6 +415,8 @@ let g:vroom_map_keys = 0
 let g:vroom_cucumber_path = "cucumber"
 map <Leader>t :VroomRunTestFile<CR>
 map <Leader>T :VroomRunNearestTest<CR>
+map <F7> :VroomRunNearestTest<CR>
+
 
 " ----------------------------------------------------------------------------
 " under persistence
