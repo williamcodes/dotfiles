@@ -1,59 +1,91 @@
-# thedeeno's dotfiles
+# thedeeno's ~/
 
-my ~/
-
-## install
+# Install Common Packages
 
 ```sh
-# install packages
 sudo apt-get install git-core git-gui gitg meld vim-gnome curl
+sudo apt-get install build-essential bison openssl libssl-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libmysqlclient-dev libxslt-dev libxml2-dev 
+```
 
-sudo apt-get install build-essential bison openssl libreadline5 zlib1g zlib1g-dev libssl-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libmysqlclient-dev libxslt-dev libxml2-dev 
+## Install Ruby (and the environment manager)
 
-# resolve gtk warning (if you get it)
-sudo apt-get install gtk2-engines-pixbuf
+clone rbenv (dotfiles already include terminal profile changes):
 
-# install rvm and build 1.9.3-head
-sudo apt-get install automake
+  git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
 
-## download setup rvm
-bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
+clone ruby-build (to install as rbenv plugin)
 
-## install 1.9.3
-rvm install 1.9.3
-rvm use 1.9.3 --default
+  git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 
-# grab oh-my-zsh (use my fork until my change are merged)
-git clone git://github.com/thedeeno/oh-my-zsh.git ~/.oh-my-zsh
-cd ~/.oh-my-zsh
-git checkout -b local_custom origin/local_custom
+install ruby prereqs
 
-# install dotfiles
+  # readline
+  sudo apt-get install libreadline-dev
+
+  # zlib
+  sudo apt-get install libssl-dev zlib1g-dev
+
+install rubies
+
+  rbenv install 1.9.3-p327
+  rbenv rehash
+
+
+# Install Dotfiles
 git clone git://github.com/thedeeno/dotfiles ~/code/dotfiles 
 cd ~/code/dotfiles
 rake install
 
-# install vundle
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+## Build / Install vim from source (to use latest plugins)
 
-# exec vundle install
-from vim run
-:BundleInstall
+https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
 
-# install and run zsh
-sudo apt-get install zsh
-zsh
-# (optionally) set zsh as your default shell
-chsh -s $(which zsh)
+1.  First, install all the prerequisite libraries, including Mercurial. For a Debian-like Linux distribution like Ubuntu, that would be the following:
 
-# ack also might need to be symlinked (on ubuntu)
+        sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev \
+        libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
+        libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev ruby-dev mercurial
+
+2. Once everything is installed, getting the source is easy:
+
+        cd ~/code/
+        hg clone https://code.google.com/p/vim/
+        cd vim
+        ./configure --with-features=huge \
+                    --enable-rubyinterp \
+                    --enable-pythoninterp \
+                    --enable-perlinterp \
+                    --enable-gui=gtk2 --enable-cscope --prefix=/usr
+        make VIMRUNTIMEDIR=/usr/share/vim/vim73
+
+3. Copy binary to PATH
+
+       cp ~/code/vim/src/vim ~/bin/
+
+## Install Vundle (vim plugin manager)
+
+  git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
+  # from vim run
+  :BundleInstall
+
+# Install Zsh
+
+  ```sh
+  sudo apt-get install zsh
+  zsh
+  # (optionally) set zsh as your default shell
+  chsh -s $(which zsh)
+  ```
+
+# Symlink ack (ubuntu) (optional)
 sudo apt-get install ack-grep
 sudo ln -s /usr/bin/ack-grep /usr/local/bin/ack
 ```
 
 `rake install` will symlink the appropriate files to your home directory. Everything is configured and tweaked within `dotfiles`.
 
-# solarized
+# Install Solarized (theme)
 
 ## overwrite gnome color profiles with solarized light/dark
 
@@ -65,10 +97,10 @@ git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git
 cd gnome-terminal-colors-solarized
 ./install.sh
 
-### phantomjs
+# Install Headless Browser (for testing)
+## phantomjs
 
-Optionally build and install phantomjs (headless browser). The
-latest instructions are [here](http://code.google.com/p/phantomjs/wiki/BuildInstructions), but the following should probably work:
+The latest instructions are [here](http://code.google.com/p/phantomjs/wiki/BuildInstructions), but the following should probably work:
 
 ```sh
 sudo apt-get install libqt4-dev libqtwebkit-dev qt4-qmake
@@ -83,7 +115,10 @@ ln -s ~/code/phantomjs/bin/phantomjs ~/bin/phantomjs
 # test
 phantomjs --version
 ```
-## what's inside
+
+You're Done.
+
+# what's inside
 
 - Custom settings for Janus vim distribution
 - Custom settings for Oh-My-Zsh
@@ -122,4 +157,4 @@ it to servers:
 
 I forked [Zach Holeman's](http://github.com/holman) and later merged in 
 [Ryan Bate's](http://github.com/ryanb)' dotfiles. This repository is now
-considerably different, but they were a fantastic starting point.
+considerably different, but they were fantastic inspiration.
