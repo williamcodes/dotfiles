@@ -21,11 +21,11 @@ Bundle 'tomtom/tcomment_vim.git'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'ervandew/supertab'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'skalnik/vim-vroom'
 Bundle 'vim-scripts/bufkill.vim'
+Bundle 'Valloric/YouCompleteMe'
 
 " vim-scripts repos
 
