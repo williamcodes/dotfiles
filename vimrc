@@ -33,6 +33,17 @@ Bundle 'vim-scripts/bufkill.vim'
 " Bundle 'git://git.wincent.com/command-t.git'
 
 " ---------------------------------------------------------------------------
+" Ruby Path
+" ---------------------------------------------------------------------------
+" This is a work around for ftplugin/ruby.vim. If it doesn't know the ruby
+" path it'll make a slow system call to look it up. Instead, let's just
+" tell it where it is from the get go. This is literally 200x faster.
+" test with: vim --startuptime /path/to/perf.log /path/to/ruby/file
+"
+" path to rbenv ruby
+let g:ruby_path = system('echo $HOME/.rbenv/shims')
+
+" ---------------------------------------------------------------------------
 " Core
 " ---------------------------------------------------------------------------
 
