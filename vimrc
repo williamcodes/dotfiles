@@ -21,7 +21,6 @@ Bundle 'tomtom/tcomment_vim.git'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'scrooloose/nerdtree'
 Bundle 'ervandew/supertab'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
@@ -190,7 +189,7 @@ map <F8> "+p
 nmap <leader>q :q<CR>
 nmap <leader>s /
 
-nmap <leader>n :NERDTree<CR>
+nmap <leader>n :e.<CR>
 
 " overide built in ack mapping
 map <C-f> :Ack<space>
