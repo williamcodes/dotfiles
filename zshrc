@@ -1,9 +1,11 @@
 
 source $HOME/.zsh/antigen.zsh
+antigen-prezto-lib
 antigen-lib
 
 # Download/install bundles
-antigen-bundle git
+# antigen-bundle git
+antigen-bundle https://github.com/sorin-ionescu/prezto.git modules/git
 antigen-bundle ruby
 antigen-bundle command-not-found
 
