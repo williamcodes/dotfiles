@@ -30,8 +30,10 @@ done
 # Customizations
 
 # PATH
-export PATH=".:bin:$HOME/bin:/usr/local/bin:/usr/local/sbin:$ZSH/bin:$PATH"
-export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
+export PATH="$HOME/.bin:$ZSH/bin:$PATH"
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 # use dvorak as the basis for spell checking
 # setopt DVORAK
