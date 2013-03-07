@@ -25,6 +25,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'skalnik/vim-vroom'
 Bundle 'vim-scripts/bufkill.vim'
+Bundle 'scrooloose/nerdtree.git'
 Bundle 'thedeeno/molokai'
 Bundle 'tpope/vim-endwise'
 Bundle 'Valloric/YouCompleteMe'
@@ -204,7 +205,8 @@ map <F8> "+p
 nmap <leader>q :q<CR>
 nmap <leader>s /
 
-nmap <leader>n :e.<CR>
+" nmap <leader>n :e.<CR>
+nmap <leader>n :NERDTreeToggle<CR>
 
 " overide built in ack mapping
 map <C-f> :Ack<space>
