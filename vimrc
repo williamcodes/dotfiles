@@ -18,13 +18,14 @@ Bundle 'tpope/vim-rails.git'
 Bundle 'tpope/vim-haml.git'
 Bundle 'tpope/vim-surround.git'
 Bundle 'tomtom/tcomment_vim.git'
-Bundle 'flazz/vim-colorschemes'
-Bundle 'altercation/vim-colors-solarized'
+" Bundle 'flazz/vim-colorschemes'
+" Bundle 'altercation/vim-colors-solarized'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'skalnik/vim-vroom'
 Bundle 'vim-scripts/bufkill.vim'
+Bundle 'thedeeno/molokai'
 Bundle 'Valloric/YouCompleteMe'
 
 " vim-scripts repos
@@ -150,6 +151,10 @@ if has("autocmd")
 endif
 
 " ----------------------------------------------------------------------------
+" Terminal Discovery
+" ----------------------------------------------------------------------------
+set t_Co=256
+set term=screen-256color
 " COLOR
 " ----------------------------------------------------------------------------
 syntax enable
@@ -157,11 +162,9 @@ if has('gui_running')
   set background=light
 else
   set background=dark
-  set t_Co=256
 endif
-colorscheme solarized
+colorscheme molokai
 " :color grb256
-" colorscheme molokai
 
 " ----------------------------------------------------------------------------
 " GUI options
