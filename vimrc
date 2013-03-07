@@ -199,6 +199,9 @@ endif
 " ----------------------------------------------------------------------------
 "  Remapping
 " ----------------------------------------------------------------------------
+" make esc insta fire (I don't expect to use keycodes)
+set ttimeoutlen=50
+
 " easy switch to last buffer
 nnoremap <leader><leader> <c-^>
 " let mapleader = 'g'
