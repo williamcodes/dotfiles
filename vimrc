@@ -29,6 +29,7 @@ Bundle 'scrooloose/nerdtree.git'
 Bundle 'thedeeno/molokai'
 Bundle 'tpope/vim-endwise'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'wikitopian/hardmode'
 Bundle 'godlygeek/tabular'
 
 Bundle 'airblade/vim-gitgutter'
