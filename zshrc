@@ -30,6 +30,7 @@ for file in $ZDOTDIR/**/*.zsh; do
 done
 
 # Customizations
+PROMPT='%(1j.%j.)%{$reset_color%}%{$fg[red]%}:%{$reset_color%}%{$fg[cyan]%}%0~%{$reset_color%}%{$fg[red]%}|%{$reset_color%}$(git_prompt_info)%{$fg[cyan]%}⇒%{$reset_color%}  '
 
 # PATH
 export PATH="$HOME/.bin:$ZSH/bin:$PATH"
