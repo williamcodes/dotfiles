@@ -215,6 +215,13 @@ inoremap kj <Esc>`^
 cnoremap jk <Esc>`^
 cnoremap kj <Esc>`^
 
+" search mappings
+nnoremap <silent> sf /
+nnoremap <silent> sb ?
+nnoremap <silent> sl /^R/
+nnoremap <silent> s8 g*
+nnoremap <silent> s3 g*
+
 map <F8> "+p
 nmap <leader>q :q<CR>
 nmap <leader>s /
