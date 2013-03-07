@@ -472,6 +472,11 @@ map <Leader>t :VroomRunTestFile<CR>
 map <Leader>T :VroomRunNearestTest<CR>
 map <F7> :VroomRunNearestTest<CR>
 
+" ----------------------------------------------------------------------------
+" auto commands
+" ----------------------------------------------------------------------------
+" automatically reload vimrc when it's saved
+" au BufWritePost .vimrc so ~/.vimrc
 
 " ----------------------------------------------------------------------------
 " under persistence
