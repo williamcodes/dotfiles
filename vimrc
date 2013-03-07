@@ -33,6 +33,7 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'wikitopian/hardmode'
 Bundle 'godlygeek/tabular'
 
+Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'airblade/vim-gitgutter'
 " vim-scripts repos
