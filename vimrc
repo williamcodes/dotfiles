@@ -31,6 +31,7 @@ Bundle 'tpope/vim-endwise'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'godlygeek/tabular'
 
+Bundle 'airblade/vim-gitgutter'
 " vim-scripts repos
 
 " non github repos
