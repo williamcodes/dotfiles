@@ -29,6 +29,7 @@ Bundle 'scrooloose/nerdtree.git'
 Bundle 'thedeeno/molokai'
 Bundle 'tpope/vim-endwise'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'godlygeek/tabular'
 
 " vim-scripts repos
 
@@ -464,3 +465,21 @@ endif
 set scrolloff=8      " Number of lines from vertical edge to start scrolling
 set sidescrolloff=15 " Number of cols from horizontal edge to start scrolling
 set sidescroll=1     " Number of cols to scroll at a time
+
+" ----------------------------------------------------------------------------
+" tabular helpers
+" ----------------------------------------------------------------------------
+
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
+
