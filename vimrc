@@ -32,11 +32,17 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'wikitopian/hardmode'
 Bundle 'godlygeek/tabular'
 
+Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'airblade/vim-gitgutter'
 " vim-scripts repos
 
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
+
+" ---------------------------------------------------------------------------
+" Matchit (ruby-textobject support)
+" ---------------------------------------------------------------------------
+runtime macros/matchit.vim
 
 " ---------------------------------------------------------------------------
 " Ruby Path
