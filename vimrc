@@ -27,15 +27,19 @@ Bundle 'skalnik/vim-vroom'
 Bundle 'vim-scripts/bufkill.vim'
 Bundle 'scrooloose/nerdtree.git'
 Bundle 'thedeeno/molokai'
+" Bundle 'skammer/vim-css-color'
 Bundle 'tpope/vim-endwise'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'wikitopian/hardmode'
 Bundle 'godlygeek/tabular'
 
+" Bundle 'thedeeno/vim-matchit'
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'airblade/vim-gitgutter'
+" Bundle 'vim-scripts/align'
+
 " vim-scripts repos
 
 " non github repos
@@ -79,6 +83,7 @@ set hidden
 " set rnu
 " add keystrokes to status line
 set showcmd
+set nocursorline
 
 " ----------------------------------------------------------------------------
 " Status Line
@@ -168,6 +173,9 @@ endif
 " ----------------------------------------------------------------------------
 set t_Co=256
 set term=screen-256color
+set ttyfast
+
+" ----------------------------------------------------------------------------
 " COLOR
 " ----------------------------------------------------------------------------
 syntax enable
@@ -430,6 +438,15 @@ nnoremap zj              :wincmd J<cr>
 " ---------------------------------------------------------------------------
 au BufRead,BufNewFile *.hamlc set ft=haml
 
+" Show syntax highlighting groups for word under cursor
+nmap <C-y> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val,"name")')
+endfunc
+
 " ----------------------------------------------------------------------------
 " Smart Inserting
 " ----------------------------------------------------------------------------
@@ -518,13 +535,10 @@ if exists("+undofile")
   set undofile
 endif
 
-
 " ----------------------------------------------------------------------------
-" clipboard
+" easymotion
 " ----------------------------------------------------------------------------
-if version >= 730
-  set clipboard=unnamed
-endif
+let g:EasyMotion_leader_key = '<leader><leader>'
 
 " ----------------------------------------------------------------------------
 " scrolling at edges
