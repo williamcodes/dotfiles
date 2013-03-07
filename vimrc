@@ -26,6 +26,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'skalnik/vim-vroom'
 Bundle 'vim-scripts/bufkill.vim'
 Bundle 'thedeeno/molokai'
+Bundle 'tpope/vim-endwise'
 Bundle 'Valloric/YouCompleteMe'
 
 " vim-scripts repos
