@@ -202,9 +202,17 @@ endif
 " make esc insta fire (I don't expect to use keycodes)
 set ttimeoutlen=50
 
+" ----------------------------------------------------------------------------
+"  Remapping
+" ----------------------------------------------------------------------------
 " easy switch to last buffer
-nnoremap <leader><leader> <c-^>
+" nnoremap <leader><leader> <c-^>
 " let mapleader = 'g'
+nnoremap g6 ^
+nnoremap g4 $
+
+nnoremap J }
+nnoremap K {
 
 " alias leader in normal mode
 let mapleader=","
@@ -212,8 +220,8 @@ let mapleader=","
 " The Smash Escape - also without cursor movement
 inoremap jk <Esc>`^
 inoremap kj <Esc>`^
-cnoremap jk <Esc>`^
-cnoremap kj <Esc>`^
+cnoremap <silent>jk <CR>
+cnoremap <silent>kj <CR>
 
 " search mappings
 nnoremap <silent> sf /
@@ -222,9 +230,11 @@ nnoremap <silent> sl /^R/
 nnoremap <silent> s8 g*
 nnoremap <silent> s3 g*
 
+" select all
+nmap <C-a> ggVG
+
 map <F8> "+p
 nmap <leader>q :q<CR>
-nmap <leader>s /
 
 " nmap <leader>n :e.<CR>
 nmap <leader>n :NERDTreeToggle<CR>
@@ -233,27 +243,31 @@ nmap <leader>n :NERDTreeToggle<CR>
 map <C-f> :Ack<space>
 
 " ctrl-P
-nnoremap <silent> <Leader>f :CtrlP<CR>
-nnoremap <silent> <Leader>b :CtrlPMRU<CR>
+nnoremap <silent> gu :CtrlPBuffer<CR>
+nnoremap <silent> go :CtrlP<CR>
+nnoremap <silent> gr :CtrlPMRU<CR>
 
-inoremap <C-l>  => 
+" fugative
+nnoremap gs :Gstatus<CR>
+nnoremap gl :Gstatus<CR>
+nnoremap gm :Gmove 
 
 " reflow paragraph with Q in normal and visual mode
 nnoremap Q gqap
 vnoremap Q gq
 
 " sane movement with wrap turned on
-nnoremap j gj
-nnoremap k gk
-vnoremap j gj
-vnoremap k gk
+" nnoremap j gj
+" nnoremap k gk
+" vnoremap j gj
+" vnoremap k gk
 
 " close buffer
 nnoremap <leader>dd :bd<CR>
 
 " quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nmap <silent> <leader><leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader><leader>sv :so $MYVIMRC<CR>
 
 " align plugin mappings
 vmap <Leader>i <C-c>:'<,'>Align
@@ -268,7 +282,7 @@ map <A-j> :cnext<CR>
 map <A-k> :cprevious<CR>
 
 " remap ga to vim-rails alternate file command
-nmap <leader>a :A<CR>
+nmap <leader>a :AV<CR>
 " nmap gr :R<CR>
 
 " for local replace
@@ -345,7 +359,7 @@ set listchars+=precedes:<         " The character to show in the last column whe
 function! StripWhitespace ()
     exec ':%s/ \+$//gc'
 endfunction
-nmap <leader>sw :call StripWhitespace ()<CR>
+nmap <leader><leader>sw :call StripWhitespace ()<CR>
 
 " ---------------------------------------------------------------------------
 " OPEN FILES IN DIRECTORY OF CURRENT FILE
@@ -372,16 +386,20 @@ function! WinMove(key)
 endfunction
 
 " window navigation
-map <C-h> :call WinMove('h')<cr>
-map <C-k> :call WinMove('k')<cr>
-map <C-l> :call WinMove('l')<cr>
-map <C-j> :call WinMove('j')<cr>
+nnoremap <C-h> :call WinMove('h')<cr>
+nnoremap <C-k> :call WinMove('k')<cr>
+nnoremap <C-l> :call WinMove('l')<cr>
+nnoremap <C-j> :call WinMove('j')<cr>
+nnoremap gh :call WinMove('h')<cr>
+nnoremap gl :call WinMove('l')<cr>
+nnoremap gj :call WinMove('j')<cr>
+nnoremap gk :call WinMove('k')<cr>
 
 " closing, rotating, and moving
-map <leader>H              :wincmd H<cr>
-map <leader>K              :wincmd K<cr>
-map <leader>L              :wincmd L<cr>
-map <leader>J              :wincmd J<cr>
+nnoremap zh              :wincmd H<cr>
+nnoremap zk              :wincmd K<cr>
+nnoremap zl              :wincmd L<cr>
+nnoremap zj              :wincmd J<cr>
 
 " ---------------------------------------------------------------------------
 " Syntax highlighting
@@ -503,3 +521,5 @@ function! s:align()
   endif
 endfunction
 
+" Show syntax highlighting groups for word under cursor
+nmap <leader><leader>z :so $VIMRUNTIME/syntax/hitest.vim
