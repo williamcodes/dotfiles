@@ -308,7 +308,9 @@ nnoremap ; :
 vnoremap ; :
 
 " write file easier
-nmap <leader>w :w<CR>
+nmap <CR> :write<CR>
+" retrain write muscle memory
+cabbrev w nope
 
 " shift symbols
 " nmap 6 :
