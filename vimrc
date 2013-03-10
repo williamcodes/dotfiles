@@ -40,6 +40,7 @@ Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'airblade/vim-gitgutter'
 " Bundle 'vim-scripts/align'
 Bundle 'goldfeld/vim-seek'
+Bundle 'thedeeno/switch'
 
 " vim-scripts repos
 
