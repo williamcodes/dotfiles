@@ -51,6 +51,8 @@ Bundle 'goldfeld/vim-seek'
 " ---------------------------------------------------------------------------
 runtime macros/matchit.vim
 
+nnoremap ,w W
+
 " ---------------------------------------------------------------------------
 " Ruby Path
 " ---------------------------------------------------------------------------
@@ -66,7 +68,7 @@ let g:ruby_path = system('echo $HOME/.rbenv/shims')
 " Core
 " ---------------------------------------------------------------------------
 
-set number            " Show line numbers
+set relativenumber    " Show relative line numbers
 set ruler             " Show line and column number
 syntax enable         " Turn on syntax highlighting allowing local overrides
 set encoding=utf-8    " Set default encoding to UTF-8
@@ -141,6 +143,7 @@ set wildignore+=*.swp,*~,._*
 
 " Some file types should wrap their text
 function! s:setupWrapping()
+" retrain write muscle memory
   set wrap
   set linebreak
   set textwidth=72
@@ -227,17 +230,16 @@ nnoremap K {
 let mapleader=","
 
 " The Smash Escape - also without cursor movement
-inoremap jk <Esc>`^
-inoremap kj <Esc>`^
+inoremap jk <Esc>`^:w<CR>
+inoremap kj <Esc>`^:w<CR>
 cnoremap <silent>jk <CR>
 cnoremap <silent>kj <CR>
 
 " search mappings
-nnoremap <silent> sf /
-nnoremap <silent> sb ?
-nnoremap <silent> sl /^R/
-nnoremap <silent> s8 g*
-nnoremap <silent> s3 g*
+nnoremap <silent> <leader>s /
+nnoremap <silent> <leader>S ?
+nnoremap <silent> <leader>8 g*
+nnoremap <silent> <leader>3 g#
 
 " select all
 nmap <C-a> ggVG
@@ -255,6 +257,9 @@ map <C-f> :Ack<space>
 nnoremap <silent> gu :CtrlPBuffer<CR>
 nnoremap <silent> go :CtrlP<CR>
 nnoremap <silent> gr :CtrlPMRU<CR>
+
+" repeat last command almost like dot
+nnoremap <silent> g. @:
 
 " fugative
 nnoremap gs :Gstatus<CR>
@@ -275,8 +280,8 @@ vnoremap Q gq
 nnoremap <leader>dd :bd<CR>
 
 " quickly edit/reload the vimrc file
-nmap <silent> <leader><leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader><leader>sv :so $MYVIMRC<CR>
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " align plugin mappings
 vmap <Leader>i <C-c>:'<,'>Align
