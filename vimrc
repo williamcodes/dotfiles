@@ -541,7 +541,8 @@ endif
 " ----------------------------------------------------------------------------
 " easymotion
 " ----------------------------------------------------------------------------
-let g:EasyMotion_leader_key = '<leader><leader>'
+let g:EasyMotion_leader_key = '<space>'
+let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 
 " ----------------------------------------------------------------------------
 " scrolling at edges
