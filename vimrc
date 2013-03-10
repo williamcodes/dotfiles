@@ -309,8 +309,6 @@ vnoremap ; :
 
 " write file easier
 nmap <CR> :write<CR>
-" retrain write muscle memory
-cabbrev w nope
 
 " shift symbols
 " nmap 6 :
@@ -570,3 +568,12 @@ endfunction
 
 " Show syntax highlighting groups for word under cursor
 nmap <leader><leader>z :so $VIMRUNTIME/syntax/hitest.vim
+
+" ---------------------------------------------------------------------------
+" Retraining
+" ---------------------------------------------------------------------------
+" put all the nopes here until you're retrained
+
+" retraining for smash escape
+inoremap <esc> nope
+cnoremap <esc> nope
