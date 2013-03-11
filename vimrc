@@ -41,6 +41,7 @@ Bundle 'airblade/vim-gitgutter'
 " Bundle 'vim-scripts/align'
 Bundle 'goldfeld/vim-seek'
 Bundle 'AndrewRadev/switch.vim'
+Bundle 'AndrewRadev/splitjoin.vim'
 
 " vim-scripts repos
 
@@ -583,3 +584,8 @@ nmap <leader><leader>z :so $VIMRUNTIME/syntax/hitest.vim
 " retraining for smash escape
 inoremap <esc> nope
 cnoremap <esc> nope
+" ---------------------------------------------------------------------------
+" SplitJoin
+" ---------------------------------------------------------------------------
+let g:splitjoin_split_mapping = '<leader>j'
+let g:splitjoin_join_mapping = '<leader>k'
