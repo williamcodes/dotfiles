@@ -582,8 +582,8 @@ nmap <leader><leader>z :so $VIMRUNTIME/syntax/hitest.vim
 " put all the nopes here until you're retrained
 
 " retraining for smash escape
-inoremap <esc> nope
-cnoremap <esc> nope
+inoremap <esc> <nop>
+cnoremap <esc> <nop>
 " ---------------------------------------------------------------------------
 " SplitJoin
 " ---------------------------------------------------------------------------
