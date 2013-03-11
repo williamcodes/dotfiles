@@ -232,8 +232,8 @@ nnoremap K {
 let mapleader=","
 
 " The Smash Escape - also without cursor movement
-inoremap jk <Esc>`^:w<CR>
-inoremap kj <Esc>`^:w<CR>
+inoremap jk <Esc>`^
+inoremap kj <Esc>`^
 cnoremap <silent>jk <CR>
 cnoremap <silent>kj <CR>
 
