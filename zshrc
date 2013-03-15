@@ -32,6 +32,11 @@ done
 # Customizations
 PROMPT='%(1j.%j.)%{$reset_color%}%{$fg[red]%}:%{$reset_color%}%{$fg[cyan]%}%0~%{$reset_color%}%{$fg[red]%}|%{$reset_color%}$(git_prompt_info)%{$fg[cyan]%}⇒%{$reset_color%}  '
 
+# LSCOLORS (see http://geoff.greer.fm/lscolors/)
+# BSD
+export LSCOLORS="gxfxdxdxcxegedabagacad"
+export LS_COLORS="di=36;40:ln=35;40:so=33;40:pi=33;40:ex=32;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:"
+
 # PATH
 export PATH="$HOME/.bin:$ZSH/bin:$PATH"
 
