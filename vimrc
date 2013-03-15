@@ -26,7 +26,6 @@ Bundle 'mileszs/ack.vim'
 Bundle 'skalnik/vim-vroom'
 Bundle 'vim-scripts/bufkill.vim'
 Bundle 'scrooloose/nerdtree.git'
-Bundle 'thedeeno/molokai'
 " Bundle 'skammer/vim-css-color'
 Bundle 'tpope/vim-endwise'
 Bundle 'kchmck/vim-coffee-script'
@@ -37,11 +36,13 @@ Bundle 'godlygeek/tabular'
 " Bundle 'thedeeno/vim-matchit'
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'airblade/vim-gitgutter'
+Bundle 'thedeeno/vim-gitgutter'
 " Bundle 'vim-scripts/align'
 Bundle 'goldfeld/vim-seek'
 Bundle 'AndrewRadev/switch.vim'
 Bundle 'AndrewRadev/splitjoin.vim'
+Bundle 'AndrewRadev/sideways.vim'
+Bundle 'thedeeno/molokai'
 
 " vim-scripts repos
 
@@ -115,10 +116,7 @@ set ignorecase  " searches are case insensitive...
 set smartcase   " ... unless they contain at least one capital letter
 
 " Clear the search buffer when hitting return
-function! MapCR()
-  nnoremap <cr> :nohlsearch<cr>
-endfunction
-call MapCR()
+" nmap <cr> :nohlsearch<cr>
 
 " ----------------------------------------------------------------------------
 " Wild settings
@@ -234,8 +232,22 @@ let mapleader=","
 " The Smash Escape - also without cursor movement
 inoremap jk <Esc>`^
 inoremap kj <Esc>`^
+
+" using back tick to drop a terminal down, map a way to type it
+noremap ~~ `
+inoremap ~~ `
+
+" CR escape
+" inoremap <CR> <ESC>`^
+imap <expr> <CR> col('.') == col('$') ? '<CR><Plug>DiscretionaryEnd' : '<Esc>`^'
+inoremap <C-CR> <CR>
+
 cnoremap <silent>jk <CR>
 cnoremap <silent>kj <CR>
+
+" insert line below and above
+nnoremap <c-j> mao<esc>`a
+nnoremap <C-K> maO<ESC>`a
 
 " search mappings
 nnoremap <silent> <leader>s /
@@ -298,7 +310,8 @@ map <A-j> :cnext<CR>
 map <A-k> :cprevious<CR>
 
 " remap ga to vim-rails alternate file command
-nmap <leader>a :AV<CR>
+nmap <leader>a gl:q<CR>gh:A<CR>
+nmap <leader>ra :A<CR>
 " nmap gr :R<CR>
 
 " for local replace
@@ -315,8 +328,12 @@ nnoremap ; :
 vnoremap ; :
 
 " write file easier
+nmap <leader>w :write<CR>
 nmap <CR> :write<CR>
 
+nnoremap vv V
+nnoremap g4 $
+nnoremap g6 ^
 " shift symbols
 " nmap 6 :
 " imap 7 _
@@ -399,7 +416,7 @@ set listchars+=precedes:<         " The character to show in the last column whe
 function! StripWhitespace ()
     exec ':%s/ \+$//gc'
 endfunction
-nmap <leader><leader>sw :call StripWhitespace ()<CR>
+nmap <leader><leader>st :call StripWhitespace ()<CR>
 
 " ---------------------------------------------------------------------------
 " OPEN FILES IN DIRECTORY OF CURRENT FILE
@@ -426,20 +443,16 @@ function! WinMove(key)
 endfunction
 
 " window navigation
-nnoremap <C-h> :call WinMove('h')<cr>
-nnoremap <C-k> :call WinMove('k')<cr>
-nnoremap <C-l> :call WinMove('l')<cr>
-nnoremap <C-j> :call WinMove('j')<cr>
 nnoremap gh :call WinMove('h')<cr>
 nnoremap gl :call WinMove('l')<cr>
 nnoremap gj :call WinMove('j')<cr>
 nnoremap gk :call WinMove('k')<cr>
 
 " closing, rotating, and moving
-nnoremap zh              :wincmd H<cr>
-nnoremap zk              :wincmd K<cr>
-nnoremap zl              :wincmd L<cr>
-nnoremap zj              :wincmd J<cr>
+nnoremap gH              :wincmd H<cr>
+nnoremap gK              :wincmd K<cr>
+nnoremap gL              :wincmd L<cr>
+nnoremap gJ              :wincmd J<cr>
 
 " ---------------------------------------------------------------------------
 " Syntax highlighting
@@ -582,8 +595,8 @@ nmap <leader><leader>z :so $VIMRUNTIME/syntax/hitest.vim
 " put all the nopes here until you're retrained
 
 " retraining for smash escape
-inoremap <esc> <nop>
-cnoremap <esc> <nop>
+" inoremap <esc> <nop>
+" cnoremap <esc> <nop>
 
 " ---------------------------------------------------------------------------
 " Switch
@@ -598,5 +611,11 @@ let g:switch_custom_definitions =
 " ---------------------------------------------------------------------------
 " SplitJoin
 " ---------------------------------------------------------------------------
-let g:splitjoin_split_mapping = '<leader>j'
-let g:splitjoin_join_mapping = '<leader>k'
+let g:splitjoin_split_mapping = 'zj'
+let g:splitjoin_join_mapping = 'zk'
+
+" ---------------------------------------------------------------------------
+" Helpers
+" ---------------------------------------------------------------------------
+nnoremap ,ds :?.?+1,/./-1join!<CR>
+
