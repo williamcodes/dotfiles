@@ -38,9 +38,13 @@ export LSCOLORS="gxfxdxdxcxegedabagacad"
 export LS_COLORS="di=36;40:ln=35;40:so=33;40:pi=33;40:ex=32;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:"
 
 # PATH
-export PATH="$HOME/.bin:$ZSH/bin:$PATH"
+export PATH="$HOME/.bin:$PATH"
+export PATH="$ZSH/bin:$PATH"
+export PATH="$HOME/tools/android-sdk-linux/tools:$PATH"
+export PATH="$HOME/tools/android-sdk-linux/platform-tools:$PATH"
 
 export PATH="$HOME/.rbenv/bin:$PATH"
+
 eval "$(rbenv init -)"
 
 # use dvorak as the basis for spell checking
