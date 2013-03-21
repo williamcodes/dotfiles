@@ -68,9 +68,10 @@ https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
 #### Compile Plugins (downloaded with vundle)
   
   - YouCompleteMe
-  sudo apt-get install cmake python-dev
-  cd ~/.vim/bundle/YouCompleteMe
-  ./install.sh
+
+    sudo apt-get install cmake python-dev
+    cd ~/.vim/bundle/YouCompleteMe
+    ./install.sh
 
 ### Install Zsh
 
