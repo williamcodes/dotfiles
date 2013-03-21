@@ -619,3 +619,26 @@ let g:splitjoin_join_mapping = 'zk'
 " ---------------------------------------------------------------------------
 nnoremap ,ds :?.?+1,/./-1join!<CR>
 
+" ---------------------------------------------------------------------------
+" Fugative Helpers
+" ---------------------------------------------------------------------------
+function! CloseDiff()
+  if (&diff == 0 || getbufvar('#', '&diff') == 0)
+        \ && (bufname('%') !~ '^fugitive:' && bufname('#') !~ '^fugitive:')
+    echom "Not in diff view."
+    return
+  endif
+
+  " close current buffer if alternate is not fugitive but current one is
+  if bufname('#') !~ '^fugitive:' && bufname('%') =~ '^fugitive:'
+    if bufwinnr("#") == -1
+      b #
+      bd #
+    else
+      bd
+    endif
+  else
+    bd #
+  endif
+endfunction
+nnoremap <Leader>gD :call CloseDiff()<cr>
