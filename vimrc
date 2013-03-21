@@ -529,9 +529,11 @@ let g:syntastic_mode_map = { 'mode': 'active',
 " Vroom config
 " ---------------------------------------------------------------------------
 let g:vroom_map_keys = 0
-let g:vroom_cucumber_path = "cucumber"
+let g:vroom_cucumber_path = "zeus cucumber"
+let g:vroom_use_bundle_exec = 0
 map <Leader>t :VroomRunTestFile<CR>
-map <Leader>T :VroomRunNearestTest<CR>
+" focus
+map <Leader>f :VroomRunNearestTest<CR>
 map <F7> :VroomRunNearestTest<CR>
 
 " ----------------------------------------------------------------------------
