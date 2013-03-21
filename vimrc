@@ -226,6 +226,8 @@ nnoremap g4 $
 nnoremap J }
 nnoremap K {
 
+nnoremap <C-F> :%s/
+
 " alias leader in normal mode
 let mapleader=","
 
