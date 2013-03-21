@@ -1,42 +1,38 @@
 # thedeeno's ~/
 
-# Install Common Packages
+### Install Common Packages
 
 ```sh
 sudo apt-get install git-core git-gui gitg meld vim-gnome curl
 sudo apt-get install build-essential bison openssl libssl-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libmysqlclient-dev libxslt-dev libxml2-dev 
 ```
 
-## Install Ruby (and the environment manager)
+### Install Ruby (and the environment manager)
 
-clone rbenv (dotfiles already include terminal profile changes):
+clone rbenv + ruby-build
 
-  git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
-
-clone ruby-build (to install as rbenv plugin)
-
-  git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+    git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
+    git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 
 install ruby prereqs
 
-  # readline
-  sudo apt-get install libreadline-dev
+    # readline
+    sudo apt-get install libreadline-dev
 
-  # zlib
-  sudo apt-get install libssl-dev zlib1g-dev
+    # zlib
+    sudo apt-get install libssl-dev zlib1g-dev
 
 install rubies
 
-  rbenv install 1.9.3-p327
-  rbenv rehash
+    rbenv install 1.9.3-p327
+    rbenv rehash
 
-
-# Install Dotfiles
+#### Install Dotfiles
 git clone git://github.com/thedeeno/dotfiles ~/code/dotfiles 
 cd ~/code/dotfiles
 rake install
 
-## Build / Install vim from source (to use latest plugins)
+### Build / Install vim from source (to use latest plugins)
 
 https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
 
@@ -62,21 +58,21 @@ https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
 
        cp ~/code/vim/src/vim ~/bin/
 
-## Install Vundle (vim plugin manager)
+#### Install Vundle (vim plugin manager)
 
   git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
   # from vim run
   :BundleInstall
 
-## Compile Plugins (downloaded with vundle)
+#### Compile Plugins (downloaded with vundle)
   
   - YouCompleteMe
   sudo apt-get install cmake python-dev
   cd ~/.vim/bundle/YouCompleteMe
   ./install.sh
 
-# Install Zsh
+### Install Zsh
 
   ```sh
   sudo apt-get install zsh
@@ -86,26 +82,26 @@ https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
   ```
 
 # Symlink ack (ubuntu) (optional)
-sudo apt-get install ack-grep
-sudo ln -s /usr/bin/ack-grep /usr/local/bin/ack
-```
+
+    sudo apt-get install ack-grep
+    sudo ln -s /usr/bin/ack-grep /usr/local/bin/ack
 
 `rake install` will symlink the appropriate files to your home directory. Everything is configured and tweaked within `dotfiles`.
 
-# Install Solarized (theme)
+### Install Solarized (theme)
 
-## overwrite gnome color profiles with solarized light/dark
+### overwrite gnome color profiles with solarized light/dark
 
 Create two new color profiles with gnome terminal's preferences gui
 (it's not accessible from the command line).
 
-cd ~/code
-git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git
-cd gnome-terminal-colors-solarized
-./install.sh
+    cd ~/code
+    git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git
+    cd gnome-terminal-colors-solarized
+    ./install.sh
 
-# Install Headless Browser (for testing)
-## phantomjs
+## Install Headless Browser (for testing)
+### phantomjs
 
 The latest instructions are [here](http://code.google.com/p/phantomjs/wiki/BuildInstructions), but the following should probably work:
 
@@ -116,16 +112,16 @@ git clone git://github.com/ariya/phantomjs.git && cd phantomjs
 git checkout master # or whatever version you want
 qmake-qt4 && make
 
-# link it to your path
+## link it to your path
 ln -s ~/code/phantomjs/bin/phantomjs ~/bin/phantomjs
 
-# test
+## test
 phantomjs --version
 ```
 
 You're Done.
 
-# what's inside
+## what's inside
 
 - Custom settings for Janus vim distribution
 - Custom settings for Oh-My-Zsh
