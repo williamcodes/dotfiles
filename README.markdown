@@ -60,18 +60,20 @@ https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
 
 #### Install Vundle (vim plugin manager)
 
+  ```sh
   git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
   # from vim run
   :BundleInstall
+  ```
 
 #### Compile Plugins (downloaded with vundle)
   
-  - YouCompleteMe
-
-    sudo apt-get install cmake python-dev
-    cd ~/.vim/bundle/YouCompleteMe
-    ./install.sh
+  ```sh
+  sudo apt-get install cmake python-dev
+  cd ~/.vim/bundle/YouCompleteMe
+  ./install.sh
+  ```
 
 ### Install Zsh
 
