@@ -240,9 +240,7 @@ noremap ~~ `
 inoremap ~~ `
 
 " CR escape
-" inoremap <CR> <ESC>`^
-imap <expr> <CR> col('.') == col('$') ? '<CR><Plug>DiscretionaryEnd' : '<Esc>`^'
-inoremap <C-CR> <CR>
+" imap <expr> <CR> col('.') == col('$') ? '<CR><Plug>DiscretionaryEnd' : '<Esc>`^'
 
 cnoremap <silent>jk <CR>
 cnoremap <silent>kj <CR>
