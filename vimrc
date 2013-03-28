@@ -646,3 +646,9 @@ function! CloseDiff()
   endif
 endfunction
 nnoremap <Leader>gD :call CloseDiff()<cr>
+
+" ---------------------------------------------------------------------------
+" Sideways mappings
+" ---------------------------------------------------------------------------
+nnoremap <C-l> :SidewaysRight<CR>
+nnoremap <C-h> :SidewaysLeft<CR>
