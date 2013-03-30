@@ -371,17 +371,35 @@ antigen-cleanup () {
     fi
 }
 
-antigen-lib () {
+antigen-use () {
+    if [[ $1 == oh-my-zsh ]]; then
+        -antigen-use-oh-my-zsh
+    elif [[ $1 == prezto ]]; then
+        -antigen-use-prezto
+    else
+        echo 'Usage: antigen-use <library-name>' >&2
+        echo 'Where <library-name> is any one of the following:' >&2
+        echo ' * oh-my-zsh' >&2
+        echo ' * prezto' >&2
+        return 1
+    fi
+}
+
+-antigen-use-oh-my-zsh () {
     if [[ -z "$ZSH" ]]; then
         export ZSH="$(-antigen-get-clone-dir "$ANTIGEN_DEFAULT_REPO_URL")"
     fi
     antigen-bundle --loc=lib
 }
 
-antigen-prezto-lib () {
+-antigen-use-prezto () {
     antigen-bundle sorin-ionescu/prezto
     export ZDOTDIR=$ADOTDIR/repos/
 }
+
+# For backwards compatibility.
+antigen-lib () { -antigen-use-oh-my-zsh }
+antigen-prezto-lib () { -antigen-use-prezto }
 
 antigen-theme () {
 
