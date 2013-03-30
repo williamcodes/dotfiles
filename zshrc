@@ -1,11 +1,10 @@
 
 source $HOME/.zsh/antigen.zsh
-antigen-prezto-lib
-antigen-lib
+antigen-use prezto
 
 # Download/install bundles
-# antigen-bundle git
-antigen-bundle https://github.com/sorin-ionescu/prezto.git modules/git
+antigen-bundle git
+# antigen-bundle https://github.com/sorin-ionescu/prezto.git modules/git
 antigen-bundle ruby
 antigen-bundle command-not-found
 
@@ -45,6 +44,8 @@ export PATH="$ZSH/bin:$PATH"
 
 export PATH="$HOME/tools/android-sdk-linux/tools:$PATH"
 export PATH="$HOME/tools/android-sdk-linux/platform-tools:$PATH"
+
+export PATH="/usr/lib/postgresql/9.2/bin:$PATH"
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 
