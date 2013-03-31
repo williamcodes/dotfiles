@@ -15,44 +15,48 @@ Bundle 'kana/vim-textobj-line'
 Bundle 'kana/vim-textobj-entire'
 Bundle 'kana/vim-textobj-indent'
 Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'terryma/vim-expand-region'
 
-" original repos on github
-Bundle 'Lokaltog/vim-easymotion'
+" plugins
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails.git'
-Bundle 'tpope/vim-haml.git'
-Bundle 'tpope/vim-surround.git'
 Bundle 'tomtom/tcomment_vim.git'
-" Bundle 'flazz/vim-colorschemes'
-" Bundle 'altercation/vim-colors-solarized'
-Bundle 'vim-ruby/vim-ruby'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'skalnik/vim-vroom'
 Bundle 'vim-scripts/bufkill.vim'
 Bundle 'scrooloose/nerdtree.git'
-" Bundle 'skammer/vim-css-color'
-Bundle 'tpope/vim-endwise'
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'godlygeek/tabular'
+Bundle 'thedeeno/vim-gitgutter'
+
+" syntax
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-haml.git'
+" Bundle 'skammer/vim-css-color'
 
 " training
 Bundle 'kbarrette/mediummode'
 
-Bundle 'thedeeno/vim-gitgutter'
-
 " motions
 Bundle 'goldfeld/vim-seek'
-" Bundle 'terryma/vim-expand-region'
+Bundle 'Lokaltog/vim-easymotion'
 
+"  manipulators
 Bundle 'AndrewRadev/switch.vim'
 Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'AndrewRadev/sideways.vim'
+Bundle 'godlygeek/tabular'
+Bundle 'tpope/vim-surround.git'
+
+" auto manipulators
+Bundle 'tpope/vim-endwise'
 
 " themes
 Bundle 'thedeeno/molokai'
+" Bundle 'flazz/vim-colorschemes'
+" Bundle 'altercation/vim-colors-solarized'
 
 
 " vim-scripts repos
