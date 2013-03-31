@@ -48,6 +48,8 @@ Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'AndrewRadev/sideways.vim'
 Bundle 'thedeeno/molokai'
 
+Bundle 'terryma/vim-expand-region'
+
 " vim-scripts repos
 
 " non github repos
