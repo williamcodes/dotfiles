@@ -234,9 +234,6 @@ set ttimeoutlen=50
 nnoremap g6 ^
 nnoremap g4 $
 
-nnoremap J }
-nnoremap K {
-
 nnoremap <C-F> :%s/
 
 " alias leader in normal mode
@@ -473,7 +470,7 @@ nnoremap gJ              :wincmd J<cr>
 au BufRead,BufNewFile *.hamlc set ft=haml
 
 " Show syntax highlighting groups for word under cursor
-nmap <C-y> :call <SID>SynStack()<CR>
+" nmap <C-y> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
   if !exists("*synstack")
     return
@@ -665,3 +662,29 @@ nnoremap <Leader>gD :call CloseDiff()<cr>
 " ---------------------------------------------------------------------------
 nnoremap <C-l> :SidewaysRight<CR>
 nnoremap <C-h> :SidewaysLeft<CR>
+
+" ---------------------------------------------------------------------------
+" Smooth Srolling
+" ---------------------------------------------------------------------------
+function! SmoothScroll(up)
+    if a:up
+        let scrollaction=""
+        " let scrollaction="k"
+    else
+        let scrollaction=""
+        " let scrollaction="j"
+    endif
+    exec "normal " . scrollaction
+    redraw
+    let counter=1
+    while counter<&scroll
+        let counter+=1
+        sleep 6m
+        redraw
+        exec "normal " . scrollaction
+        " exec "normal zz"
+    endwhile
+endfunction
+
+nnoremap K :call SmoothScroll(1)<Enter>
+nnoremap J :call SmoothScroll(0)<Enter>
