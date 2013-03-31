@@ -36,10 +36,11 @@ Bundle 'scrooloose/nerdtree.git'
 Bundle 'tpope/vim-endwise'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'wikitopian/hardmode'
 Bundle 'godlygeek/tabular'
 
-" Bundle 'thedeeno/vim-matchit'
+" training
+Bundle 'kbarrette/mediummode'
+
 Bundle 'thedeeno/vim-gitgutter'
 " Bundle 'vim-scripts/align'
 Bundle 'goldfeld/vim-seek'
