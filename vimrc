@@ -42,14 +42,18 @@ Bundle 'godlygeek/tabular'
 Bundle 'kbarrette/mediummode'
 
 Bundle 'thedeeno/vim-gitgutter'
-" Bundle 'vim-scripts/align'
+
+" motions
 Bundle 'goldfeld/vim-seek'
+" Bundle 'terryma/vim-expand-region'
+
 Bundle 'AndrewRadev/switch.vim'
 Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'AndrewRadev/sideways.vim'
+
+" themes
 Bundle 'thedeeno/molokai'
 
-Bundle 'terryma/vim-expand-region'
 
 " vim-scripts repos
 
