@@ -1,15 +1,15 @@
-
 source $HOME/.zsh/antigen.zsh
+antigen-lib
 antigen-use prezto
 
 # Download/install bundles
-antigen-bundle git
-# antigen-bundle https://github.com/sorin-ionescu/prezto.git modules/git
+# antigen-bundle git
+antigen-bundle https://github.com/sorin-ionescu/prezto.git modules/git
 antigen-bundle ruby
 antigen-bundle command-not-found
 
 # Load the theme.
-antigen-theme "pygmalion"
+antigen-theme pygmalion
 
 # Tell antigen we're done.
 antigen-apply
