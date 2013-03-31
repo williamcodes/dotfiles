@@ -238,8 +238,8 @@ nnoremap <C-F> :%s/
 let mapleader=","
 
 " The Smash Escape - also without cursor movement
-inoremap jk <Esc>`^
-inoremap kj <Esc>`^
+inoremap jk <Esc>`^:w<CR>
+inoremap kj <Esc>`^:w<CR>
 
 " using back tick to drop a terminal down, map a way to type it
 noremap ~~ `
