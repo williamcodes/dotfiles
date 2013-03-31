@@ -9,6 +9,12 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " My Bundles here
+" text objects
+Bundle 'kana/vim-textobj-user'
+Bundle 'kana/vim-textobj-line'
+Bundle 'kana/vim-textobj-entire'
+Bundle 'kana/vim-textobj-indent'
+Bundle 'nelstrom/vim-textobj-rubyblock'
 
 " original repos on github
 Bundle 'Lokaltog/vim-easymotion'
@@ -34,8 +40,6 @@ Bundle 'wikitopian/hardmode'
 Bundle 'godlygeek/tabular'
 
 " Bundle 'thedeeno/vim-matchit'
-Bundle 'kana/vim-textobj-user'
-Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'thedeeno/vim-gitgutter'
 " Bundle 'vim-scripts/align'
 Bundle 'goldfeld/vim-seek'
