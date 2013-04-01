@@ -9,40 +9,56 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " My Bundles here
+" text objects
+Bundle 'kana/vim-textobj-user'
+Bundle 'kana/vim-textobj-line'
+Bundle 'kana/vim-textobj-entire'
+Bundle 'kana/vim-textobj-indent'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'terryma/vim-expand-region'
 
-" original repos on github
-Bundle 'Lokaltog/vim-easymotion'
+" plugins
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails.git'
-Bundle 'tpope/vim-haml.git'
-Bundle 'tpope/vim-surround.git'
 Bundle 'tomtom/tcomment_vim.git'
-" Bundle 'flazz/vim-colorschemes'
-" Bundle 'altercation/vim-colors-solarized'
-Bundle 'vim-ruby/vim-ruby'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'skalnik/vim-vroom'
 Bundle 'vim-scripts/bufkill.vim'
 Bundle 'scrooloose/nerdtree.git'
-" Bundle 'skammer/vim-css-color'
-Bundle 'tpope/vim-endwise'
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'wikitopian/hardmode'
-Bundle 'godlygeek/tabular'
-
-" Bundle 'thedeeno/vim-matchit'
-Bundle 'kana/vim-textobj-user'
-Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'thedeeno/vim-gitgutter'
-" Bundle 'vim-scripts/align'
+Bundle 'rking/ag.vim'
+
+" syntax
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-haml.git'
+" Bundle 'skammer/vim-css-color'
+
+" training
+Bundle 'kbarrette/mediummode'
+
+" motions
 Bundle 'goldfeld/vim-seek'
+Bundle 'Lokaltog/vim-easymotion'
+
+"  manipulators
 Bundle 'AndrewRadev/switch.vim'
 Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'AndrewRadev/sideways.vim'
+Bundle 'godlygeek/tabular'
+Bundle 'tpope/vim-surround.git'
+
+" auto manipulators
+Bundle 'tpope/vim-endwise'
+
+" themes
 Bundle 'thedeeno/molokai'
+" Bundle 'flazz/vim-colorschemes'
+" Bundle 'altercation/vim-colors-solarized'
+
 
 " vim-scripts repos
 
@@ -137,6 +153,9 @@ set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
 " Disable temp and backup files
 set wildignore+=*.swp,*~,._*
 
+" Ignore tmp dir
+set wildignore+=*/tmp/*,*/servers/*
+
 " ----------------------------------------------------------------------------
 " File Types
 " ----------------------------------------------------------------------------
@@ -215,7 +234,7 @@ endif
 set ttimeoutlen=50
 
 " ----------------------------------------------------------------------------
-"  Remapping
+"  Mappings
 " ----------------------------------------------------------------------------
 " easy switch to last buffer
 " nnoremap <leader><leader> <c-^>
@@ -223,17 +242,14 @@ set ttimeoutlen=50
 nnoremap g6 ^
 nnoremap g4 $
 
-nnoremap J }
-nnoremap K {
-
 nnoremap <C-F> :%s/
 
 " alias leader in normal mode
 let mapleader=","
 
 " The Smash Escape - also without cursor movement
-inoremap jk <Esc>`^
-inoremap kj <Esc>`^
+inoremap jk <Esc>`^:w<CR>
+inoremap kj <Esc>`^:w<CR>
 
 " using back tick to drop a terminal down, map a way to type it
 noremap ~~ `
@@ -460,7 +476,7 @@ nnoremap gJ              :wincmd J<cr>
 au BufRead,BufNewFile *.hamlc set ft=haml
 
 " Show syntax highlighting groups for word under cursor
-nmap <C-y> :call <SID>SynStack()<CR>
+" nmap <C-y> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
   if !exists("*synstack")
     return
@@ -531,6 +547,8 @@ let g:syntastic_mode_map = { 'mode': 'active',
 let g:vroom_map_keys = 0
 let g:vroom_cucumber_path = "zeus cucumber"
 let g:vroom_use_bundle_exec = 0
+let g:vroom_spec_command = "zeus rspec"
+
 map <Leader>t :VroomRunTestFile<CR>
 " focus
 map <Leader>f :VroomRunNearestTest<CR>
@@ -568,7 +586,7 @@ let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 " scrolling at edges
 " ----------------------------------------------------------------------------
 set scrolloff=8      " Number of lines from vertical edge to start scrolling
-set sidescrolloff=15 " Number of cols from horizontal edge to start scrolling
+" set sidescrolloff=15 " Number of cols from horizontal edge to start scrolling
 set sidescroll=1     " Number of cols to scroll at a time
 
 " ----------------------------------------------------------------------------
@@ -613,8 +631,8 @@ let g:switch_custom_definitions =
 " ---------------------------------------------------------------------------
 " SplitJoin
 " ---------------------------------------------------------------------------
-let g:splitjoin_split_mapping = 'zj'
-let g:splitjoin_join_mapping = 'zk'
+let g:splitjoin_split_mapping = '<leader>j'
+let g:splitjoin_join_mapping = '<leader>k'
 
 " ---------------------------------------------------------------------------
 " Helpers
@@ -644,3 +662,35 @@ function! CloseDiff()
   endif
 endfunction
 nnoremap <Leader>gD :call CloseDiff()<cr>
+
+" ---------------------------------------------------------------------------
+" Sideways mappings
+" ---------------------------------------------------------------------------
+nnoremap <C-l> :SidewaysRight<CR>
+nnoremap <C-h> :SidewaysLeft<CR>
+
+" ---------------------------------------------------------------------------
+" Smooth Srolling
+" ---------------------------------------------------------------------------
+function! SmoothScroll(up)
+    if a:up
+        let scrollaction=""
+        " let scrollaction="k"
+    else
+        let scrollaction=""
+        " let scrollaction="j"
+    endif
+    exec "normal " . scrollaction
+    redraw
+    let counter=1
+    while counter<&scroll
+        let counter+=1
+        sleep 6m
+        redraw
+        exec "normal " . scrollaction
+        " exec "normal zz"
+    endwhile
+endfunction
+
+nnoremap K :call SmoothScroll(1)<Enter>
+nnoremap J :call SmoothScroll(0)<Enter>

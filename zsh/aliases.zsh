@@ -1,5 +1,5 @@
 alias reload!='. ~/.zshrc'
-alias g='gvim'
+alias e='vim'
 
 # vagrant
 alias vs="vagrant status"
@@ -19,33 +19,33 @@ alias la='ls -A --color'
 alias l='ls -CF --color'
 alias ls='ls --color -l'
 
-# ruby
-alias r='rvm use 1.9.3-head'
-alias f='RAILS_ENV=fi'
+# rails
 alias sc='script/console'
 alias sg='script/generate'
 alias sd='script/destroy'
-alias migrate='rake db:migrate db:test:clone'
+alias rdbm='zeus rake db:migrate:all'
+alias rdbr='zeus rake db:rollback'
+alias rg='zeus g '
 
 
 # git
-alias gl='git pull --prune'
-alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
-alias gp='git push'
-alias gd='git diff'
-alias gc='git commit'
-alias gca='git commit -a'
-alias gco='git checkout'
-alias gb='git branch'
-alias gs='git status -sb'
-alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
+# alias gl='git pull --prune'
+# alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+# alias gp='git push'
+# alias gd='git diff'
+# alias gc='git commit'
+# alias gca='git commit -a'
+# alias gco='git checkout'
+# alias gb='git branch'
+# alias gs='git status -sb'
+# alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 
 # knife
 alias kcu='knife cookbook upload'
 alias krff='knife role from file' 
 
 # shortcut to add aliases
-alias 'zea'='gvim ~/.dotfiles/zsh/aliases.zsh'
+alias 'zea'='$EDITOR ~/.zsh/aliases.zsh'
 
 # todo.sh: https://github.com/ginatrapani/todo.txt-cli
 function t() { 
