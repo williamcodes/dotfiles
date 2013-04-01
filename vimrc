@@ -29,6 +29,7 @@ Bundle 'vim-scripts/bufkill.vim'
 Bundle 'scrooloose/nerdtree.git'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'thedeeno/vim-gitgutter'
+Bundle 'rking/ag.vim'
 
 " syntax
 Bundle 'kchmck/vim-coffee-script'
@@ -151,6 +152,9 @@ set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
 
 " Disable temp and backup files
 set wildignore+=*.swp,*~,._*
+
+" Ignore tmp dir
+set wildignore+=*/tmp/*,*/servers/*
 
 " ----------------------------------------------------------------------------
 " File Types
@@ -629,8 +633,8 @@ let g:switch_custom_definitions =
 " ---------------------------------------------------------------------------
 " SplitJoin
 " ---------------------------------------------------------------------------
-let g:splitjoin_split_mapping = 'zj'
-let g:splitjoin_join_mapping = 'zk'
+let g:splitjoin_split_mapping = '<leader>j'
+let g:splitjoin_join_mapping = '<leader>k'
 
 " ---------------------------------------------------------------------------
 " Helpers
