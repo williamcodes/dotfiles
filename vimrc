@@ -283,7 +283,7 @@ nmap <leader>q :q<CR>
 nmap <leader>n :NERDTreeToggle<CR>
 
 " overide built in ack mapping
-map <C-f> :Ack<space>
+map <C-f> :Ag<space>
 
 " ctrl-P
 nnoremap <silent> gu :CtrlPBuffer<CR>
