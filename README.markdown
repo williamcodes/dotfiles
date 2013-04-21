@@ -75,6 +75,29 @@ https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
   ./install.sh
   ```
 
+### Setup Pry
+  
+  Install gems (or add to a project's gemfile):
+
+  ```sh
+  gem install pry pry-doc pry-debugger pry-stack_explorer awesome_print 
+  gem install rails-env-switcher rspec-console cucumber-console commands
+  ```
+
+```ruby
+group :development, :test do
+  gem 'pry'
+  gem 'pry-doc'
+  gem 'pry-debugger'
+  gem 'pry-stack_explorer'
+  gem 'awesome_print'
+  gem 'rails-env-switcher'
+  gem 'rspec-console'
+  gem 'cucumber-console'
+  gem 'commands'
+end
+```
+
 ### Install Zsh
 
   ```sh
