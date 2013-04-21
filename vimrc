@@ -16,6 +16,7 @@ Bundle 'kana/vim-textobj-entire'
 Bundle 'kana/vim-textobj-indent'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'terryma/vim-expand-region'
+Bundle 'camelcasemotion'
 
 " plugins
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
