@@ -28,7 +28,7 @@ Bundle 'skalnik/vim-vroom'
 Bundle 'vim-scripts/bufkill.vim'
 Bundle 'scrooloose/nerdtree.git'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'thedeeno/vim-gitgutter'
+Bundle 'airblade/vim-gitgutter'
 Bundle 'rking/ag.vim'
 
 " syntax
