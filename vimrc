@@ -236,6 +236,9 @@ set ttimeoutlen=50
 " ----------------------------------------------------------------------------
 "  Mappings
 " ----------------------------------------------------------------------------
+" file name form command line
+cnoremap <leader>fn <C-R>=expand("%")<CR>
+
 " easy switch to last buffer
 " nnoremap <leader><leader> <c-^>
 " let mapleader = 'g'
