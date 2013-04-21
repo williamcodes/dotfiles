@@ -251,9 +251,7 @@ let mapleader=","
 inoremap jk <Esc>`^:w<CR>
 inoremap kj <Esc>`^:w<CR>
 
-" using back tick to drop a terminal down, map a way to type it
-noremap ~~ `
-inoremap ~~ `
+nnoremap <leader>p "+p
 
 " CR escape
 " inoremap <CR> <ESC>`^
