@@ -328,7 +328,8 @@ map <A-j> :cnext<CR>
 map <A-k> :cprevious<CR>
 
 " remap ga to vim-rails alternate file command
-nmap <leader>a gl:q<CR>gh:A<CR>
+nmap <leader>a :A<CR>
+nmap <leader>A gl:q<CR>gh:A<CR>
 nmap <leader>ra :A<CR>
 " nmap gr :R<CR>
 
