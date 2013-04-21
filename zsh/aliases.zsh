@@ -26,6 +26,7 @@ alias sd='script/destroy'
 alias rdbm='zeus rake db:migrate:all'
 alias rdbr='zeus rake db:rollback'
 alias rg='zeus g '
+alias z='zeus start'
 
 
 # git
