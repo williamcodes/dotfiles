@@ -15,11 +15,9 @@ antigen-theme pygmalion
 antigen-apply
 
 # Source customizations
-ZDOTDIR=$HOME/.zsh
-
-for file in $ZDOTDIR/**/*.zsh; do
+for file in $HOME/.zsh/**/*.zsh; do
   # don't load antigen twice (maybe it should be somewhere else)
-  if [ "$file" = "$ZDOTDIR/antigen.zsh" ] ; then
+  if [ "$file" = "$HOME/.zsh/antigen.zsh" ] ; then
     continue
   fi
 
@@ -54,6 +52,7 @@ eval "$(rbenv init -)"
 # use dvorak as the basis for spell checking
 # setopt DVORAK
 
+ZDOTDIR=$HOME
 export EDITOR='vim'
 
 unsetopt correct_all
