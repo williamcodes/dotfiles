@@ -20,16 +20,23 @@ Bundle 'camelcasemotion'
 
 " plugins
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails.git'
 Bundle 'tomtom/tcomment_vim.git'
 Bundle 'kien/ctrlp.vim'
-Bundle 'mileszs/ack.vim'
-Bundle 'skalnik/vim-vroom'
 Bundle 'vim-scripts/bufkill.vim'
 Bundle 'scrooloose/nerdtree.git'
 Bundle 'Valloric/YouCompleteMe'
+
+" integration
+"   git
+Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
+"   testing
+Bundle 'skalnik/vim-vroom'
+"   screen + tmux
+Bundle 'ervandew/screen'
+"   search
+Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
 
 " syntax
@@ -699,3 +706,16 @@ endfunction
 
 nnoremap K :call SmoothScroll(1)<Enter>
 nnoremap J :call SmoothScroll(0)<Enter>
+
+" ---------------------------------------------------------------------------
+" Screen Settings
+" ---------------------------------------------------------------------------
+let g:ScreenImpl = 'Tmux'
+let g:ScreenShellTmuxInitArgs = '-2'
+let g:ScreenShellInitialFocus = 'shell'
+let g:ScreenShellQuitOnVimExit = 0
+map <F10> :ScreenShellVertical<CR>
+command -nargs=? -complete=shellcmd W  :w | :call ScreenShellSend("load '".@%."';")
+map <Leader>rf :w<CR> :call ScreenShellSend("rspec ".@% . ':' . line('.'))<CR>
+map <Leader>ef :w<CR> :call ScreenShellSend("cucumber --format=pretty ".@% . ':' . line('.'))<CR>
+map <Leader>b :w<CR> :call ScreenShellSend("break ".@% . ':' . line('.'))<CR>
