@@ -557,9 +557,9 @@ let g:syntastic_mode_map = { 'mode': 'active',
 " Vroom config
 " ---------------------------------------------------------------------------
 let g:vroom_map_keys = 0
-let g:vroom_cucumber_path = "zeus cucumber"
+let g:vroom_cucumber_path = "cucumber"
 let g:vroom_use_bundle_exec = 0
-let g:vroom_spec_command = "zeus rspec"
+let g:vroom_spec_command = "rspec"
 
 map <Leader>t :VroomRunTestFile<CR>
 " focus
