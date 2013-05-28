@@ -719,3 +719,9 @@ command -nargs=? -complete=shellcmd W  :w | :call ScreenShellSend("load '".@%."'
 map <Leader>rf :w<CR> :call ScreenShellSend("rspec ".@% . ':' . line('.'))<CR>
 map <Leader>ef :w<CR> :call ScreenShellSend("cucumber --format=pretty ".@% . ':' . line('.'))<CR>
 map <Leader>b :w<CR> :call ScreenShellSend("break ".@% . ':' . line('.'))<CR>
+
+" ---------------------------------------------------------------------------
+" Misc
+" ---------------------------------------------------------------------------
+" diable medium mode by defualt
+let g:mediummode_enabled=0
