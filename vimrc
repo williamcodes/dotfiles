@@ -161,8 +161,8 @@ set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
 " Disable temp and backup files
 set wildignore+=*.swp,*~,._*
 
-" Ignore tmp dir
-set wildignore+=*/tmp/*,*/servers/*
+" Ignore tmp dirs
+set wildignore+=*/tmp/*,*/servers/*,*/log/*
 
 " ----------------------------------------------------------------------------
 " File Types
