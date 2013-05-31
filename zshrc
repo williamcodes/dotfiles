@@ -1,58 +1,28 @@
-source $HOME/.zsh/antigen.zsh
-antigen-lib
-antigen-use prezto
 
-# Download/install bundles
-# antigen-bundle git
-antigen-bundle https://github.com/sorin-ionescu/prezto.git modules/git
-antigen-bundle ruby
-antigen-bundle command-not-found
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
-# Load the theme.
-antigen-theme pygmalion
-
-# Tell antigen we're done.
-antigen-apply
+# Customize to your needs...
 
 # Source customizations
 for file in $HOME/.zsh/**/*.zsh; do
-  # don't load antigen twice (maybe it should be somewhere else)
-  if [ "$file" = "$HOME/.zsh/antigen.zsh" ] ; then
-    continue
-  fi
-
   if [ -f "$file" ] ; then
     source "$file"
   fi
 done
 
 # Customizations
-PROMPT='%(1j.%j.)%{$reset_color%}%{$fg[red]%}:%{$reset_color%}%{$fg[cyan]%}%0~%{$reset_color%}%{$fg[red]%}|%{$reset_color%}$(git_prompt_info)%{$fg[cyan]%}⇒%{$reset_color%}  '
+zstyle ':prezto:module:prompt' theme 'sorin'
+# zstyle ':prezto:module:terminal' auto-title 'no'
 
-# LSCOLORS (see http://geoff.greer.fm/lscolors/)
-# BSD
-export LSCOLORS="gxfxdxdxcxegedabagacad"
-export LS_COLORS="di=36;40:ln=35;40:so=33;40:pi=33;40:ex=32;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:"
+autoload -U colors && colors
 
-# PATH
-export PATH="$HOME/.scripts:$PATH"
-
-export PATH="$HOME/bin:$PATH"
-export PATH="$ZSH/bin:$PATH"
-
-export PATH="$HOME/tools/android-sdk-linux/tools:$PATH"
-export PATH="$HOME/tools/android-sdk-linux/platform-tools:$PATH"
-
-export PATH="/usr/lib/postgresql/9.2/bin:$PATH"
-
-export PATH="$HOME/.rbenv/bin:$PATH"
+# PROMPT='%(1j.%j.)%{$reset_color%}%{$fg[red]%}:%{$reset_color%}%{$fg[cyan]%}%0~%{$reset_color%}%{$fg[red]%}|%{$reset_color%}$(git_prompt_info)%{$fg[cyan]%}⇒%{$reset_color%}  '
 
 eval "$(rbenv init -)"
 
 # use dvorak as the basis for spell checking
 # setopt DVORAK
-
-ZDOTDIR=$HOME
-export EDITOR='vim'
-
 unsetopt correct_all
