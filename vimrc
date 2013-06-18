@@ -38,7 +38,7 @@ Bundle 'tpope/vim-haml.git'
 " Bundle 'skammer/vim-css-color'
 
 " training
-Bundle 'kbarrette/mediummode'
+" Bundle 'kbarrette/mediummode'
 
 " motions
 Bundle 'goldfeld/vim-seek'
