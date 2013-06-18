@@ -16,19 +16,27 @@ Bundle 'kana/vim-textobj-user'
 " Bundle 'kana/vim-textobj-indent'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'terryma/vim-expand-region'
+Bundle 'camelcasemotion'
 
 " plugins
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails.git'
 Bundle 'tomtom/tcomment_vim.git'
 Bundle 'kien/ctrlp.vim'
-Bundle 'mileszs/ack.vim'
-Bundle 'skalnik/vim-vroom'
 Bundle 'vim-scripts/bufkill.vim'
 Bundle 'scrooloose/nerdtree.git'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'thedeeno/vim-gitgutter'
+
+" integration
+"   git
+Bundle 'tpope/vim-fugitive'
+Bundle 'airblade/vim-gitgutter'
+"   testing
+Bundle 'skalnik/vim-vroom'
+"   screen + tmux
+Bundle 'ervandew/screen'
+"   search
+Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
 
 " syntax
@@ -153,8 +161,8 @@ set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
 " Disable temp and backup files
 set wildignore+=*.swp,*~,._*
 
-" Ignore tmp dir
-set wildignore+=*/tmp/*,*/servers/*
+" Ignore tmp dirs
+set wildignore+=*/tmp/*,*/servers/*,*/log/*
 
 " ----------------------------------------------------------------------------
 " File Types
@@ -236,6 +244,9 @@ set ttimeoutlen=50
 " ----------------------------------------------------------------------------
 "  Mappings
 " ----------------------------------------------------------------------------
+" file name form command line
+cnoremap <leader>fn <C-R>=expand("%")<CR>
+
 " easy switch to last buffer
 " nnoremap <leader><leader> <c-^>
 " let mapleader = 'g'
@@ -251,9 +262,7 @@ let mapleader=","
 inoremap jk <Esc>`^:w<CR>
 inoremap kj <Esc>`^:w<CR>
 
-" using back tick to drop a terminal down, map a way to type it
-noremap ~~ `
-inoremap ~~ `
+nnoremap <leader>p "+p
 
 " CR escape
 " imap <expr> <CR> col('.') == col('$') ? '<CR><Plug>DiscretionaryEnd' : '<Esc>`^'
@@ -281,7 +290,7 @@ nmap <leader>q :q<CR>
 nmap <leader>n :NERDTreeToggle<CR>
 
 " overide built in ack mapping
-map <C-f> :Ack<space>
+map <C-f> :Ag<space>
 
 " ctrl-P
 nnoremap <silent> gu :CtrlPBuffer<CR>
@@ -326,7 +335,8 @@ map <A-j> :cnext<CR>
 map <A-k> :cprevious<CR>
 
 " remap ga to vim-rails alternate file command
-nmap <leader>a gl:q<CR>gh:A<CR>
+nmap <leader>a :A<CR>
+nmap <leader>A gl:q<CR>gh:A<CR>
 nmap <leader>ra :A<CR>
 " nmap gr :R<CR>
 
@@ -545,9 +555,9 @@ let g:syntastic_mode_map = { 'mode': 'active',
 " Vroom config
 " ---------------------------------------------------------------------------
 let g:vroom_map_keys = 0
-let g:vroom_cucumber_path = "zeus cucumber"
+let g:vroom_cucumber_path = "cucumber"
 let g:vroom_use_bundle_exec = 0
-let g:vroom_spec_command = "zeus rspec"
+let g:vroom_spec_command = "rspec"
 
 map <Leader>t :VroomRunTestFile<CR>
 " focus
@@ -586,7 +596,7 @@ let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 " scrolling at edges
 " ----------------------------------------------------------------------------
 set scrolloff=8      " Number of lines from vertical edge to start scrolling
-" set sidescrolloff=15 " Number of cols from horizontal edge to start scrolling
+set sidescrolloff=15 " Number of cols from horizontal edge to start scrolling
 set sidescroll=1     " Number of cols to scroll at a time
 
 " ----------------------------------------------------------------------------
@@ -672,25 +682,39 @@ nnoremap <C-h> :SidewaysLeft<CR>
 " ---------------------------------------------------------------------------
 " Smooth Srolling
 " ---------------------------------------------------------------------------
-" function! <SID>SmoothScroll(up)
-"     if a:up
-"         let scrollaction=""
-"         " let scrollaction="k"
-"     else
-"         let scrollaction=""
-"         " let scrollaction="j"
-"     endif
-"     exec "normal " . scrollaction
-"     redraw
-"     let counter=1
-"     while counter<&scroll
-"         let counter+=1
-"         sleep 6m
-"         redraw
-"         exec "normal " . scrollaction
-"         " exec "normal zz"
-"     endwhile
-" endfunction
+function! SmoothScroll(up)
+    if a:up
+        " let scrollaction="3"
+        let scrollaction="4k"
+    else
+        " let scrollaction="3"
+        let scrollaction="4j"
+    endif
+    exec "normal " . scrollaction
+    redraw
+    let counter=1
+    while counter<&scroll/4
+        let counter+=1
+        sleep 6m
+        redraw
+        exec "normal " . scrollaction
+        exec "normal zz"
+    endwhile
+endfunction
+
+nnoremap K :call SmoothScroll(1)<Enter>
+nnoremap J :call SmoothScroll(0)<Enter>
+
+" ---------------------------------------------------------------------------
+" Screen Settings
+" ---------------------------------------------------------------------------
+" let g:ScreenImpl = 'Tmux'
+" let g:ScreenShellTmuxInitArgs = '-2'
+" let g:ScreenShellInitialFocus = 'shell'
+" let g:ScreenShellQuitOnVimExit = 0
+" map <F10> :ScreenShellVertical<CR>
+" command -nargs=? -complete=shellcmd W  :w | :call ScreenShellSend("load '".@%."';")
+" map <Leader>rf :w<CR> :call ScreenShellSend("rspec ".@% . ':' . line('.'))<CR>
+" map <Leader>ef :w<CR> :call ScreenShellSend("cucumber --format=pretty ".@% . ':' . line('.'))<CR>
+" map <Leader>b :w<CR> :call ScreenShellSend("break ".@% . ':' . line('.'))<CR>
 " 
-" nnoremap K :call <SID>SmoothScroll(1)<Enter>
-" nnoremap J :call <SID>SmoothScroll(0)<Enter>
