@@ -11,9 +11,9 @@ Bundle 'gmarik/vundle'
 " My Bundles here
 " text objects
 Bundle 'kana/vim-textobj-user'
-Bundle 'kana/vim-textobj-line'
-Bundle 'kana/vim-textobj-entire'
-Bundle 'kana/vim-textobj-indent'
+" Bundle 'kana/vim-textobj-line'
+" Bundle 'kana/vim-textobj-entire'
+" Bundle 'kana/vim-textobj-indent'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'terryma/vim-expand-region'
 
