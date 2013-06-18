@@ -672,25 +672,25 @@ nnoremap <C-h> :SidewaysLeft<CR>
 " ---------------------------------------------------------------------------
 " Smooth Srolling
 " ---------------------------------------------------------------------------
-function! SmoothScroll(up)
-    if a:up
-        let scrollaction=""
-        " let scrollaction="k"
-    else
-        let scrollaction=""
-        " let scrollaction="j"
-    endif
-    exec "normal " . scrollaction
-    redraw
-    let counter=1
-    while counter<&scroll
-        let counter+=1
-        sleep 6m
-        redraw
-        exec "normal " . scrollaction
-        " exec "normal zz"
-    endwhile
-endfunction
-
-nnoremap K :call SmoothScroll(1)<Enter>
-nnoremap J :call SmoothScroll(0)<Enter>
+" function! <SID>SmoothScroll(up)
+"     if a:up
+"         let scrollaction=""
+"         " let scrollaction="k"
+"     else
+"         let scrollaction=""
+"         " let scrollaction="j"
+"     endif
+"     exec "normal " . scrollaction
+"     redraw
+"     let counter=1
+"     while counter<&scroll
+"         let counter+=1
+"         sleep 6m
+"         redraw
+"         exec "normal " . scrollaction
+"         " exec "normal zz"
+"     endwhile
+" endfunction
+" 
+" nnoremap K :call <SID>SmoothScroll(1)<Enter>
+" nnoremap J :call <SID>SmoothScroll(0)<Enter>
