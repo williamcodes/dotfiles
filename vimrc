@@ -727,3 +727,17 @@ map <Leader>b :w<CR> :call ScreenShellSend("break ".@% . ':' . line('.'))<CR>
 " ---------------------------------------------------------------------------
 " diable medium mode by defualt
 let g:mediummode_enabled=0
+
+" ---------------------------------------------------------------------------
+" Substitute
+" ---------------------------------------------------------------------------
+
+" Substitute word under cursor globally
+nnoremap <leader>2 :%s/\<<C-r><C-w>\>//g<Left><Left>
+" ask for confirmation
+nnoremap <leader>3 :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
+ 
+" Substitute selection globally
+vnoremap <C-s> y<Esc>:%s/<C-r>"//g<Left><Left>
+" ask for confirmation
+vnoremap <A-s> y<Esc>:%s/<C-r>"//gc<Left><Left><Left>
