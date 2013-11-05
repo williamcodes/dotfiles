@@ -16,7 +16,7 @@ Bundle 'kana/vim-textobj-entire'
 Bundle 'kana/vim-textobj-indent'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'terryma/vim-expand-region'
-Bundle 'camelcasemotion'
+" Bundle 'camelcasemotion'
 
 " plugins
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -33,29 +33,30 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 "   testing
 Bundle 'skalnik/vim-vroom'
-"   screen + tmux
-Bundle 'ervandew/screen'
 "   search
 Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
+
+" folding
 
 " syntax
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-haml.git'
+Bundle 'groenewege/vim-less'
 " Bundle 'skammer/vim-css-color'
 
 " training
 Bundle 'kbarrette/mediummode'
 
 " motions
-Bundle 'goldfeld/vim-seek'
-Bundle 'Lokaltog/vim-easymotion'
+Bundle 'justinmk/vim-sneak'
+" Bundle 'Lokaltog/vim-easymotion'
 
 "  manipulators
 Bundle 'AndrewRadev/switch.vim'
 Bundle 'AndrewRadev/splitjoin.vim'
-Bundle 'AndrewRadev/sideways.vim'
+" Bundle 'AndrewRadev/sideways.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-surround.git'
 
@@ -143,6 +144,11 @@ set smartcase   " ... unless they contain at least one capital letter
 
 " Clear the search buffer when hitting return
 " nmap <cr> :nohlsearch<cr>
+
+" global
+"
+nnoremap z* *:Ag <C-r><C-w><CR>
+nnoremap z8 *:Ag <C-r><C-w><CR>
 
 " ----------------------------------------------------------------------------
 " Wild settings
@@ -246,8 +252,15 @@ set ttimeoutlen=50
 " ----------------------------------------------------------------------------
 "  Mappings
 " ----------------------------------------------------------------------------
+" alias leader in normal mode
+let mapleader=","
+
+" NERD Tree
+" nmap <leader>n :NERDTreeFind<CR>
+nnoremap <leader>n :NERDTreeFind<CR>
+
 " file name form command line
-cnoremap <leader>fn <C-R>=expand("%")<CR>
+cnoremap <leader>5 <C-R>=expand("%")<CR>
 
 " easy switch to last buffer
 " nnoremap <leader><leader> <c-^>
@@ -257,19 +270,17 @@ nnoremap g4 $
 
 nnoremap <C-F> :%s/
 
-" alias leader in normal mode
-let mapleader=","
 
 " The Smash Escape - also without cursor movement
-inoremap jk <Esc>`^:w<CR>
-inoremap kj <Esc>`^:w<CR>
+inoremap jk <Esc>
+inoremap kj <Esc>
 
 nnoremap <leader>p "+p
 
 " CR escape
 " inoremap <CR> <ESC>`^
-imap <expr> <CR> col('.') == col('$') ? '<CR><Plug>DiscretionaryEnd' : '<Esc>`^'
-inoremap <C-CR> <CR>
+" imap <expr> <CR> col('.') == col('$') ? '<CR><Plug>DiscretionaryEnd' : '<Esc>`^'
+" inoremap <C-CR> <CR>
 
 cnoremap <silent>jk <CR>
 cnoremap <silent>kj <CR>
@@ -281,7 +292,7 @@ nnoremap <C-K> maO<ESC>`a
 " search mappings
 nnoremap <silent> <leader>s /
 nnoremap <silent> <leader>S ?
-nnoremap <silent> <leader>8 g*
+nnoremap <silent> * g*
 nnoremap <silent> <leader>3 g#
 
 " select all
@@ -289,9 +300,6 @@ nmap <C-a> ggVG
 
 map <F8> "+p
 nmap <leader>q :q<CR>
-
-" nmap <leader>n :e.<CR>
-nmap <leader>n :NERDTreeToggle<CR>
 
 " overide built in ack mapping
 map <C-f> :Ag<space>
@@ -354,8 +362,6 @@ nnoremap <leader>R gD:%s/<C-R>///gc<left><left><left>}
 " nnoremap <silent> <leader>a :call argumentrewrap#RewrapArguments()<CR>
 
 " map ; to : to save shifts
-nnoremap ; :
-vnoremap ; :
 
 " write file easier
 nmap <leader>w :write<CR>
@@ -717,7 +723,7 @@ let g:ScreenShellTmuxInitArgs = '-2'
 let g:ScreenShellInitialFocus = 'shell'
 let g:ScreenShellQuitOnVimExit = 0
 map <F10> :ScreenShellVertical<CR>
-command -nargs=? -complete=shellcmd W  :w | :call ScreenShellSend("load '".@%."';")
+command! -nargs=? -complete=shellcmd W  :w | :call ScreenShellSend("load '".@%."';")
 map <Leader>rf :w<CR> :call ScreenShellSend("rspec ".@% . ':' . line('.'))<CR>
 map <Leader>ef :w<CR> :call ScreenShellSend("cucumber --format=pretty ".@% . ':' . line('.'))<CR>
 map <Leader>b :w<CR> :call ScreenShellSend("break ".@% . ':' . line('.'))<CR>
@@ -741,3 +747,19 @@ nnoremap <leader>3 :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
 vnoremap <C-s> y<Esc>:%s/<C-r>"//g<Left><Left>
 " ask for confirmation
 vnoremap <A-s> y<Esc>:%s/<C-r>"//gc<Left><Left><Left>
+
+" Folding
+" CSS
+" function! CSSFolds()
+"   let thisline = getline(v:lnum)
+"   if match(thisline, '^[a-zA-Z.#@*/]\+') >= 0
+"     return ">1"
+"   elseif match(thisline, '^\s*$')
+"     return '1'
+"   else
+"     return ">0"
+"   endif
+" endfunction
+" 
+" set foldmethod=expr
+" set foldexpr=CSSFolds()
