@@ -7,6 +7,22 @@ sudo apt-get install git-core git-gui gitg meld vim-gnome curl
 sudo apt-get install build-essential bison openssl libssl-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libmysqlclient-dev libxslt-dev libxml2-dev 
 ```
 
+#### Install Dotfiles
+
+    git clone git://github.com/thedeeno/dotfiles ~/code/dotfiles 
+    cd ~/code/dotfiles
+    rake install
+
+### Install Zsh
+
+  ```sh
+  sudo apt-get install zsh
+  zsh
+  # (optionally) set zsh as your default shell
+  chsh -s $(which zsh)
+  ```
+
+
 ### Install Ruby (and the environment manager)
 
 clone rbenv + ruby-build
@@ -24,13 +40,8 @@ install ruby prereqs
 
 install rubies
 
-    rbenv install 1.9.3-p327
+    rbenv install 2.0.0-p247
     rbenv rehash
-
-#### Install Dotfiles
-git clone git://github.com/thedeeno/dotfiles ~/code/dotfiles 
-cd ~/code/dotfiles
-rake install
 
 ### Build / Install vim from source (to use latest plugins)
 
@@ -97,22 +108,6 @@ group :development, :test do
   gem 'commands'
 end
 ```
-
-### Install Zsh
-
-  ```sh
-  sudo apt-get install zsh
-  zsh
-  # (optionally) set zsh as your default shell
-  chsh -s $(which zsh)
-  ```
-
-# Symlink ack (ubuntu) (optional)
-
-    sudo apt-get install ack-grep
-    sudo ln -s /usr/bin/ack-grep /usr/local/bin/ack
-
-`rake install` will symlink the appropriate files to your home directory. Everything is configured and tweaked within `dotfiles`.
 
 ### Install Solarized (theme)
 
