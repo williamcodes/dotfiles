@@ -25,11 +25,14 @@ Bundle 'tomtom/tcomment_vim.git'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree.git'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'bling/vim-airline'
 
-" integration
-"   git
+" integration - git
 Bundle 'tpope/vim-fugitive'
-" Bundle 'airblade/vim-gitgutter'
+Bundle 'mhinz/vim-signify'
+" integration - taskwarrior
+Bundle 'farseer90718/vim-taskwarrior'
+
 "   testing
 Bundle 'skalnik/vim-vroom'
 "   screen + tmux
@@ -122,16 +125,19 @@ set nocursorline
 " ----------------------------------------------------------------------------
 " Status Line
 " ----------------------------------------------------------------------------
-if has("statusline") && !&cp
-  set laststatus=2  " always show the status bar
-
-  " Start the status line
-  set statusline=%f\ %m\ %r
-  set statusline+=%{fugitive#statusline()}
-  set statusline+=\ Line:%l/%L[%p%%]
-  set statusline+=\ Col:%v
-  set statusline+=\ Buf:#%n
-endif
+set laststatus=2  " always show the status bar
+function! AirlineInit()
+  let g:airline_section_a = airline#sectionn#create(['mode',' ','branch'])
+endfunction
+" if has("statusline") && !&cp
+" 
+"   " Start the status line
+"   set statusline=%f\ %m\ %r
+"   set statusline+=%{fugitive#statusline()}
+"   set statusline+=\ Line:%l/%L[%p%%]
+"   set statusline+=\ Col:%v
+"   set statusline+=\ Buf:#%n
+" endif
 
 " ----------------------------------------------------------------------------
 " Search
