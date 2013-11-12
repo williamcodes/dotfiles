@@ -134,7 +134,6 @@ if has("statusline") && !&cp
   set statusline+=\ Buf:#%n
 endif
 
-
 " ----------------------------------------------------------------------------
 " Search
 " ----------------------------------------------------------------------------
@@ -143,9 +142,6 @@ set nohlsearch  " don't highlight matches
 set incsearch   " incremental searching
 set ignorecase  " searches are case insensitive...
 set smartcase   " ... unless they contain at least one capital letter
-
-" Clear the search buffer when hitting return
-" nmap <cr> :nohlsearch<cr>
 
 " ----------------------------------------------------------------------------
 " Ag for word under cursor
@@ -156,9 +152,6 @@ nnoremap z8 *:Ag <C-r><C-w><CR>
 " ----------------------------------------------------------------------------
 " Wild settings
 " ----------------------------------------------------------------------------
-
-" TODO: Investigate the precise meaning of these settings
-" set wildmode=list:longest,list:full
 
 " Disable output and VCS files
 set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
@@ -271,9 +264,6 @@ cnoremap <leader>5 <C-R>=expand("%")<CR>
 nnoremap g6 ^
 nnoremap g4 $
 
-nnoremap <C-F> :%s/
-
-
 " The Smash Escape - also without cursor movement
 inoremap jk <Esc>
 inoremap kj <Esc>
@@ -291,6 +281,7 @@ nnoremap <silent> <leader>S ?
 " select all
 nmap <C-a> ggVG
 
+" fast quit
 nmap <leader>q :q<CR>
 
 " overide built in ack mapping
@@ -306,21 +297,11 @@ nnoremap <silent> g. @:
 
 " fugative
 nnoremap gs :Gstatus<CR>
-nnoremap gl :Gstatus<CR>
 nnoremap gm :Gmove 
 
 " reflow paragraph with Q in normal and visual mode
 nnoremap Q gqap
 vnoremap Q gq
-
-" sane movement with wrap turned on
-" nnoremap j gj
-" nnoremap k gk
-" vnoremap j gj
-" vnoremap k gk
-
-" close buffer
-nnoremap <leader>dd :bd<CR>
 
 " quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
