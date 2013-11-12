@@ -332,12 +332,6 @@ vmap <Leader>i <C-c>:'<,'>Align
 " make Y consistent with C and D
 nnoremap Y y$
 
-" key mapping for vimgrep result navigation
-map <A-o> :copen<CR>
-map <A-q> :cclose<CR>
-map <A-j> :cnext<CR>
-map <A-k> :cprevious<CR>
-
 " remap ga to vim-rails alternate file command
 nmap <leader>a :A<CR>
 nmap <leader>A gl:q<CR>gh:A<CR>
