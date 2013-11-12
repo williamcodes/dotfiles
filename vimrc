@@ -16,7 +16,7 @@ Bundle 'kana/vim-textobj-user'
 " Bundle 'kana/vim-textobj-indent'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'terryma/vim-expand-region'
-Bundle 'camelcasemotion'
+" Bundle 'camelcasemotion'
 
 " plugins
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -30,13 +30,13 @@ Bundle 'Valloric/YouCompleteMe'
 " integration
 "   git
 Bundle 'tpope/vim-fugitive'
-Bundle 'airblade/vim-gitgutter'
+" Bundle 'airblade/vim-gitgutter'
 "   testing
 Bundle 'skalnik/vim-vroom'
 "   screen + tmux
-Bundle 'ervandew/screen'
+" Bundle 'ervandew/screen'
 "   search
-Bundle 'mileszs/ack.vim'
+" Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
 
 " syntax
@@ -55,7 +55,7 @@ Bundle 'Lokaltog/vim-easymotion'
 "  manipulators
 Bundle 'AndrewRadev/switch.vim'
 Bundle 'AndrewRadev/splitjoin.vim'
-Bundle 'AndrewRadev/sideways.vim'
+" Bundle 'AndrewRadev/sideways.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-surround.git'
 
@@ -95,7 +95,7 @@ let g:ruby_path = system('echo $HOME/.rbenv/shims')
 " Core
 " ---------------------------------------------------------------------------
 
-set relativenumber    " Show relative line numbers
+set number            " Show line numbers
 set ruler             " Show line and column number
 syntax enable         " Turn on syntax highlighting allowing local overrides
 set encoding=utf-8    " Set default encoding to UTF-8
@@ -259,8 +259,8 @@ nnoremap <C-F> :%s/
 let mapleader=","
 
 " The Smash Escape - also without cursor movement
-inoremap jk <Esc>`^:w<CR>
-inoremap kj <Esc>`^:w<CR>
+inoremap jk <Esc>
+inoremap kj <Esc>
 
 nnoremap <leader>p "+p
 
@@ -704,6 +704,13 @@ endfunction
 
 nnoremap K :call SmoothScroll(1)<Enter>
 nnoremap J :call SmoothScroll(0)<Enter>
+
+" ---------------------------------------------------------------------------
+" Git Gutter
+" ---------------------------------------------------------------------------
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
+let g:gitgutter_sign_column_always = 1
 
 " ---------------------------------------------------------------------------
 " Screen Settings
