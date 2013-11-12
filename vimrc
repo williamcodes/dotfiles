@@ -395,29 +395,6 @@ nnoremap g6 ^
 " inoremap ) 0
 "
 
-
-" ---------------------------------------------------------------------------
-" Operator-mappings
-" ---------------------------------------------------------------------------
-
-" dot
-" xnoremap <silent>.  f<SPACE>oT<SPACE>so
-" xnoremap <silent>i. f<SPACE>oF<SPACE>so
-" xnoremap <silent>a. t<SPACE>oT<SPACE>o
-" 
-" onoremap <silent>.  :<C-u>exec 'normal v' . v:count1 . '.'<CR>
-" onoremap <silent>a. :<C-u>exec 'normal v' . v:count1 . 'a<SPACE>'<CR>
-" onoremap <silent>i. :<C-u>exec 'normal v' . v:count1 . 'i<SPACE>'<CR>
-
-" space
-" xnoremap <silent>  f.oT.o
-" xnoremap <silent>a. f.oF.o
-" xnoremap <silent>i. t.oT.o
-" 
-" onoremap <silent>.  :<C-u>exec 'normal v' . v:count1 . '.'<CR>
-" onoremap <silent>a. :<C-u>exec 'normal v' . v:count1 . 'a.'<CR>
-" onoremap <silent>i. :<C-u>exec 'normal v' . v:count1 . 'i.'<CR>
-
 " ---------------------------------------------------------------------------
 " Whitespace 
 " ---------------------------------------------------------------------------
