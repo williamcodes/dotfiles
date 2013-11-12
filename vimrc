@@ -261,7 +261,7 @@ let mapleader=","
 nnoremap <leader>n :NERDTreeFind<CR>
 
 " file name form command line
-cnoremap <leader>5 <C-R>=expand("%")<CR>
+cnoremap <leader>f <C-R>=expand("%")<CR>
 
 " easy switch to last buffer
 " nnoremap <leader><leader> <c-^>
@@ -374,6 +374,14 @@ nnoremap g6 ^
 " inoremap ( 9
 " inoremap ) 0
 "
+
+" ----------------------------------------------------------------------------
+" Task Warrior
+" ----------------------------------------------------------------------------
+nnoremap <leader>33 :TW<CR>
+nnoremap <leader>3a :TW add 
+highlight default link taskwarrior_tablehead Title
+highlight default link taskwarrior_due Operator
 
 " ---------------------------------------------------------------------------
 " Whitespace 
