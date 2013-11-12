@@ -23,7 +23,6 @@ Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'tpope/vim-rails.git'
 Bundle 'tomtom/tcomment_vim.git'
 Bundle 'kien/ctrlp.vim'
-Bundle 'vim-scripts/bufkill.vim'
 Bundle 'scrooloose/nerdtree.git'
 Bundle 'Valloric/YouCompleteMe'
 
