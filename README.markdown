@@ -27,7 +27,7 @@
     # (optionally) set zsh as your default shell
     chsh -s $(which zsh)
 
-### Install the dotfiles
+### Install Dotfiles
 
     git clone git://github.com/thedeeno/dotfiles ~/code/dotfiles 
     cd ~/code/dotfiles
@@ -110,36 +110,25 @@ group :development, :test do
 end
 ```
 
-## Install Headless Browser (for testing)
-### phantomjs
+## Install Phantomjs from source (headless browser)
 
 The latest instructions are [here](http://code.google.com/p/phantomjs/wiki/BuildInstructions), but the following should probably work:
 
-```sh
-sudo apt-get install libqt4-dev libqtwebkit-dev qt4-qmake
-cd ~/code
-git clone git://github.com/ariya/phantomjs.git && cd phantomjs
-git checkout master # or whatever version you want
-qmake-qt4 && make
+    sudo apt-get install libqt4-dev libqtwebkit-dev qt4-qmake
+    cd ~/code
+    git clone git://github.com/ariya/phantomjs.git && cd phantomjs
+    git checkout master # or whatever version you want
+    qmake-qt4 && make
 
-## link it to your path
-ln -s ~/code/phantomjs/bin/phantomjs ~/bin/phantomjs
+    # link it to your path
+    ln -s ~/code/phantomjs/bin/phantomjs ~/bin/phantomjs
 
-## test
-phantomjs --version
-```
+    # test
+    phantomjs --version
 
 You're Done.
 
-## what's inside
-
-- Custom settings for Janus vim distribution
-- Custom settings for Oh-My-Zsh
-- Bash customizations
-- Some useful commandline tools
-- Many aliases
-
-## notes
+## Notes
 - `c` is an autocomplete shortcut for `~/code`. For example, 
   `c myp<tab>` will autocomplete to `~/code/myproject`.
 - `h` autocompletes your home directory.
@@ -147,7 +136,7 @@ You're Done.
   available to register.
 - `backup` is a quick hook into `rsync` to backup a selection of files.
 
-## ssh setup notes (only relevant for me)
+## Ssh setup notes (only relevant for me)
 
 After generating a new key pair on a new machine do the following to add
 it to servers:
@@ -166,7 +155,7 @@ it to servers:
   - change `/etc/ssh/sshd_config` `PasswordAuthenticate` to `no`
   - `sudo service ssh restart`
 
-## thanks
+## Thanks
 
 I forked [Zach Holeman's](http://github.com/holman) and later merged in 
 [Ryan Bate's](http://github.com/ryanb)' dotfiles. This repository is now
