@@ -36,9 +36,8 @@ Bundle 'mhinz/vim-signify'
 Bundle 'farseer90718/vim-taskwarrior'
 
 "   testing
-Bundle 'skalnik/vim-vroom'
 "   screen + tmux
-" Bundle 'ervandew/screen'
+Bundle 'ervandew/screen'
 "   search
 " Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
@@ -520,19 +519,6 @@ let g:syntastic_mode_map = { 'mode': 'active',
 " alphabetize a css file
 :command! SortCSSBraceContents :g#\({\n\)\@<=#.,/}/sort
 
-" ---------------------------------------------------------------------------
-" Vroom config
-" ---------------------------------------------------------------------------
-let g:vroom_map_keys = 0
-let g:vroom_cucumber_path = "cucumber"
-let g:vroom_use_bundle_exec = 0
-let g:vroom_spec_command = "rspec"
-
-map <Leader>t :VroomRunTestFile<CR>
-" focus
-map <Leader>f :VroomRunNearestTest<CR>
-map <F7> :VroomRunNearestTest<CR>
-
 " ----------------------------------------------------------------------------
 " auto commands
 " ----------------------------------------------------------------------------
@@ -726,3 +712,16 @@ vnoremap <A-s> y<Esc>:%s/<C-r>"//gc<Left><Left><Left>
 " 
 " set foldmethod=expr
 " set foldexpr=CSSFolds()
+"
+"
+" ---------------------------------------------------------------------------
+" Screen config
+" ---------------------------------------------------------------------------
+" command -nargs=? -complete=shellcmd W  :w | :call ScreenShellSend("load '".@%."';")
+map <Leader>c :ScreenShell pry<CR>
+map <Leader>f :w<CR> :call ScreenShellSend(".clear")<CR> :call ScreenShellSend("rspec ".@% . ':' . line('.'))<CR>
+map <Leader>t :w<CR> :call ScreenShellSend("rspec ".@%)<CR>
+map <Leader>e :w<CR> :call ScreenShellSend("cucumber --format=pretty ".@% . ':' . line('.'))<CR>
+map <Leader>b :w<CR> :call ScreenShellSend("break ".@% . ':' . line('.'))<CR>
+
+
