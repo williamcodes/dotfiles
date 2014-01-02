@@ -21,6 +21,7 @@ Bundle 'terryma/vim-expand-region'
 " plugins
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'tpope/vim-rails.git'
+Bundle 'tpope/vim-rake.git'
 Bundle 'tomtom/tcomment_vim.git'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree.git'
