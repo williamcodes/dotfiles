@@ -1,49 +1,54 @@
 # thedeeno's ~/
 
-### Install Common Packages
+### Install Packages
 
-```sh
-sudo apt-get install git-core git-gui gitg meld vim-gnome curl
-sudo apt-get install build-essential bison openssl libssl-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libmysqlclient-dev libxslt-dev libxml2-dev 
-```
+    sudo apt-get install \
+      curl               \
+      build-essential    \
+      bison              \
+      git-core           \
+      git-gui            \
+      gitg               \
+      libmysqlclient-dev \
+      libssl-dev         \
+      libsqlite3-0       \
+      libsqlite3-dev     \
+      libxml2-dev        \
+      libxslt-dev        \
+      meld               \
+      openssl            \
+      sqlite3            \
+      vim-gnome          \
 
-#### Install Dotfiles
+### Install Zsh
+
+    sudo apt-get install zsh
+    zsh
+    # (optionally) set zsh as your default shell
+    chsh -s $(which zsh)
+
+### Install the dotfiles
 
     git clone git://github.com/thedeeno/dotfiles ~/code/dotfiles 
     cd ~/code/dotfiles
     rake install
 
-### Install Zsh
+### Install Rubies
 
-  ```sh
-  sudo apt-get install zsh
-  zsh
-  # (optionally) set zsh as your default shell
-  chsh -s $(which zsh)
-  ```
-
-
-### Install Ruby (and the environment manager)
-
-clone rbenv + ruby-build
-
+    # clone rbenv and ruby-build
     git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
     git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 
-install ruby prereqs
-
-    # readline
+    # install readline
     sudo apt-get install libreadline-dev
-
-    # zlib
+    # install zlib
     sudo apt-get install libssl-dev zlib1g-dev
 
-install rubies
-
-    rbenv install 2.0.0-p247
+    # build rubies
+    rbenv install 2.0.0-p353
     rbenv rehash
 
-### Build / Install vim from source (to use latest plugins)
+### Install vim from source (to use latest plugins)
 
 https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
 
@@ -69,31 +74,27 @@ https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
 
        cp ~/code/vim/src/vim ~/bin/
 
-#### Install Vundle (vim plugin manager)
+### Install Vundle (vim plugin manager)
 
-  ```sh
-  git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
-  # from vim run
-  :BundleInstall
-  ```
+    # install dotfile's vim plugins by running in vim:
+    :BundleInstall
 
-#### Compile Plugins (downloaded with vundle)
+### Compile Plugins (downloaded with vundle)
   
-  ```sh
-  sudo apt-get install cmake python-dev
-  cd ~/.vim/bundle/YouCompleteMe
-  ./install.sh
-  ```
+```sh
+sudo apt-get install cmake python-dev
+cd ~/.vim/bundle/YouCompleteMe
+./install.sh
+```
 
 ### Setup Pry
   
-  Install gems (or add to a project's gemfile):
+Install gems (or add to a project's gemfile):
 
-  ```sh
-  gem install pry pry-doc pry-debugger pry-stack_explorer awesome_print 
-  gem install rails-env-switcher rspec-console cucumber-console commands
-  ```
+    gem install pry pry-doc pry-debugger pry-stack_explorer awesome_print 
+    gem install rails-env-switcher rspec-console cucumber-console commands
 
 ```ruby
 group :development, :test do
@@ -108,18 +109,6 @@ group :development, :test do
   gem 'commands'
 end
 ```
-
-### Install Solarized (theme)
-
-### overwrite gnome color profiles with solarized light/dark
-
-Create two new color profiles with gnome terminal's preferences gui
-(it's not accessible from the command line).
-
-    cd ~/code
-    git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git
-    cd gnome-terminal-colors-solarized
-    ./install.sh
 
 ## Install Headless Browser (for testing)
 ### phantomjs
