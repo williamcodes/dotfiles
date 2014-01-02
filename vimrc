@@ -259,7 +259,8 @@ let mapleader=","
 
 " NERD Tree
 " nmap <leader>n :NERDTreeFind<CR>
-nnoremap <leader>n :NERDTreeFind<CR>
+nnoremap <leader>nn :NERDTree<CR>
+nnoremap <leader>nf :NERDTreeFind<CR>
 
 " file name form command line
 cnoremap <leader>f <C-R>=expand("%")<CR>
