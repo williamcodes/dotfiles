@@ -29,6 +29,9 @@ Bundle 'scrooloose/nerdtree.git'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'bling/vim-airline'
 
+" integration - tmux
+Bundle 'christoomey/vim-tmux-navigator'
+
 " integration - git
 Bundle 'tpope/vim-fugitive'
 Bundle 'mhinz/vim-signify'
@@ -61,7 +64,6 @@ Bundle 'justinmk/vim-sneak'
 "  manipulators
 Bundle 'AndrewRadev/switch.vim'
 Bundle 'AndrewRadev/splitjoin.vim'
-" Bundle 'AndrewRadev/sideways.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-surround.git'
 
@@ -623,12 +625,6 @@ function! CloseDiff()
   endif
 endfunction
 nnoremap <Leader>gD :call CloseDiff()<cr>
-
-" ---------------------------------------------------------------------------
-" Sideways mappings
-" ---------------------------------------------------------------------------
-nnoremap <C-l> :SidewaysRight<CR>
-nnoremap <C-h> :SidewaysLeft<CR>
 
 " ---------------------------------------------------------------------------
 " Smooth Srolling
