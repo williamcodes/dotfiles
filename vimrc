@@ -106,7 +106,8 @@ let g:ruby_path = system('echo $HOME/.rbenv/shims')
 " Core
 " ---------------------------------------------------------------------------
 
-set relativenumber            " Show line numbers
+set relativenumber    " Show line numbers
+set number            " Show abosulte number
 set ruler             " Show line and column number
 syntax enable         " Turn on syntax highlighting allowing local overrides
 set encoding=utf-8    " Set default encoding to UTF-8
