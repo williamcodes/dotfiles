@@ -27,6 +27,9 @@ Bundle 'tomtom/tcomment_vim.git'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree.git'
 Bundle 'Valloric/YouCompleteMe'
+
+" theming
+" font patches installed to ~/.fonts and configured in ~/.fonts.conf.d
 Bundle 'bling/vim-airline'
 
 " integration - tmux
@@ -129,9 +132,38 @@ set nocursorline
 " Status Line
 " ----------------------------------------------------------------------------
 set laststatus=2  " always show the status bar
-function! AirlineInit()
-  let g:airline_section_a = airline#sectionn#create(['mode',' ','branch'])
-endfunction
+
+let g:airline_theme = 'monochrome'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#hunks#enabled = 0
+
+" function! AirlineInit()
+"   " let g:airline_section_a = airline#section#create(['mode', 'branch',])
+"   " let g:airline_section_b = airline#section#create_left(['ffenc','file'])
+" endfunction
+" autocmd VimEnter * call AirlineInit()
+
+" configure airline symbols
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" unicode symbols
+" let g:airline_left_sep = '»'
+" let g:airline_left_sep = '▶'
+" let g:airline_right_sep = '«'
+" let g:airline_right_sep = '◀'
+" let g:airline_symbols.linenr = '␊'
+" let g:airline_symbols.linenr = '␤'
+" let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+" let g:airline_symbols.paste = 'ρ'
+" let g:airline_symbols.paste = 'Þ'
+" let g:airline_symbols.paste = '∥'
+" let g:airline_symbols.whitespace = 'Ξ'
+
+" endfunction
+
 " if has("statusline") && !&cp
 " 
 "   " Start the status line
