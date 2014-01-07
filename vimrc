@@ -11,9 +11,9 @@ Bundle 'gmarik/vundle'
 " My Bundles here
 " text objects
 Bundle 'kana/vim-textobj-user'
-Bundle 'kana/vim-textobj-line'
-Bundle 'kana/vim-textobj-entire'
-Bundle 'kana/vim-textobj-indent'
+" Bundle 'kana/vim-textobj-line'
+" Bundle 'kana/vim-textobj-entire'
+" Bundle 'kana/vim-textobj-indent'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'terryma/vim-expand-region'
 " Bundle 'camelcasemotion'
@@ -21,20 +21,31 @@ Bundle 'terryma/vim-expand-region'
 " plugins
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'tpope/vim-rails.git'
+Bundle 'tpope/vim-rake.git'
+Bundle 'tpope/vim-bundler.git'
 Bundle 'tomtom/tcomment_vim.git'
 Bundle 'kien/ctrlp.vim'
-Bundle 'vim-scripts/bufkill.vim'
 Bundle 'scrooloose/nerdtree.git'
 Bundle 'Valloric/YouCompleteMe'
 
-" integration
-"   git
+" theming
+" font patches installed to ~/.fonts and configured in ~/.fonts.conf.d
+Bundle 'bling/vim-airline'
+
+" integration - tmux
+Bundle 'christoomey/vim-tmux-navigator'
+
+" integration - git
 Bundle 'tpope/vim-fugitive'
-Bundle 'airblade/vim-gitgutter'
+Bundle 'mhinz/vim-signify'
+" integration - taskwarrior
+Bundle 'farseer90718/vim-taskwarrior'
+
 "   testing
-Bundle 'skalnik/vim-vroom'
+"   screen + tmux
+Bundle 'ervandew/screen'
 "   search
-Bundle 'mileszs/ack.vim'
+" Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
 
 " folding
@@ -47,7 +58,7 @@ Bundle 'groenewege/vim-less'
 " Bundle 'skammer/vim-css-color'
 
 " training
-Bundle 'kbarrette/mediummode'
+" Bundle 'kbarrette/mediummode'
 
 " motions
 Bundle 'justinmk/vim-sneak'
@@ -56,7 +67,6 @@ Bundle 'justinmk/vim-sneak'
 "  manipulators
 Bundle 'AndrewRadev/switch.vim'
 Bundle 'AndrewRadev/splitjoin.vim'
-" Bundle 'AndrewRadev/sideways.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-surround.git'
 
@@ -96,7 +106,8 @@ let g:ruby_path = system('echo $HOME/.rbenv/shims')
 " Core
 " ---------------------------------------------------------------------------
 
-set relativenumber    " Show relative line numbers
+set relativenumber    " Show line numbers
+set number            " Show abosulte number
 set ruler             " Show line and column number
 syntax enable         " Turn on syntax highlighting allowing local overrides
 set encoding=utf-8    " Set default encoding to UTF-8
@@ -121,17 +132,48 @@ set nocursorline
 " ----------------------------------------------------------------------------
 " Status Line
 " ----------------------------------------------------------------------------
-if has("statusline") && !&cp
-  set laststatus=2  " always show the status bar
+set laststatus=2  " always show the status bar
 
-  " Start the status line
-  set statusline=%f\ %m\ %r
-  set statusline+=%{fugitive#statusline()}
-  set statusline+=\ Line:%l/%L[%p%%]
-  set statusline+=\ Col:%v
-  set statusline+=\ Buf:#%n
+let g:airline_theme = 'monochrome'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#hunks#enabled = 0
+
+" function! AirlineInit()
+"   " let g:airline_section_a = airline#section#create(['mode', 'branch',])
+"   " let g:airline_section_b = airline#section#create_left(['ffenc','file'])
+" endfunction
+" autocmd VimEnter * call AirlineInit()
+
+" configure airline symbols
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
 endif
 
+" unicode symbols
+" let g:airline_left_sep = '»'
+" let g:airline_left_sep = '▶'
+" let g:airline_right_sep = '«'
+" let g:airline_right_sep = '◀'
+" let g:airline_symbols.linenr = '␊'
+" let g:airline_symbols.linenr = '␤'
+" let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+" let g:airline_symbols.paste = 'ρ'
+" let g:airline_symbols.paste = 'Þ'
+" let g:airline_symbols.paste = '∥'
+" let g:airline_symbols.whitespace = 'Ξ'
+
+" endfunction
+
+" if has("statusline") && !&cp
+" 
+"   " Start the status line
+"   set statusline=%f\ %m\ %r
+"   set statusline+=%{fugitive#statusline()}
+"   set statusline+=\ Line:%l/%L[%p%%]
+"   set statusline+=\ Col:%v
+"   set statusline+=\ Buf:#%n
+" endif
 
 " ----------------------------------------------------------------------------
 " Search
@@ -142,20 +184,15 @@ set incsearch   " incremental searching
 set ignorecase  " searches are case insensitive...
 set smartcase   " ... unless they contain at least one capital letter
 
-" Clear the search buffer when hitting return
-" nmap <cr> :nohlsearch<cr>
-
-" global
-"
+" ----------------------------------------------------------------------------
+" Ag for word under cursor
+" ----------------------------------------------------------------------------
 nnoremap z* *:Ag <C-r><C-w><CR>
 nnoremap z8 *:Ag <C-r><C-w><CR>
 
 " ----------------------------------------------------------------------------
 " Wild settings
 " ----------------------------------------------------------------------------
-
-" TODO: Investigate the precise meaning of these settings
-" set wildmode=list:longest,list:full
 
 " Disable output and VCS files
 set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
@@ -257,10 +294,11 @@ let mapleader=","
 
 " NERD Tree
 " nmap <leader>n :NERDTreeFind<CR>
-nnoremap <leader>n :NERDTreeFind<CR>
+nnoremap <leader>nn :NERDTree<CR>
+nnoremap <leader>nf :NERDTreeFind<CR>
 
 " file name form command line
-cnoremap <leader>5 <C-R>=expand("%")<CR>
+cnoremap <leader>f <C-R>=expand("%")<CR>
 
 " easy switch to last buffer
 " nnoremap <leader><leader> <c-^>
@@ -268,22 +306,11 @@ cnoremap <leader>5 <C-R>=expand("%")<CR>
 nnoremap g6 ^
 nnoremap g4 $
 
-nnoremap <C-F> :%s/
-
-
 " The Smash Escape - also without cursor movement
 inoremap jk <Esc>
 inoremap kj <Esc>
 
 nnoremap <leader>p "+p
-
-" CR escape
-" inoremap <CR> <ESC>`^
-" imap <expr> <CR> col('.') == col('$') ? '<CR><Plug>DiscretionaryEnd' : '<Esc>`^'
-" inoremap <C-CR> <CR>
-
-cnoremap <silent>jk <CR>
-cnoremap <silent>kj <CR>
 
 " insert line below and above
 nnoremap <c-j> mao<esc>`a
@@ -292,13 +319,11 @@ nnoremap <C-K> maO<ESC>`a
 " search mappings
 nnoremap <silent> <leader>s /
 nnoremap <silent> <leader>S ?
-nnoremap <silent> * g*
-nnoremap <silent> <leader>3 g#
 
 " select all
 nmap <C-a> ggVG
 
-map <F8> "+p
+" fast quit
 nmap <leader>q :q<CR>
 
 " overide built in ack mapping
@@ -314,21 +339,11 @@ nnoremap <silent> g. @:
 
 " fugative
 nnoremap gs :Gstatus<CR>
-nnoremap gl :Gstatus<CR>
 nnoremap gm :Gmove 
 
 " reflow paragraph with Q in normal and visual mode
 nnoremap Q gqap
 vnoremap Q gq
-
-" sane movement with wrap turned on
-" nnoremap j gj
-" nnoremap k gk
-" vnoremap j gj
-" vnoremap k gk
-
-" close buffer
-nnoremap <leader>dd :bd<CR>
 
 " quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -340,12 +355,6 @@ vmap <Leader>i <C-c>:'<,'>Align
 " make Y consistent with C and D
 nnoremap Y y$
 
-" key mapping for vimgrep result navigation
-map <A-o> :copen<CR>
-map <A-q> :cclose<CR>
-map <A-j> :cnext<CR>
-map <A-k> :cprevious<CR>
-
 " remap ga to vim-rails alternate file command
 nmap <leader>a :A<CR>
 nmap <leader>A gl:q<CR>gh:A<CR>
@@ -353,7 +362,7 @@ nmap <leader>ra :A<CR>
 " nmap gr :R<CR>
 
 " for local replace
-nnoremap <F2> gd[{V%:s/<C-R>///gc<left><left><left>
+nnoremap <F3> gd[{V%:s/<C-R>///gc<left><left><left>
 
 " for global replace
 nnoremap <leader>R gD:%s/<C-R>///gc<left><left><left>}
@@ -403,28 +412,13 @@ nnoremap g6 ^
 " inoremap ) 0
 "
 
-
-" ---------------------------------------------------------------------------
-" Operator-mappings
-" ---------------------------------------------------------------------------
-
-" dot
-" xnoremap <silent>.  f<SPACE>oT<SPACE>so
-" xnoremap <silent>i. f<SPACE>oF<SPACE>so
-" xnoremap <silent>a. t<SPACE>oT<SPACE>o
-" 
-" onoremap <silent>.  :<C-u>exec 'normal v' . v:count1 . '.'<CR>
-" onoremap <silent>a. :<C-u>exec 'normal v' . v:count1 . 'a<SPACE>'<CR>
-" onoremap <silent>i. :<C-u>exec 'normal v' . v:count1 . 'i<SPACE>'<CR>
-
-" space
-" xnoremap <silent>  f.oT.o
-" xnoremap <silent>a. f.oF.o
-" xnoremap <silent>i. t.oT.o
-" 
-" onoremap <silent>.  :<C-u>exec 'normal v' . v:count1 . '.'<CR>
-" onoremap <silent>a. :<C-u>exec 'normal v' . v:count1 . 'a.'<CR>
-" onoremap <silent>i. :<C-u>exec 'normal v' . v:count1 . 'i.'<CR>
+" ----------------------------------------------------------------------------
+" Task Warrior
+" ----------------------------------------------------------------------------
+nnoremap <leader>33 :TW<CR>
+nnoremap <leader>3a :TW add 
+highlight default link taskwarrior_tablehead Title
+highlight default link taskwarrior_due Operator
 
 " ---------------------------------------------------------------------------
 " Whitespace 
@@ -561,19 +555,6 @@ let g:syntastic_mode_map = { 'mode': 'active',
 " alphabetize a css file
 :command! SortCSSBraceContents :g#\({\n\)\@<=#.,/}/sort
 
-" ---------------------------------------------------------------------------
-" Vroom config
-" ---------------------------------------------------------------------------
-let g:vroom_map_keys = 0
-let g:vroom_cucumber_path = "cucumber"
-let g:vroom_use_bundle_exec = 0
-let g:vroom_spec_command = "rspec"
-
-map <Leader>t :VroomRunTestFile<CR>
-" focus
-map <Leader>f :VroomRunNearestTest<CR>
-map <F7> :VroomRunNearestTest<CR>
-
 " ----------------------------------------------------------------------------
 " auto commands
 " ----------------------------------------------------------------------------
@@ -655,11 +636,6 @@ let g:splitjoin_split_mapping = '<leader>j'
 let g:splitjoin_join_mapping = '<leader>k'
 
 " ---------------------------------------------------------------------------
-" Helpers
-" ---------------------------------------------------------------------------
-nnoremap ,ds :?.?+1,/./-1join!<CR>
-
-" ---------------------------------------------------------------------------
 " Fugative Helpers
 " ---------------------------------------------------------------------------
 function! CloseDiff()
@@ -682,12 +658,6 @@ function! CloseDiff()
   endif
 endfunction
 nnoremap <Leader>gD :call CloseDiff()<cr>
-
-" ---------------------------------------------------------------------------
-" Sideways mappings
-" ---------------------------------------------------------------------------
-nnoremap <C-l> :SidewaysRight<CR>
-nnoremap <C-h> :SidewaysLeft<CR>
 
 " ---------------------------------------------------------------------------
 " Smooth Srolling
@@ -716,20 +686,29 @@ nnoremap K :call SmoothScroll(1)<Enter>
 nnoremap J :call SmoothScroll(0)<Enter>
 
 " ---------------------------------------------------------------------------
-" Screen Settings
+" Git Gutter
 " ---------------------------------------------------------------------------
-let g:ScreenImpl = 'Tmux'
-let g:ScreenShellTmuxInitArgs = '-2'
-let g:ScreenShellInitialFocus = 'shell'
-let g:ScreenShellQuitOnVimExit = 0
-map <F10> :ScreenShellVertical<CR>
-command! -nargs=? -complete=shellcmd W  :w | :call ScreenShellSend("load '".@%."';")
-map <Leader>rf :w<CR> :call ScreenShellSend("rspec ".@% . ':' . line('.'))<CR>
-map <Leader>ef :w<CR> :call ScreenShellSend("cucumber --format=pretty ".@% . ':' . line('.'))<CR>
-map <Leader>b :w<CR> :call ScreenShellSend("break ".@% . ':' . line('.'))<CR>
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
+let g:gitgutter_sign_column_always = 1
+
 
 " ---------------------------------------------------------------------------
-" Misc
+" Screen Settings
+" ---------------------------------------------------------------------------
+" let g:ScreenImpl = 'Tmux'
+" let g:ScreenShellTmuxInitArgs = '-2'
+" let g:ScreenShellInitialFocus = 'shell'
+" let g:ScreenShellQuitOnVimExit = 0
+" map <F10> :ScreenShellVertical<CR>
+" command -nargs=? -complete=shellcmd W  :w | :call ScreenShellSend("load '".@%."';")
+" map <Leader>rf :w<CR> :call ScreenShellSend("rspec ".@% . ':' . line('.'))<CR>
+" map <Leader>ef :w<CR> :call ScreenShellSend("cucumber --format=pretty ".@% . ':' . line('.'))<CR>
+" map <Leader>b :w<CR> :call ScreenShellSend("break ".@% . ':' . line('.'))<CR>
+"
+
+" ---------------------------------------------------------------------------
+" Medium Mode
 " ---------------------------------------------------------------------------
 " diable medium mode by defualt
 let g:mediummode_enabled=0
@@ -763,3 +742,16 @@ vnoremap <A-s> y<Esc>:%s/<C-r>"//gc<Left><Left><Left>
 " 
 " set foldmethod=expr
 " set foldexpr=CSSFolds()
+"
+"
+" ---------------------------------------------------------------------------
+" Screen config
+" ---------------------------------------------------------------------------
+" command -nargs=? -complete=shellcmd W  :w | :call ScreenShellSend("load '".@%."';")
+map <Leader>c :ScreenShell pry<CR>
+map <Leader>f :w<CR> :call ScreenShellSend(".clear")<CR> :call ScreenShellSend("rspec ".@% . ':' . line('.'))<CR>
+map <Leader>t :w<CR> :call ScreenShellSend("rspec ".@%)<CR>
+map <Leader>e :w<CR> :call ScreenShellSend("cucumber --format=pretty ".@% . ':' . line('.'))<CR>
+map <Leader>b :w<CR> :call ScreenShellSend("break ".@% . ':' . line('.'))<CR>
+
+

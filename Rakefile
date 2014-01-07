@@ -39,8 +39,8 @@ def overwrite(file, target)
   else
     puts "linking ~/.#{file}"
     system %Q{rm -rf "#{target}"}
-    link_file(file)     
-  end    
+    link_file(file)
+  end
 end
 
 def link_file(file)
