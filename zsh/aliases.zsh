@@ -20,13 +20,9 @@ alias l='ls -CF --color'
 alias ls='ls --color -l'
 
 # rails
-alias sc='script/console'
-alias sg='script/generate'
-alias sd='script/destroy'
-alias rdbm='zeus rake db:migrate:all'
-alias rdbr='zeus rake db:rollback'
-alias rg='zeus g '
-alias z='zeus start'
+
+# ruby
+alias be='bundle exec'
 
 
 # git
