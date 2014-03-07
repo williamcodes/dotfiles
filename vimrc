@@ -34,16 +34,18 @@ Bundle 'bling/vim-airline'
 
 " integration - tmux
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'benmills/vimux'
 
 " integration - git
 Bundle 'tpope/vim-fugitive'
 Bundle 'mhinz/vim-signify'
-" integration - taskwarrior
-Bundle 'farseer90718/vim-taskwarrior'
 
 "   testing
+Bundle 'skalnik/vim-vroom'
+
 "   screen + tmux
 Bundle 'ervandew/screen'
+
 "   search
 " Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
@@ -692,6 +694,12 @@ let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
 let g:gitgutter_sign_column_always = 1
 
+" ---------------------------------------------------------------------------
+" Vroom
+" ---------------------------------------------------------------------------
+let g:vroom_map_keys = 0
+let g:vroom_use_vimux = 1
+nnoremap <leader>f :VroomRunNearestTest<CR>
 
 " ---------------------------------------------------------------------------
 " Screen Settings
@@ -748,10 +756,10 @@ vnoremap <A-s> y<Esc>:%s/<C-r>"//gc<Left><Left><Left>
 " Screen config
 " ---------------------------------------------------------------------------
 " command -nargs=? -complete=shellcmd W  :w | :call ScreenShellSend("load '".@%."';")
-map <Leader>c :ScreenShell pry<CR>
-map <Leader>f :w<CR> :call ScreenShellSend(".clear")<CR> :call ScreenShellSend("rspec ".@% . ':' . line('.'))<CR>
-map <Leader>t :w<CR> :call ScreenShellSend("rspec ".@%)<CR>
-map <Leader>e :w<CR> :call ScreenShellSend("cucumber --format=pretty ".@% . ':' . line('.'))<CR>
-map <Leader>b :w<CR> :call ScreenShellSend("break ".@% . ':' . line('.'))<CR>
-
-
+" map <Leader>c :ScreenShell pry<CR>
+" map <Leader>f :w<CR> :call ScreenShellSend(".clear")<CR> :call ScreenShellSend("rspec ".@% . ':' . line('.'))<CR>
+" map <Leader>t :w<CR> :call ScreenShellSend("rspec ".@%)<CR>
+" map <Leader>e :w<CR> :call ScreenShellSend("cucumber --format=pretty ".@% . ':' . line('.'))<CR>
+" map <Leader>b :w<CR> :call ScreenShellSend("break ".@% . ':' . line('.'))<CR>
+" 
+" 
