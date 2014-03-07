@@ -17,7 +17,7 @@ alias ..='cd ..'
 alias ll='ls -l --color'
 alias la='ls -A --color'
 alias l='ls -CF --color'
-alias ls='ls --color -l'
+alias ls='ls --color -l --group-directories-first'
 
 # rails
 alias sc='script/console'
