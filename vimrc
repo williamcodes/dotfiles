@@ -34,15 +34,14 @@ Bundle 'bling/vim-airline'
 
 " integration - tmux
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'benmills/vimux'
 
 " integration - git
 Bundle 'tpope/vim-fugitive'
 Bundle 'mhinz/vim-signify'
 
-" integration - taskwarrior
-Bundle 'farseer90718/vim-taskwarrior'
-
 "   testing
+Bundle 'skalnik/vim-vroom'
 
 "   screen + tmux
 
@@ -414,14 +413,6 @@ nnoremap g6 ^
 " inoremap ) 0
 "
 
-" ----------------------------------------------------------------------------
-" Task Warrior
-" ----------------------------------------------------------------------------
-nnoremap <leader>33 :TW<CR>
-nnoremap <leader>3a :TW add 
-highlight default link taskwarrior_tablehead Title
-highlight default link taskwarrior_due Operator
-
 " ---------------------------------------------------------------------------
 " Whitespace 
 " ---------------------------------------------------------------------------
@@ -694,6 +685,12 @@ let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
 let g:gitgutter_sign_column_always = 1
 
+" ---------------------------------------------------------------------------
+" Vroom
+" ---------------------------------------------------------------------------
+let g:vroom_map_keys = 0
+let g:vroom_use_vimux = 1
+nnoremap <leader>f :VroomRunNearestTest<CR>
 
 " ---------------------------------------------------------------------------
 " Screen Settings
@@ -744,4 +741,3 @@ vnoremap <A-s> y<Esc>:%s/<C-r>"//gc<Left><Left><Left>
 " 
 " set foldmethod=expr
 " set foldexpr=CSSFolds()
-

@@ -16,6 +16,9 @@ export PATH="/usr/lib/postgresql/9.2/bin:$PATH"
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 
+#ANDROID
+export ANDROID_HOME="$HOME/tools/android-sdk-linux"
+
 # MISC
 export EDITOR='vim'
 export ZDOTDIR=$HOME

@@ -19,8 +19,6 @@ alias la='ls -A --color'
 alias l='ls -CF --color'
 alias ls='ls -o --color --group-directories-first'
 
-# rails
-
 # ruby
 alias be='bundle exec'
 
