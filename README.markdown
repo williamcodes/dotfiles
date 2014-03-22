@@ -91,24 +91,19 @@ cd ~/.vim/bundle/YouCompleteMe
 
 ### Setup Pry
   
-Install gems (or add to a project's gemfile):
+Install pry plugins and runtime development gems:
 
-    gem install pry pry-doc pry-debugger pry-stack_explorer awesome_print 
-    gem install rails-env-switcher rspec-console cucumber-console commands
-
-```ruby
-group :development, :test do
-  gem 'pry'
-  gem 'pry-doc'
-  gem 'pry-debugger'
-  gem 'pry-stack_explorer'
-  gem 'awesome_print'
-  gem 'rails-env-switcher'
-  gem 'rspec-console'
-  gem 'cucumber-console'
-  gem 'commands'
-end
-```
+    gem install          \ 
+      pry                \
+      pry-doc            \
+      pry-debugger       \
+      pry-stack_explorer \
+      pry-rails          \
+      awesome_print      \
+      rails-env-switcher \
+      rspec-console      \
+      cucumber-console   \
+      commands
 
 ## Install Phantomjs from source (headless browser)
 
