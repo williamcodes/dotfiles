@@ -704,6 +704,7 @@ let g:gitgutter_sign_column_always = 1
 let g:vroom_map_keys = 0
 let g:vroom_use_vimux = 1
 nnoremap <leader>f :VroomRunNearestTest<CR>
+nnoremap <leader>t :VroomRunTestFile<CR>
 
 " ---------------------------------------------------------------------------
 " Screen Settings
