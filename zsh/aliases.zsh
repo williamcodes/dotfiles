@@ -14,10 +14,10 @@ alias pubkey="more ~/.ssh/id_dsa.public | pbcopy | echo '=> Public key copied to
 alias ..='cd ..'
 
 # ls aliases
-alias ll='ls -l --color'
+alias ll='ls -l --color --group-directories-first'
 alias la='ls -A --color'
 alias l='ls -CF --color'
-alias ls='ls --color -l'
+alias ls='ls -o --color --group-directories-first'
 
 # rails
 
