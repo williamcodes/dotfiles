@@ -37,6 +37,9 @@ alias be='bundle exec'
 # alias gs='git status -sb'
 # alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 
+# docker
+alias dk='docker'
+
 # knife
 alias kcu='knife cookbook upload'
 alias krff='knife role from file' 
