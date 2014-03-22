@@ -57,6 +57,8 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-haml.git'
 Bundle 'groenewege/vim-less'
+Bundle 'chakrit/upstart.vim'
+
 " Bundle 'skammer/vim-css-color'
 
 " training
