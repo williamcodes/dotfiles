@@ -13,9 +13,15 @@ You can also use K and J in VI mode or ^P and ^N in EMACS mode for the same.
 [5]: https://github.com/zsh-users/zsh-history-substring-search
 [6]: https://github.com/zsh-users/zsh-syntax-highlighting
 
-----------------------------------------------------------------------------
+------------------------------------------------------------------------------
+Requirements
+------------------------------------------------------------------------------
+
+* [ZSH](http://zsh.sourceforge.net) 4.3 or newer
+
+------------------------------------------------------------------------------
 Usage
-----------------------------------------------------------------------------
+------------------------------------------------------------------------------
 
 1.  Load this script into your interactive ZSH session:
 
@@ -30,11 +36,9 @@ Usage
 2.  Bind keyboard shortcuts to this script's functions:
 
         # bind UP and DOWN arrow keys
-        for keycode in '[' '0'; do
-          bindkey "^[${keycode}A" history-substring-search-up
-          bindkey "^[${keycode}B" history-substring-search-down
-        done
-        unset keycode
+        zmodload zsh/terminfo
+        bindkey "$terminfo[kcuu1]" history-substring-search-up
+        bindkey "$terminfo[kcud1]" history-substring-search-down
 
         # bind P and N for EMACS mode
         bindkey -M emacs '^P' history-substring-search-up
@@ -43,6 +47,12 @@ Usage
         # bind k and j for VI mode
         bindkey -M vicmd 'k' history-substring-search-up
         bindkey -M vicmd 'j' history-substring-search-down
+
+    Ubuntu 12.04 users might need to use this snippet instead:
+
+        # bind UP and DOWN arrow keys
+        bindkey '^[[A' history-substring-search-up
+        bindkey '^[[B' history-substring-search-down
 
 3.  Type any part of any previous command and then:
 
@@ -67,9 +77,9 @@ Usage
       the cursor reaches the last line of the command, pressing the DOWN
       arrow key again will cause this script to perform another search.
 
-----------------------------------------------------------------------------
+------------------------------------------------------------------------------
 Configuration
-----------------------------------------------------------------------------
+------------------------------------------------------------------------------
 
 This script defines the following global variables. You may override their
 default values only after having loaded this script into your ZSH session.
@@ -93,9 +103,9 @@ default values only after having loaded this script into your ZSH session.
   Flags" section in the zshexpn(1) man page to learn about the kinds of
   values you may assign to this variable.
 
-----------------------------------------------------------------------------
+------------------------------------------------------------------------------
 History
-----------------------------------------------------------------------------
+------------------------------------------------------------------------------
 
 This script was originally written by [Peter Stephenson][2], who published it
 to the ZSH users mailing list (thereby making it public domain) in September
