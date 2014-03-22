@@ -298,6 +298,8 @@ let mapleader=","
 
 " NERD Tree
 " nmap <leader>n :NERDTreeFind<CR>
+let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeShowHidden = 1
 nnoremap <leader>nn :NERDTree<CR>
 nnoremap <leader>nf :NERDTreeFind<CR>
 
