@@ -44,7 +44,6 @@ Bundle 'mhinz/vim-signify'
 Bundle 'skalnik/vim-vroom'
 
 "   screen + tmux
-Bundle 'ervandew/screen'
 
 "   search
 " Bundle 'mileszs/ack.vim'
@@ -418,14 +417,6 @@ nnoremap g6 ^
 " inoremap ) 0
 "
 
-" ----------------------------------------------------------------------------
-" Task Warrior
-" ----------------------------------------------------------------------------
-nnoremap <leader>33 :TW<CR>
-nnoremap <leader>3a :TW add 
-highlight default link taskwarrior_tablehead Title
-highlight default link taskwarrior_due Operator
-
 " ---------------------------------------------------------------------------
 " Whitespace 
 " ---------------------------------------------------------------------------
@@ -593,7 +584,7 @@ let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 " scrolling at edges
 " ----------------------------------------------------------------------------
 set scrolloff=8      " Number of lines from vertical edge to start scrolling
-set sidescrolloff=15 " Number of cols from horizontal edge to start scrolling
+set sidescrolloff=5 " Number of cols from horizontal edge to start scrolling
 set sidescroll=1     " Number of cols to scroll at a time
 
 " ----------------------------------------------------------------------------
@@ -755,16 +746,3 @@ vnoremap <A-s> y<Esc>:%s/<C-r>"//gc<Left><Left><Left>
 " 
 " set foldmethod=expr
 " set foldexpr=CSSFolds()
-"
-"
-" ---------------------------------------------------------------------------
-" Screen config
-" ---------------------------------------------------------------------------
-" command -nargs=? -complete=shellcmd W  :w | :call ScreenShellSend("load '".@%."';")
-" map <Leader>c :ScreenShell pry<CR>
-" map <Leader>f :w<CR> :call ScreenShellSend(".clear")<CR> :call ScreenShellSend("rspec ".@% . ':' . line('.'))<CR>
-" map <Leader>t :w<CR> :call ScreenShellSend("rspec ".@%)<CR>
-" map <Leader>e :w<CR> :call ScreenShellSend("cucumber --format=pretty ".@% . ':' . line('.'))<CR>
-" map <Leader>b :w<CR> :call ScreenShellSend("break ".@% . ':' . line('.'))<CR>
-" 
-" 

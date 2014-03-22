@@ -14,12 +14,10 @@ alias pubkey="more ~/.ssh/id_dsa.public | pbcopy | echo '=> Public key copied to
 alias ..='cd ..'
 
 # ls aliases
-alias ll='ls -l --color'
+alias ll='ls -l --color --group-directories-first'
 alias la='ls -A --color'
 alias l='ls -CF --color'
-alias ls='ls --color -l --group-directories-first'
-
-# rails
+alias ls='ls -o --color --group-directories-first'
 
 # ruby
 alias be='bundle exec'
@@ -36,6 +34,9 @@ alias be='bundle exec'
 # alias gb='git branch'
 # alias gs='git status -sb'
 # alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
+
+# docker
+alias dk='docker'
 
 # knife
 alias kcu='knife cookbook upload'
