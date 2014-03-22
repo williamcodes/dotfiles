@@ -38,12 +38,14 @@ Bundle 'christoomey/vim-tmux-navigator'
 " integration - git
 Bundle 'tpope/vim-fugitive'
 Bundle 'mhinz/vim-signify'
+
 " integration - taskwarrior
 Bundle 'farseer90718/vim-taskwarrior'
 
 "   testing
+
 "   screen + tmux
-Bundle 'ervandew/screen'
+
 "   search
 " Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
@@ -742,16 +744,4 @@ vnoremap <A-s> y<Esc>:%s/<C-r>"//gc<Left><Left><Left>
 " 
 " set foldmethod=expr
 " set foldexpr=CSSFolds()
-"
-"
-" ---------------------------------------------------------------------------
-" Screen config
-" ---------------------------------------------------------------------------
-" command -nargs=? -complete=shellcmd W  :w | :call ScreenShellSend("load '".@%."';")
-map <Leader>c :ScreenShell pry<CR>
-map <Leader>f :w<CR> :call ScreenShellSend(".clear")<CR> :call ScreenShellSend("rspec ".@% . ':' . line('.'))<CR>
-map <Leader>t :w<CR> :call ScreenShellSend("rspec ".@%)<CR>
-map <Leader>e :w<CR> :call ScreenShellSend("cucumber --format=pretty ".@% . ':' . line('.'))<CR>
-map <Leader>b :w<CR> :call ScreenShellSend("break ".@% . ':' . line('.'))<CR>
-
 
