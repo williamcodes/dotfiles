@@ -43,7 +43,7 @@ alias kcu='knife cookbook upload'
 alias krff='knife role from file' 
 
 # shortcut to add aliases
-alias 'zea'='$EDITOR ~/.zsh/aliases.zsh'
+alias zea='$EDITOR ~/.zsh/aliases.zsh'
 
 # todo.sh: https://github.com/ginatrapani/todo.txt-cli
 function t() { 
