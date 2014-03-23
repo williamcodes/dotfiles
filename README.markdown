@@ -50,6 +50,18 @@ Download and Install
     sudo tar -C /usr/local -xzf /tmp/go
     sudo rm /tmp/go
 
+### Install TMUX from source
+
+    sudo apt-get install libevent-1.4 libevent-dev libncurses5-dev
+    git clone git://git.code.sf.net/p/tmux/tmux-code ~/code/tmux-code 
+    git tag -l
+    git checkout tags/1.9a
+
+    autoreconf -fis
+    ./configure
+    make
+    sudo make install
+
 
 ### Install vim from source (to use latest plugins)
 
