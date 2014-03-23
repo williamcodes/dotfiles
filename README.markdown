@@ -12,19 +12,7 @@
       libxml2-dev        \
       libxslt-dev        \
       openssl            \
-
-### Install Zsh
-
-    sudo apt-get install zsh
-    zsh
-    # (optionally) set zsh as your default shell
-    chsh -s $(which zsh)
-
-### Install Dotfiles
-
-    git clone git://github.com/thedeeno/dotfiles ~/code/dotfiles 
-    cd ~/code/dotfiles
-    rake install
+      zsh
 
 ### Install Rubies
 
@@ -37,9 +25,23 @@
     # install zlib
     sudo apt-get install libssl-dev zlib1g-dev
 
+    # setup current session
+    export PATH=~/.rbenv/bin:~/.rbenv/shims:$PATH
+
     # build rubies
-    rbenv install 2.0.0-p353
+    rbenv install <your version>
     rbenv rehash
+
+
+### Make zsh default shell
+
+    chsh -s $(which zsh)
+
+### Install Dotfiles
+
+    git clone git://github.com/thedeeno/dotfiles ~/code/dotfiles 
+    cd ~/code/dotfiles
+    rake install
 
 ### Install vim from source (to use latest plugins)
 
