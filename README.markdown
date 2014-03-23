@@ -5,20 +5,13 @@
     sudo apt-get install \
       curl               \
       build-essential    \
-      bison              \
       git-core           \
       git-gui            \
       gitg               \
-      libmysqlclient-dev \
       libssl-dev         \
-      libsqlite3-0       \
-      libsqlite3-dev     \
       libxml2-dev        \
       libxslt-dev        \
-      meld               \
       openssl            \
-      sqlite3            \
-      vim-gnome          \
 
 ### Install Zsh
 
