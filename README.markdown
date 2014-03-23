@@ -32,7 +32,6 @@
     rbenv install <your version>
     rbenv rehash
 
-
 ### Make zsh default shell
 
     chsh -s $(which zsh)
@@ -42,6 +41,15 @@
     git clone git://github.com/thedeeno/dotfiles ~/code/dotfiles 
     cd ~/code/dotfiles
     rake install
+
+### Install GOLANG
+
+Download and Install
+
+    wget http://go.googlecode.com/files/go1.2.1.linux-amd64.tar.gz -O /tmp/go
+    sudo tar -C /usr/local -xzf /tmp/go
+    sudo rm /tmp/go
+
 
 ### Install vim from source (to use latest plugins)
 
