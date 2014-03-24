@@ -55,3 +55,6 @@ function t() {
 }
 
 alias n="t ls +next"
+
+# always start tmux with 256 color support
+alias tmux="tmux -2"
