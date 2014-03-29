@@ -32,6 +32,7 @@ Bundle 'Valloric/YouCompleteMe'
 " font patches installed to ~/.fonts and configured in ~/.fonts.conf.d
 Bundle 'bling/vim-airline'
 Bundle 'nanotech/jellybeans.vim'
+Bundle 'https://github.com/gorodinskiy/vim-coloresque.git'
 
 " integration - tmux
 Bundle 'christoomey/vim-tmux-navigator'
