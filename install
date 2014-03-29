@@ -114,7 +114,5 @@ chsh -s $(which zsh)
 
 
 
-log "install", "dotfiles"
-cd ~/code/dotfiles
-rake install
-cd $HOME
+log "link", "dotfiles"
+(cd ~/code/dotfiles; ./relink)
