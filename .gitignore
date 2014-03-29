@@ -1,5 +1,5 @@
-vim/backup/
-vim/tmp/
-vim/bundle/
-vim/undo/
+home/vim/backup/
+home/vim/tmp/
+home/vim/bundle/
+home/vim/undo/
 .zcompdump
