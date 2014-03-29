@@ -1,4 +1,16 @@
 # thedeeno's ~/
+My development environment
+
+```
+# install tools and dependencies + download source codes
+curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/install | sudo sh
+
+# link dotfiles
+cd $HOME/code/dotfiles
+./relink
+```
+
+# Manual Install
 
 ### Install Packages
 
