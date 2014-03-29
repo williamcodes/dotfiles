@@ -6,8 +6,7 @@ My development environment
 curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/install | sudo sh
 
 # link dotfiles
-cd $HOME/code/dotfiles
-./relink
+(cd $HOME/code/dotfiles; ./relink)
 ```
 
 # Manual Install
