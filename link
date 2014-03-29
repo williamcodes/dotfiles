@@ -1,0 +1,22 @@
+#!/bin/bash
+
+log () {
+  echo -e "  \e[32m$1\e[0m  $2"
+}
+
+echo ""
+echo "  Installing Dotfiles"
+echo ""
+
+cd home
+for asset in **
+do
+    src=$PWD/$asset
+    dst=$HOME/.$asset
+    log "linking" "$dst <- $src"
+    ln -sfn $src $dst
+done
+
+echo ""
+echo "  Done"
+echo ""
