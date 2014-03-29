@@ -2,7 +2,7 @@
 
 ### Install Packages
 
-    sudo apt-get install \
+    sudo apt-get install -y  \
       curl               \
       build-essential    \
       git-core           \
@@ -87,7 +87,7 @@ https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
 
 3. Copy binary to PATH
 
-       cp ~/code/vim/src/vim ~/bin/
+        cp ~/code/vim/src/vim ~/bin/
 
 ### Install Vundle (vim plugin manager)
 
@@ -115,10 +115,6 @@ Install pry plugins and runtime development gems:
       pry-stack_explorer \
       pry-rails          \
       awesome_print      \
-      rails-env-switcher \
-      rspec-console      \
-      cucumber-console   \
-      commands
 
 ## Install Phantomjs from source (headless browser)
 
