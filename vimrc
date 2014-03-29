@@ -31,6 +31,7 @@ Bundle 'Valloric/YouCompleteMe'
 " theming
 " font patches installed to ~/.fonts and configured in ~/.fonts.conf.d
 Bundle 'bling/vim-airline'
+Bundle 'nanotech/jellybeans.vim'
 
 " integration - tmux
 Bundle 'christoomey/vim-tmux-navigator'
@@ -258,7 +259,7 @@ set ttyfast
 " COLOR
 " ----------------------------------------------------------------------------
 syntax enable
-colorscheme molokai
+colorscheme jellybeans
 " :color grb256
 
 " ----------------------------------------------------------------------------
@@ -374,7 +375,7 @@ nnoremap <leader>R gD:%s/<C-R>///gc<left><left><left>}
 
 " write file easier
 nmap <leader>w :write<CR>
-nmap <CR> :write<CR>
+nmap <SPACE> :write<CR>
 
 nnoremap vv V
 nnoremap g4 $
