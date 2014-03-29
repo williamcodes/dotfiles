@@ -484,7 +484,7 @@ nnoremap gJ              :wincmd J<cr>
 au BufRead,BufNewFile *.hamlc set ft=haml
 
 " Show syntax highlighting groups for word under cursor
-" nmap <C-y> :call <SID>SynStack()<CR>
+nmap <C-S-P> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
   if !exists("*synstack")
     return
