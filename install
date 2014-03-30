@@ -10,12 +10,12 @@ log () {
 }
 
 
-log "set", "environment"
+log "set" "environment"
 export PATH=$HOME/bin:$PATH
 
 
 
-log "install", "packages"
+log "install" "packages"
 
 apt-get install -y \
   curl               \
@@ -31,7 +31,7 @@ apt-get install -y \
 
 
 
-log "install", "packages that need special priv"
+log "install" "packages that need special priv"
 fakeroot apt-get install -y \
   libreadline-dev
 
@@ -43,9 +43,9 @@ TARGET_VIM="7.4"
 CURRENT_VIM=$(vim --version | grep 'Vi IMproved' | awk '{ print $5 }')
 
 if $CURRENT_VIM == $TARGET_VIM; then
-  log "skipping", "vim $TARGET_VIM already installed"
+  log "skipping" "vim $TARGET_VIM already installed"
 else
-  log "source-install", "vim"
+  log "source-install" "vim"
   apt-get install -y \
     libncurses5-dev \
     libgnome2-dev \
@@ -79,9 +79,9 @@ fi
 current_tmux=$(tmux -V)
 target_tmux="1.9a"
 if $current_tmux == $target_tmux; then
-  log "skipping", "tmux $target_tmux already installed"
+  log "skipping" "tmux $target_tmux already installed"
 else
-  log "source-install", "tmux"
+  log "source-install" "tmux"
   apt-get install -y \
     libevent-1.4 \
     libevent-dev \
@@ -100,7 +100,7 @@ fi
 
 
 
-log "prepare", "ruby"
+log "prepare" "ruby"
 git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
 git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 apt-get install -y \
@@ -113,13 +113,13 @@ apt-get install -y \
 # install ruby
 export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
 ruby_version="2.1.1"
-log "build", "ruby $ruby_version"
+log "build" "ruby $ruby_version"
 rbenv install $ruby_version
 rbenv rehash
 
 
 
-log "install", "dev gems"
+log "install" "dev gems"
 gem install          \
   pry                \
   pry-doc            \
@@ -130,18 +130,18 @@ gem install          \
 
 
 
-log "set", "zsh to default shell"
+log "set" "zsh to default shell"
 chsh -s $(which zsh)
 
 
 
-log "link", "dotfiles"
+log "link" "dotfiles"
 git clone https://github.com/thedeeno/dotfiles.git $HOME/.dotfiles
 (cd $HOME/.dotfiles; ./relink)
 
 
 
-log "post-link", "dotilfes"
+log "post-link" "dotilfes"
 # install vim vundle
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 # install plugins
