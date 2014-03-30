@@ -4,7 +4,9 @@
 # only if they don't exist
 
 log () {
-  echo "[ \e[32m$1\e[0m ] $2"
+  echo -e ""
+  echo -e "  \e[32m$1\e[0m  $2"
+  echo -e ""
 }
 
 
@@ -58,9 +60,9 @@ else
     python-dev \
     ruby-dev \
     mercurial
-  hg clone https://code.google.com/p/vim/ ~/code/vim
+  hg clone https://code.google.com/p/vim/ $HOME/code/vim
   (
-    cd vim
+    cd $HOME/code/vim
     ./configure --with-features=huge \
       --enable-rubyinterp \
       --enable-pythoninterp \
@@ -84,9 +86,9 @@ else
     libevent-1.4 \
     libevent-dev \
     libncurses5-dev
-  git clone git://git.code.sf.net/p/tmux/tmux-code ~/code/tmux-code
+  git clone git://git.code.sf.net/p/tmux/tmux-code $HOME/code/tmux-code
   (
-    cd ~/code/tmux-code
+    cd $HOME/code/tmux-code
     git tag -l
     git checkout tags/1.9a
     autoreconf -fis
@@ -112,7 +114,7 @@ apt-get install -y \
 export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
 ruby_version="2.1.1"
 log "build", "ruby $ruby_version"
-rbenv install ruby_version
+rbenv install $ruby_version
 rbenv rehash
 
 
