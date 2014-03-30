@@ -3,7 +3,7 @@ My development environment
 
 ```
 # install tools and dependencies + download source codes
-curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/install | sudo sh
+curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/install | bash sh
 
 # link dotfiles
 (cd $HOME/code/dotfiles; ./relink)
