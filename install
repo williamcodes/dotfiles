@@ -29,6 +29,8 @@ apt-get install -y \
   libxml2-dev        \
   libxslt-dev        \
   openssl            \
+  awk                \
+  grep               \
   zsh
 
 
@@ -44,7 +46,7 @@ log "vim"
 apt-get install -y vim
 TARGET_VIM="7.4"
 CURRENT_VIM=$(vim --version | grep 'Vi IMproved' | awk '{ print $5 }')
-echo "$TARGET_VIM == $CURRENT_VIM"
+echo "ensure $TARGET_VIM == $CURRENT_VIM"
 if $CURRENT_VIM == $TARGET_VIM; then
   log "skipping" "vim $TARGET_VIM already installed"
 else
