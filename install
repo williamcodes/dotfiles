@@ -39,11 +39,11 @@ fakeroot apt-get install -y \
 
 
 
-##
-# Install Vim
+log "vim"
+# install distro version before installing from source
+apt-get install -y vim
 TARGET_VIM="7.4"
 CURRENT_VIM=$(vim --version | grep 'Vi IMproved' | awk '{ print $5 }')
-
 if $CURRENT_VIM == $TARGET_VIM; then
   log "skipping" "vim $TARGET_VIM already installed"
 else
@@ -78,6 +78,7 @@ fi
 
 
 
+log "tmux"
 current_tmux=$(tmux -V)
 target_tmux="1.9a"
 if $current_tmux == $target_tmux; then
