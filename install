@@ -91,13 +91,18 @@ else
     libevent-1.4 \
     libevent-dev \
     libncurses5-dev \
-    automake
+    automake \
+    autotools-dev \
+    libltdl-dev \
+    libtool \
+    autoconf \
+    autopoint
   git clone git://git.code.sf.net/p/tmux/tmux-code $HOME/code/tmux-code
   (
     cd $HOME/code/tmux-code
     git tag -l
     git checkout tags/1.9a
-    sh autogen.sh
+    ./autogen.sh
     ./configure
     make
     cp tmux $HOME/bin/
@@ -109,7 +114,7 @@ fi
 log "prepare" "ruby"
 git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
 git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-apt-get install -y \
+fakeroot apt-get install -y \
   libreadline-dev \
   libssl-dev \
   zlib1g-dev
