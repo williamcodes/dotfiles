@@ -9,9 +9,11 @@ log () {
 
 echo "  Install Dotfile Dependencies"
 export PATH=$HOME/bin:$PATH
-echo "  \e[32menvironment\e[0m"
-echo "  PATH=$PATH"
-echo "  HOME=$HOME"
+echo -e "  \e[32menvironment\e[0m"
+echo -e "  \e[32mPATH\e[0m=$PATH"
+echo -e "  \e[32mHOME\e[0m=$HOME"
+mkdir -p $HOME/bin
+mkdir -p $HOME/code
 
 
 
