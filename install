@@ -7,8 +7,11 @@ log () {
 }
 
 
-log "set" "environment"
+echo "  Install Dotfile Dependencies"
 export PATH=$HOME/bin:$PATH
+echo "  \e[32menvironment\e[0m"
+echo "  PATH=$PATH"
+echo "  HOME=$HOME"
 
 
 
