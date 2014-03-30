@@ -29,7 +29,6 @@ apt-get install -y \
   libxml2-dev        \
   libxslt-dev        \
   openssl            \
-  awk                \
   grep               \
   zsh
 
@@ -74,7 +73,7 @@ else
       --enable-perlinterp \
       --enable-gui=gtk2 --enable-cscope --prefix=/usr
     make VIMRUNTIMEDIR=/usr/share/vim/vim73
-    cp src/vim $HOME/bin
+    cp src/vim $HOME/bin/
   )
 fi
 
@@ -82,7 +81,7 @@ fi
 
 
 log "tmux"
-current_tmux=$(tmux -V)
+current_tmux=$(tmux -V | awk '{ print $2 }')
 target_tmux="1.9a"
 if [ "$current_tmux" == "$target_tmux" ]; then
   log "skipping" "tmux $target_tmux already installed"
@@ -91,16 +90,17 @@ else
   apt-get install -y \
     libevent-1.4 \
     libevent-dev \
-    libncurses5-dev
+    libncurses5-dev \
+    automake
   git clone git://git.code.sf.net/p/tmux/tmux-code $HOME/code/tmux-code
   (
     cd $HOME/code/tmux-code
     git tag -l
     git checkout tags/1.9a
-    autoreconf -fis
+    sh autogen.sh
     ./configure
     make
-    make install
+    cp tmux $HOME/bin/
   )
 fi
 
@@ -118,7 +118,7 @@ apt-get install -y \
 
 # install ruby
 export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
-export RUBY_VERSION="2.1.1"
+export RBENV_VERSION="2.1.1"
 ruby_version="2.1.1"
 log "build" "ruby $ruby_version"
 rbenv install $ruby_version
@@ -157,7 +157,4 @@ vim +PluginInstall +qall
 apt-get install -y \
   cmake \
   python-dev
-(
-  cd $HOME/.vim/bundle/YouCompleteMe
-  ./install.sh
-)
+(cd $HOME/.vim/bundle/YouCompleteMe; ./install.sh)
