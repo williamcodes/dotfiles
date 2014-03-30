@@ -9,7 +9,7 @@ log () {
 
 
 log "set", "environment"
-export $PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:$PATH
 
 
 
@@ -139,7 +139,8 @@ git clone https://github.com/thedeeno/dotfiles.git $HOME/.dotfiles
 
 
 
-log "setup", "vim"
+log "post-link", "dotilfes"
+# install vim vundle
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 # install plugins
 vim +PluginInstall +qall
@@ -147,7 +148,7 @@ vim +PluginInstall +qall
 apt-get install -y \
   cmake \
   python-dev
-cd ~/.vim/bundle/YouCompleteMe
-./install.sh
-cd $HOME
-
+(
+  cd $HOME/.vim/bundle/YouCompleteMe
+  ./install.sh
+)
