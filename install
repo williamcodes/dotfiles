@@ -1,11 +1,8 @@
 #!/bin/bash
 
-# TODO: Add guard methods to install dependencies
-# only if they don't exist
-
 log () {
   echo -e ""
-  echo -e "  \e[32m$1\e[0m  $2"
+  echo -e "  \E[32m$1\E[0m  $2"
   echo -e ""
 }
 
