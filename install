@@ -20,6 +20,12 @@ apt-get install -y \
 
 
 
+log "install", "packages that need special priv"
+fakeroot apt-get install -y \
+  libreadline-dev
+
+
+
 log "source-install", "vim"
 apt-get install -y \
   libncurses5-dev \
