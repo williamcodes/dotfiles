@@ -3,3 +3,4 @@ home/vim/tmp/
 home/vim/bundle/
 home/vim/undo/
 .zcompdump
+*.log
