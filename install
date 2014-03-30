@@ -1,165 +1,23 @@
 #!/bin/bash
 
 log () {
-  echo -e ""
   echo -e "  \E[32m$1\E[0m  $2"
-  echo -e ""
 }
-
-
-echo "  Install Dotfile Dependencies"
+export -f log
 export PATH=$HOME/bin:$PATH
-echo -e "  \e[32menvironment\e[0m"
-echo -e "  \e[32mPATH\e[0m=$PATH"
-echo -e "  \e[32mHOME\e[0m=$HOME"
-mkdir -p $HOME/bin
-mkdir -p $HOME/code
 
+curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/prepare | bash sh
+curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_packages | bash sh
 
+curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_zsh | bash sh
+curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_vim | bash sh
+curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_tmux | bash sh
 
-log "install" "packages"
+curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_rbenv | bash sh
+curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_ruby | bash sh
+curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_gems | bash sh
 
-apt-get install -y \
-  curl               \
-  build-essential    \
-  git-core           \
-  git-gui            \
-  gitg               \
-  libssl-dev         \
-  libxml2-dev        \
-  libxslt-dev        \
-  openssl            \
-  grep               \
-  zsh
+curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_dotfiles | bash sh
+curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_vim_plugins | bash sh
 
-
-
-log "install" "packages that need special priv"
-fakeroot apt-get install -y \
-  libreadline-dev
-
-
-
-log "vim"
-# install distro version before installing from source
-apt-get install -y vim
-TARGET_VIM="7.4"
-CURRENT_VIM=$(vim --version | grep 'Vi IMproved' | awk '{ print $5 }')
-echo "ensure $TARGET_VIM == $CURRENT_VIM"
-if [ "$CURRENT_VIM" == "$TARGET_VIM" ]; then
-  log "skipping" "vim $TARGET_VIM already installed"
-else
-  log "source-install" "vim"
-  apt-get install -y \
-    libncurses5-dev \
-    libgnome2-dev \
-    libgnomeui-dev \
-    libgtk2.0-dev \
-    libatk1.0-dev \
-    libbonoboui2-dev \
-    libcairo2-dev \
-    libx11-dev \
-    libxpm-dev \
-    libxt-dev \
-    python-dev \
-    ruby-dev \
-    mercurial
-  hg clone https://code.google.com/p/vim/ $HOME/code/vim
-  (
-    cd $HOME/code/vim
-    ./configure --with-features=huge \
-      --enable-rubyinterp \
-      --enable-pythoninterp \
-      --enable-perlinterp \
-      --enable-gui=gtk2 --enable-cscope --prefix=/usr
-    make VIMRUNTIMEDIR=/usr/share/vim/vim73
-    cp src/vim $HOME/bin/
-  )
-fi
-
-
-
-
-log "tmux"
-current_tmux=$(tmux -V | awk '{ print $2 }')
-target_tmux="1.9a"
-if [ "$current_tmux" == "$target_tmux" ]; then
-  log "skipping" "tmux $target_tmux already installed"
-else
-  log "source-install" "tmux"
-  apt-get install -y \
-    libevent-1.4 \
-    libevent-dev \
-    libncurses5-dev \
-    automake \
-    autotools-dev \
-    libltdl-dev \
-    libtool \
-    autoconf \
-    autopoint
-  git clone git://git.code.sf.net/p/tmux/tmux-code $HOME/code/tmux-code
-  (
-    cd $HOME/code/tmux-code
-    git tag -l
-    git checkout tags/1.9a
-    ./autogen.sh
-    ./configure
-    make
-    cp tmux $HOME/bin/
-  )
-fi
-
-
-
-log "prepare" "ruby"
-git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
-git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-fakeroot apt-get install -y \
-  libreadline-dev \
-  libssl-dev \
-  zlib1g-dev
-
-
-
-# install ruby
-export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
-export RBENV_VERSION="2.1.1"
-ruby_version="2.1.1"
-log "build" "ruby $ruby_version"
-rbenv install $ruby_version
-rbenv rehash
-
-
-
-log "install" "dev gems"
-gem install          \
-  pry                \
-  pry-doc            \
-  pry-debugger       \
-  pry-stack_explorer \
-  pry-rails          \
-  awesome_print      \
-
-
-
-log "set" "zsh to default shell"
-chsh -s $(which zsh)
-
-
-
-log "link" "dotfiles"
-git clone https://github.com/thedeeno/dotfiles.git $HOME/.dotfiles
-(cd $HOME/.dotfiles; ./relink)
-
-
-
-log "post-link" "dotilfes"
-# install vim vundle
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-# install plugins
-vim +PluginInstall +qall
-# compile plugins
-apt-get install -y \
-  cmake \
-  python-dev
-(cd $HOME/.vim/bundle/YouCompleteMe; ./install.sh)
+log "done"

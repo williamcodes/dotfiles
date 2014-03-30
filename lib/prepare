@@ -1,0 +1,13 @@
+#!/bin/bash
+
+log () {
+  echo -e "  \E[32m$1\E[0m  $2"
+}
+export -f log
+export PATH=$HOME/bin:$PATH
+
+echo -e "  \e[32menvironment\e[0m"
+echo -e "  \e[32mPATH\e[0m=$PATH"
+echo -e "  \e[32mHOME\e[0m=$HOME"
+mkdir -p $HOME/bin
+mkdir -p $HOME/code

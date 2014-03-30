@@ -1,0 +1,9 @@
+#!/bin/bash
+
+gem install          \
+  pry                \
+  pry-doc            \
+  pry-debugger       \
+  pry-stack_explorer \
+  pry-rails          \
+  awesome_print      \

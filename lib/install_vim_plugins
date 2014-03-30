@@ -1,0 +1,13 @@
+#!/bin/bash
+
+log "install" "vim plugins"
+
+# install vim vundle
+git clone https://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle
+# install plugins
+vim -e +PluginInstall +qall
+# compile plugins
+apt-get install -y \
+  cmake \
+  python-dev
+(cd $HOME/.vim/bundle/YouCompleteMe; ./install.sh)
