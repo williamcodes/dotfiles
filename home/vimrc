@@ -292,6 +292,14 @@ set ttimeoutlen=50
 " alias leader in normal mode
 let mapleader=","
 
+" less pinky
+nnoremap <SPACE> :w<CR>
+inoremap 5 "
+inoremap 7 '
+inoremap dfj "
+inoremap dfk )
+inoremap dfh (
+inoremap dfn _
 " NERD Tree
 " nmap <leader>n :NERDTreeFind<CR>
 let g:NERDTreeQuitOnOpen = 1
@@ -376,7 +384,6 @@ nnoremap <leader>R gD:%s/<C-R>///gc<left><left><left>}
 
 " write file easier
 nmap <leader>w :write<CR>
-nmap <SPACE> :write<CR>
 
 nnoremap vv V
 nnoremap g4 $
