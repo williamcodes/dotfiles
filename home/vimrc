@@ -128,6 +128,7 @@ set directory=~/.vim/tmp
 " make searches case-sensitive only if they contain upper-case characters
 set ignorecase smartcase
 set hidden
+set autochdir
 " use relative numbering
 " set rnu
 " add keystrokes to status line
