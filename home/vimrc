@@ -79,7 +79,7 @@ Bundle 'tpope/vim-surround.git'
 Bundle 'tpope/vim-endwise'
 
 " themes
-Bundle 'thedeeno/molokai'
+" Bundle 'thedeeno/molokai'
 " Bundle 'flazz/vim-colorschemes'
 " Bundle 'altercation/vim-colors-solarized'
 
@@ -293,6 +293,14 @@ set ttimeoutlen=50
 " alias leader in normal mode
 let mapleader=","
 
+" less pinky
+nnoremap <SPACE> :w<CR>
+inoremap 5 "
+inoremap 7 '
+inoremap dfj "
+inoremap dfk )
+inoremap dfh (
+inoremap dfn _
 " NERD Tree
 " nmap <leader>n :NERDTreeFind<CR>
 let g:NERDTreeQuitOnOpen = 1
@@ -377,7 +385,6 @@ nnoremap <leader>R gD:%s/<C-R>///gc<left><left><left>}
 
 " write file easier
 nmap <leader>w :write<CR>
-nmap <SPACE> :write<CR>
 
 nnoremap vv V
 nnoremap g4 $
@@ -485,7 +492,7 @@ nnoremap gJ              :wincmd J<cr>
 au BufRead,BufNewFile *.hamlc set ft=haml
 
 " Show syntax highlighting groups for word under cursor
-nmap <C-S-P> :call <SID>SynStack()<CR>
+nmap <C-S-Y> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
   if !exists("*synstack")
     return
