@@ -123,8 +123,8 @@ set gdefault          " make substitution line global by default
 " set directory=~/.vim/swap,.
 set noswapfile
 set backup
-set backupdir=~/.vim/backup
-set directory=~/.vim/tmp
+set backupdir=~/.vim-backup
+set directory=~/.vim-tmp
 " make searches case-sensitive only if they contain upper-case characters
 set ignorecase smartcase
 set hidden
