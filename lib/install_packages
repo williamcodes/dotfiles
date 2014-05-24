@@ -13,5 +13,7 @@ apt-get install -y \
   libxslt-dev        \
   openssl            \
   grep               \
-  zsh
+  zsh                \
+  guake              \
+  compizconfig-settings-manager
 
