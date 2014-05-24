@@ -14,8 +14,13 @@ Configure desktop wall movement with ccsm
 Adjust keyboard delay/speed via Keyboard Menu
 Add Custom Keyboard Shortcuts in Keyboard > Shortcuts
 
+  Ctrl + Alt + T
   Name: Launch Terminal Maximized
-  Command: gnome-terminal --window --maximized
+  Command: gnome-terminal --window --maximize
+
+  Ctrl + Alt + F
+  Name: Launch Firefox
+  Command: firefox
 
 # Manual Install
 
