@@ -6,18 +6,18 @@ log () {
 export -f log
 export PATH=$HOME/bin:$PATH
 
-curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/prepare | bash sh
-curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_packages | bash sh
+curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/prepare | sh
+curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_packages | sh
 
-curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_zsh | bash sh
-curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_vim | bash sh
-curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_tmux | bash sh
+curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_zsh | sh
+curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_vim | sh
+curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_tmux | sh
 
-curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_rbenv | bash sh
-curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_ruby | bash sh
-curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_gems | bash sh
+curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_rbenv | sh
+curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_ruby | sh
+curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_gems | sh
 
-curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_dotfiles | bash sh
-curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_vim_plugins | bash sh
+curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_dotfiles | sh
+curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/lib/install_vim_plugins | sh
 
 log "done"
