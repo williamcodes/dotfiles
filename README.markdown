@@ -9,6 +9,14 @@ curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/install | sh
 (cd $HOME/code/dotfiles; ./relink)
 ```
 
+# Post Install
+Configure desktop wall movement with ccsm
+Adjust keyboard delay/speed via Keyboard Menu
+Add Custom Keyboard Shortcuts in Keyboard > Shortcuts
+
+  Name: Launch Terminal Maximized
+  Command: gnome-terminal --window --maximized
+
 # Manual Install
 
 ### Install Packages
