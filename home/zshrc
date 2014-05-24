@@ -21,3 +21,9 @@ eval "$(rbenv init -)"
 # use dvorak as the basis for spell checking
 # setopt DVORAK
 unsetopt correct_all
+
+# start tmux by default
+if [[ ! $TERM =~ screen ]]; then
+  $(tmux)
+fi
+
