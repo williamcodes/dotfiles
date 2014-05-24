@@ -21,6 +21,7 @@ alias ls='ls -o --color --group-directories-first'
 
 # ruby
 alias be='bundle exec'
+alias eb='export PATH=./bin:$PATH'
 
 
 # git
@@ -37,6 +38,7 @@ alias be='bundle exec'
 
 # docker
 alias dk='docker'
+alias gear='nocorrect gear'
 
 # knife
 alias kcu='knife cookbook upload'
