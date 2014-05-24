@@ -128,7 +128,6 @@ set directory=~/.vim/tmp
 " make searches case-sensitive only if they contain upper-case characters
 set ignorecase smartcase
 set hidden
-set autochdir
 " use relative numbering
 " set rnu
 " add keystrokes to status line
@@ -308,6 +307,7 @@ let g:NERDTreeShowHidden = 1
 nnoremap <leader>nn :NERDTree<CR>
 nnoremap <leader>nf :NERDTreeFind<CR>
 
+nnoremap <leader>bp Orequire 'pry'; binding.pry<ESC>^
 " file name form command line
 cnoremap <leader>f <C-R>=expand("%")<CR>
 
@@ -593,8 +593,10 @@ set sidescrolloff=5 " Number of cols from horizontal edge to start scrolling
 set sidescroll=1     " Number of cols to scroll at a time
 
 " ----------------------------------------------------------------------------
-" tabular helpers
+" tabular
 " ----------------------------------------------------------------------------
+" shortcut for aligning visual selection on arbitrary character
+vnoremap <leader>a :Tabularize /
 
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
