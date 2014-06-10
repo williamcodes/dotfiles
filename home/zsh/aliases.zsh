@@ -39,6 +39,7 @@ alias eb='export PATH=./bin:$PATH'
 # docker
 alias dk='docker'
 alias gear='nocorrect gear'
+alias gearbox="sudo -E bundle exec gearbox"
 
 # knife
 alias kcu='knife cookbook upload'
