@@ -294,12 +294,12 @@ let mapleader=","
 
 " less pinky
 nnoremap <SPACE> :w<CR>
-inoremap 5 "
-inoremap 7 '
-inoremap dfj "
-inoremap dfk )
-inoremap dfh (
-inoremap dfn _
+" inoremap 5 "
+" inoremap 7 '
+" inoremap dfj "
+" inoremap dfk )
+" inoremap dfh (
+" inoremap dfn _
 " NERD Tree
 " nmap <leader>n :NERDTreeFind<CR>
 let g:NERDTreeQuitOnOpen = 1
