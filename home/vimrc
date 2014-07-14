@@ -754,3 +754,8 @@ vnoremap <A-s> y<Esc>:%s/<C-r>"//gc<Left><Left><Left>
 " 
 " set foldmethod=expr
 " set foldexpr=CSSFolds()
+
+" setup vim helpers
+source /home/dane/code/vim-helpers/plugin/generators.vim
+nmap <leader>gc :call GenerateRubyClassDefinition()<CR>
+
