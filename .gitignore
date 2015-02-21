@@ -4,3 +4,4 @@ home/vim/bundle/
 home/vim/undo/
 .zcompdump
 *.log
+home/npmrc
