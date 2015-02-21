@@ -14,17 +14,21 @@ alias pubkey="more ~/.ssh/id_dsa.public | pbcopy | echo '=> Public key copied to
 alias ..='cd ..'
 
 # ls aliases
-alias ll='ls -l --color --group-directories-first'
-alias la='ls -A --color'
-alias l='ls -CF --color'
-alias ls='ls -o --color --group-directories-first'
+alias ls='ls -la'
+# alias la='ls -A --color'
+# alias l='ls -CF --color'
+# alias ls='ls -o --color --group-directories-first'
 
 # ruby
 alias be='bundle exec'
 alias eb='export PATH=./bin:$PATH'
 
+# programs
+alias mou='open /Applications/Mou.app'
 
 # git
+alias grvd='git review develop'
+
 # alias gl='git pull --prune'
 # alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 # alias gp='git push'
