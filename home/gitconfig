@@ -39,6 +39,8 @@
   ra = !git r --all
   l = "!source ~/.githelpers && pretty_git_log"
   la = !git l --all
+
+  review = "!f() { git push origin HEAD:refs/for/$1; }; f"
 [color]
   diff = auto
   status = auto
