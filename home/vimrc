@@ -1,94 +1,123 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
-" My Bundles here
+" My Plugins here
 " text objects
-Bundle 'kana/vim-textobj-user'
-" Bundle 'kana/vim-textobj-line'
-" Bundle 'kana/vim-textobj-entire'
-" Bundle 'kana/vim-textobj-indent'
-Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'terryma/vim-expand-region'
-" Bundle 'camelcasemotion'
+" Plugin 'kana/vim-textobj-user'
+" Plugin 'kana/vim-textobj-line'
+" Plugin 'kana/vim-textobj-entire'
+" Plugin 'kana/vim-textobj-indent'
+" Plugin 'nelstrom/vim-textobj-rubyblock'
+" Plugin 'terryma/vim-expand-region'
+" Plugin 'camelcasemotion'
 
 " plugins
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'tpope/vim-rails.git'
-Bundle 'tpope/vim-abolish.git'
-Bundle 'tpope/vim-rake.git'
-Bundle 'tpope/vim-bundler.git'
-Bundle 'tomtom/tcomment_vim.git'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree.git'
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'tpope/vim-rails.git'
+Plugin 'tpope/vim-abolish.git'
+Plugin 'tpope/vim-rake.git'
+Plugin 'tpope/vim-bundler.git'
+Plugin 'tomtom/tcomment_vim.git'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree.git'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-projectionist.git'
+
+" Plugin 'Valloric/YouCompleteMe'
+
+" visual
+Plugin 'blueyed/vim-diminactive.git'
+let g:diminactive_use_syntax = 1
+augroup BgHighlight
+  autocmd!
+  autocmd WinEnter * set cul
+  autocmd WinLeave * set nocul
+augroup END
 
 " theming
 " font patches installed to ~/.fonts and configured in ~/.fonts.conf.d
-Bundle 'bling/vim-airline'
-Bundle 'nanotech/jellybeans.vim'
-" Bundle 'https://github.com/gorodinskiy/vim-coloresque.git'
+Plugin 'bling/vim-airline'
+Plugin 'nanotech/jellybeans.vim'
+" Plugin 'https://github.com/gorodinskiy/vim-coloresque.git'
 
 " integration - tmux
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'benmills/vimux'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'benmills/vimux'
 
 " integration - git
-Bundle 'tpope/vim-fugitive'
-Bundle 'mhinz/vim-signify'
+Plugin 'tpope/vim-fugitive'
+Plugin 'mhinz/vim-signify'
+
+" integration - jshint
+Plugin 'wookiehangover/jshint.vim'
 
 "   testing
-Bundle 'skalnik/vim-vroom'
+Plugin 'skalnik/vim-vroom'
 
 "   screen + tmux
 
 "   search
-" Bundle 'mileszs/ack.vim'
-Bundle 'rking/ag.vim'
-
-" folding
+" Plugin 'mileszs/ack.vim'
+Plugin 'rking/ag.vim'
 
 " syntax
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-haml.git'
-Bundle 'groenewege/vim-less'
-Bundle 'chakrit/upstart.vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-haml.git'
+Plugin 'groenewege/vim-less'
+Plugin 'chakrit/upstart.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'jelera/vim-javascript-syntax'
+" Plugin 'pangloss/vim-javascript'
+" Plugin 'nathanaelkane/vim-indent-guides'
 
-" Bundle 'skammer/vim-css-color'
+" Plugin 'skammer/vim-css-color'
 
 " training
-" Bundle 'kbarrette/mediummode'
+" Plugin 'kbarrette/mediummode'
 
 " motions
-Bundle 'justinmk/vim-sneak'
-" Bundle 'Lokaltog/vim-easymotion'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'takac/vim-hardtime'
 
 "  manipulators
-Bundle 'AndrewRadev/switch.vim'
-Bundle 'AndrewRadev/splitjoin.vim'
-Bundle 'godlygeek/tabular'
-Bundle 'tpope/vim-surround.git'
+Plugin 'AndrewRadev/switch.vim'
+Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'tpope/vim-surround.git'
+
+
+" syntax highlighters
+
+" requires godlygeek/tabular is included before this
+Plugin 'plasticboy/vim-markdown'
+Plugin 'tpope/vim-dispatch'
+
 
 " auto manipulators
-Bundle 'tpope/vim-endwise'
+Plugin 'tpope/vim-endwise'
 
 " themes
-" Bundle 'thedeeno/molokai'
-" Bundle 'flazz/vim-colorschemes'
-" Bundle 'altercation/vim-colors-solarized'
+" Plugin 'thedeeno/molokai'
+" Plugin 'flazz/vim-colorschemes'
+" Plugin 'altercation/vim-colors-solarized'
 
 
 " vim-scripts repos
 
 " non github repos
-" Bundle 'git://git.wincent.com/command-t.git'
+" Plugin 'git://git.wincent.com/command-t.git'
+"
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 " ---------------------------------------------------------------------------
 " Matchit (ruby-textobject support)
@@ -118,7 +147,7 @@ set ruler             " Show line and column number
 syntax enable         " Turn on syntax highlighting allowing local overrides
 set encoding=utf-8    " Set default encoding to UTF-8
 
-set gdefault          " make substitution line global by default
+" set gdefault          " make substitution line global by default
 
 " store swap files in one location
 " set directory=~/.vim/swap,.
@@ -140,15 +169,28 @@ set nocursorline
 " ----------------------------------------------------------------------------
 set laststatus=2  " always show the status bar
 
-let g:airline_theme = 'monochrome'
+" let g:airline_theme = 'monochrome'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#hunks#enabled = 0
 
-" function! AirlineInit()
-"   " let g:airline_section_a = airline#section#create(['mode', 'branch',])
-"   " let g:airline_section_b = airline#section#create_left(['ffenc','file'])
-" endfunction
-" autocmd VimEnter * call AirlineInit()
+" let g:airline_theme = 'jellybeans'
+
+function! AirlineInit()
+  let g:airline_section_a = airline#section#create(['branch'])
+  let g:airline_section_b = airline#section#create_left(['file'])
+endfunction
+autocmd VimEnter * call AirlineInit()
+
+let g:airline#extensions#default#section_truncate_width = {
+  \ 'a': 45,
+  \ 'b': 45,
+  \ 'z': 45,
+  \ }
+
+let g:airline#extensions#default#layout = [
+  \ [ 'a', 'b' ],
+  \ [ 'z' ]
+  \ ]
 
 " configure airline symbols
 if !exists('g:airline_symbols')
@@ -171,7 +213,10 @@ let g:airline_symbols.branch = '⎇'
 
 " endfunction
 
-" if has("statusline") && !&cp
+" show tail end of file name
+set statusline=%t
+
+
 " 
 "   " Start the status line
 "   set statusline=%f\ %m\ %r
@@ -209,7 +254,16 @@ set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 " Ignore bundler and sass cache
 set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
 
+" Ignore node files
+set wildignore+=*/node_modules/*
+
+set wildignore+=*/bower_components/*
+set wildignore+=bower_components/*
+set wildignore+=*/vendor/*
+set wildignore+=*/public/*
+
 " Disable temp and backup files
+
 set wildignore+=*.swp,*~,._*
 
 " Ignore tmp dirs
@@ -285,7 +339,7 @@ endif
 "  Remapping
 " ----------------------------------------------------------------------------
 " make esc insta fire (I don't expect to use keycodes)
-set ttimeoutlen=50
+set ttimeoutlen=100
 
 " ----------------------------------------------------------------------------
 "  Mappings
@@ -293,8 +347,17 @@ set ttimeoutlen=50
 " alias leader in normal mode
 let mapleader=","
 
+" fast console log
+nmap <leader>cl Oconsole.log();<ESC>hha
+
 " less pinky
+" nnoremap <SPACE> :w<CR>:Start! sleep 1 && osascript -e 'tell application "Google Chrome" to tell the active tab of its first window to reload'<CR><CR>
+" nnoremap <SPACE> :w<CR>:Start! gulp components:compile && osascript -e 'tell application "Google Chrome" to tell the active tab of its first window to reload'<CR>
+" nnoremap <SPACE> :w<CR>:!osascript -e 'tell application "Google Chrome" to tell the active tab of its first window to reload'<CR><CR>
+" nnoremap <SPACE> :w<CR>
 nnoremap <SPACE> :w<CR>
+
+" nnoremap <SPACE> :w<CR>:Start! gulp components:compile<CR><CR>
 " inoremap 5 "
 " inoremap 7 '
 " inoremap dfj "
@@ -305,6 +368,7 @@ nnoremap <SPACE> :w<CR>
 " nmap <leader>n :NERDTreeFind<CR>
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeShowHidden = 1
+let g:NERDTreeWinSize = 50
 nnoremap <leader>nn :NERDTree<CR>
 nnoremap <leader>nf :NERDTreeFind<CR>
 
@@ -328,10 +392,6 @@ nnoremap <leader>p "+p
 nnoremap <c-j> mao<esc>`a
 nnoremap <C-K> maO<ESC>`a
 
-" search mappings
-nnoremap <silent> <leader>s /
-nnoremap <silent> <leader>S ?
-
 " select all
 nmap <C-a> ggVG
 
@@ -346,6 +406,9 @@ nnoremap <silent> gu :CtrlPBuffer<CR>
 nnoremap <silent> go :CtrlP<CR>
 nnoremap <silent> gr :CtrlPMRU<CR>
 
+" ctrlp - start in filename mode
+let g:ctrlp_by_filename = 1
+
 " repeat last command almost like dot
 nnoremap <silent> g. @:
 
@@ -359,10 +422,10 @@ vnoremap Q gq
 
 " quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nmap <silent> <leader>re :so $MYVIMRC<CR>
 
-" align plugin mappings
-vmap <Leader>i <C-c>:'<,'>Align
+" tabularize plugin mappings
+vmap <Leader>i :Tab
 
 " make Y consistent with C and D
 nnoremap Y y$
@@ -374,18 +437,16 @@ nmap <leader>ra :A<CR>
 " nmap gr :R<CR>
 
 " for local replace
-nnoremap <F3> gd[{V%:s/<C-R>///gc<left><left><left>
+" nnoremap <F3> gd[{V%:s/<C-R>///gc<left><left><left>
 
-" for global replace
-nnoremap <leader>R gD:%s/<C-R>///gc<left><left><left>}
+" for global rename
+" from a visual selection, sub for whole file with confirmation
+vnoremap <leader>rn y:%s/<C-R>0//gc<left><left><left>
 
 " ArgumentReWrap plugin
 " nnoremap <silent> <leader>a :call argumentrewrap#RewrapArguments()<CR>
 
 " map ; to : to save shifts
-
-" write file easier
-nmap <leader>w :write<CR>
 
 nnoremap vv V
 nnoremap g4 $
@@ -428,6 +489,7 @@ nnoremap g6 ^
 " ---------------------------------------------------------------------------
 
 set nowrap                        " don't wrap lines
+set softtabstop=2                 "
 set tabstop=2                     " a tab is two spaces
 set shiftwidth=2                  " an autoindent (with <<) is two spaces
 set expandtab                     " use spaces, not tabs
@@ -493,7 +555,7 @@ nnoremap gJ              :wincmd J<cr>
 au BufRead,BufNewFile *.hamlc set ft=haml
 
 " Show syntax highlighting groups for word under cursor
-nmap <C-S-Y> :call <SID>SynStack()<CR>
+nmap <leader><leader>y :call <SID>SynStack()<CR>
 function! <SID>SynStack()
   if !exists("*synstack")
     return
@@ -548,9 +610,16 @@ endfunction
 " there may be a way to speed up the checking but this fix works and I care 
 " more about fast buffer switching than syntax checking. 
 " ---------------------------------------------------------------------------
-let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['haml', 'scss', 'sass'] }
+" let g:syntastic_mode_map = { 'mode': 'active',
+"                            \ 'active_filetypes': [],
+"                            \ 'passive_filetypes': ['haml', 'scss', 'sass'] }
+
+let g:syntastic_javascript_checkers = ['jscs', 'jshint']
+let g:syntastic_css_checkers = ['']
+let g:syntastic_sass_checkers = ['']
+let g:syntastic_scss_checkers = ['']
+let g:syntastic_html_checkers = []
+let g:syntastic_aggregate_errors = 1
 
 " ---------------------------------------------------------------------------
 " CSS
@@ -583,8 +652,44 @@ endif
 " ----------------------------------------------------------------------------
 " easymotion
 " ----------------------------------------------------------------------------
-let g:EasyMotion_leader_key = '<space>'
+let g:EasyMotion_leader_key = 'm'
 let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
+" let g:EasyMotion_do_mapping = 1 " Disable default mappings
+
+" Turn on case sensitive feature
+let g:EasyMotion_smartcase = 1
+
+" Bi-directional find motion
+" Jump to anywhere you want with minimal keystrokes, with just one key
+" binding.
+onoremap ms <Plug>(easymotion-s)
+map ms <Plug>(easymotion-s)
+"
+" map <leader>f <Plug>(easymotion-f)
+" omap <leader>w <Plug>(easymotion-w)
+" nmap <leader>w <Plug>(easymotion-w)
+"
+" nmap <leader>e <Plug>(easymotion-bd-e)
+" omap <leader>e <Plug>(easymotion-bd-e)
+"
+" omap <leader>b <Plug>(easymotion-b)
+" nmap <leader>b <Plug>(easymotion-b)
+
+" or, if 2 character motion is desired
+" nmap S <Plug>(easymotion-s2)
+
+" JK motions: Line motions
+" map <Leader>j <Plug>(easymotion-j)
+" map <Leader>k <Plug>(easymotion-k)
+let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
+
+" replace incremental search
+" map  / <Plug>(easymotion-sn)
+" omap / <Plug>(easymotion-tn)
+
+" extend n/N with more features like auto-highlight
+" map  n <Plug>(easymotion-next)
+" map  N <Plug>(easymotion-prev)
 
 " ----------------------------------------------------------------------------
 " scrolling at edges
@@ -637,8 +742,8 @@ let g:switch_custom_definitions =
 " ---------------------------------------------------------------------------
 " SplitJoin
 " ---------------------------------------------------------------------------
-let g:splitjoin_split_mapping = '<leader>j'
-let g:splitjoin_join_mapping = '<leader>k'
+let g:splitjoin_split_mapping = '<leader><leader>j'
+let g:splitjoin_join_mapping = '<leader><leader>k'
 
 " ---------------------------------------------------------------------------
 " Fugative Helpers
@@ -687,8 +792,10 @@ function! SmoothScroll(up)
     endwhile
 endfunction
 
-nnoremap K :call SmoothScroll(1)<Enter>
-nnoremap J :call SmoothScroll(0)<Enter>
+" nnoremap K :call SmoothScroll(1)<Enter>
+" nnoremap J :call SmoothScroll(0)<Enter>
+map K {
+map J }
 
 " ---------------------------------------------------------------------------
 " Git Gutter
@@ -700,10 +807,10 @@ let g:gitgutter_sign_column_always = 1
 " ---------------------------------------------------------------------------
 " Vroom
 " ---------------------------------------------------------------------------
-let g:vroom_map_keys = 0
-let g:vroom_use_vimux = 1
-nnoremap <leader>f :VroomRunNearestTest<CR>
-nnoremap <leader>t :VroomRunTestFile<CR>
+" let g:vroom_map_keys = 0
+" let g:vroom_use_vimux = 1
+" nnoremap <leader>f :VroomRunNearestTest<CR>
+" nnoremap <leader>t :VroomRunTestFile<CR>
 
 " ---------------------------------------------------------------------------
 " Screen Settings
@@ -756,6 +863,11 @@ vnoremap <A-s> y<Esc>:%s/<C-r>"//gc<Left><Left><Left>
 " set foldexpr=CSSFolds()
 
 " setup vim helpers
-source /home/dane/code/vim-helpers/plugin/generators.vim
-nmap <leader>gc :call GenerateRubyClassDefinition()<CR>
+" source /home/dane/code/vim-helpers/plugin/generators.vim
+" nmap <leader>gc :call GenerateRubyClassDefinition()<CR>
 
+" ---------------------------------------------------------------------------
+" Hard Time
+" ---------------------------------------------------------------------------
+let g:hardtime_maxcount = 2
+let g:hardtime_showmsg = 2
