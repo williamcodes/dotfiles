@@ -6,7 +6,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 " My Plugins here
 " text objects
@@ -20,7 +20,6 @@ Plugin 'gmarik/vundle'
 
 " plugins
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'tpope/vim-rails.git'
 Plugin 'tpope/vim-abolish.git'
 Plugin 'tpope/vim-rake.git'
 Plugin 'tpope/vim-bundler.git'
@@ -28,18 +27,26 @@ Plugin 'tomtom/tcomment_vim.git'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-projectionist.git'
 
-" Plugin 'Valloric/YouCompleteMe'
+" these are making vim slow to start
+" Plugin 'tpope/vim-projectionist.git'
+" Plugin 'tpope/vim-rails.git'
+
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'tpope/vim-dispatch'
+
+" training
+" Plugin 'kbarrette/mediummode'
+Plugin 'takac/vim-hardtime'
 
 " visual
-Plugin 'blueyed/vim-diminactive.git'
-let g:diminactive_use_syntax = 1
-augroup BgHighlight
-  autocmd!
-  autocmd WinEnter * set cul
-  autocmd WinLeave * set nocul
-augroup END
+" Plugin 'blueyed/vim-diminactive.git'
+" let g:diminactive_use_syntax = 1
+" augroup BgHighlight
+"   autocmd!
+"   autocmd WinEnter * set cul
+"   autocmd WinLeave * set nocul
+" augroup END
 
 " theming
 " font patches installed to ~/.fonts and configured in ~/.fonts.conf.d
@@ -48,8 +55,8 @@ Plugin 'nanotech/jellybeans.vim'
 " Plugin 'https://github.com/gorodinskiy/vim-coloresque.git'
 
 " integration - tmux
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'benmills/vimux'
+" Plugin 'christoomey/vim-tmux-navigator'
+" Plugin 'benmills/vimux'
 
 " integration - git
 Plugin 'tpope/vim-fugitive'
@@ -61,10 +68,8 @@ Plugin 'wookiehangover/jshint.vim'
 "   testing
 Plugin 'skalnik/vim-vroom'
 
-"   screen + tmux
-
 "   search
-" Plugin 'mileszs/ack.vim'
+Plugin 'mileszs/ack.vim'
 Plugin 'rking/ag.vim'
 
 " syntax
@@ -74,18 +79,15 @@ Plugin 'tpope/vim-haml.git'
 Plugin 'groenewege/vim-less'
 Plugin 'chakrit/upstart.vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'jelera/vim-javascript-syntax'
-" Plugin 'pangloss/vim-javascript'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mustache/vim-mustache-handlebars'
+
 " Plugin 'nathanaelkane/vim-indent-guides'
 
 " Plugin 'skammer/vim-css-color'
 
-" training
-" Plugin 'kbarrette/mediummode'
-
 " motions
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'takac/vim-hardtime'
 
 "  manipulators
 Plugin 'AndrewRadev/switch.vim'
@@ -94,15 +96,16 @@ Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-surround.git'
 
 
-" syntax highlighters
-
 " requires godlygeek/tabular is included before this
 Plugin 'plasticboy/vim-markdown'
-Plugin 'tpope/vim-dispatch'
 
 
 " auto manipulators
 Plugin 'tpope/vim-endwise'
+
+" tabs
+Plugin 'gcmt/taboo.vim'
+set sessionoptions+=tabpages,globals " required for taboo
 
 " themes
 " Plugin 'thedeeno/molokai'
@@ -308,13 +311,12 @@ endif
 " Terminal Discovery
 " ----------------------------------------------------------------------------
 set t_Co=256
-set term=screen-256color
+" set term=screen-256color
 set ttyfast
 
 " ----------------------------------------------------------------------------
 " COLOR
 " ----------------------------------------------------------------------------
-syntax enable
 colorscheme jellybeans
 " :color grb256
 
@@ -341,6 +343,7 @@ endif
 " make esc insta fire (I don't expect to use keycodes)
 set ttimeoutlen=100
 
+
 " ----------------------------------------------------------------------------
 "  Mappings
 " ----------------------------------------------------------------------------
@@ -350,11 +353,39 @@ let mapleader=","
 " fast console log
 nmap <leader>cl Oconsole.log();<ESC>hha
 
-" less pinky
-" nnoremap <SPACE> :w<CR>:Start! sleep 1 && osascript -e 'tell application "Google Chrome" to tell the active tab of its first window to reload'<CR><CR>
+" fast tab page switching
+nmap `1 1gt
+nmap `2 2gt
+nmap `3 3gt
+nmap `4 4gt
+nmap `5 5gt
+nmap `6 6gt
+nmap `7 7gt
+nmap `8 8gt
+nmap `9 9gt
+
+if has('nvim')
+  " easy exit terminal mode
+  tmap jk <c-\><c-n>
+  tmap kj <c-\><c-n>
+  tmap <esc> <c-\><c-n>
+
+  nmap `o :tabnew<CR>:terminal<CR>
+  tmap `q exit<CR><CR><CR>
+  autocmd TermCreate * startinsert
+endif
+
+let g:taboo_tab_format=" %N "
+let g:taboo_renamed_tab_format=" %N %l "
+nmap `, :TabooRename<SPACE>
+nmap `c :tabnew<CR>
+nmap `m :tabm<SPACE>
+
+" use existing buffer
+set switchbuf +=useopen
+
 " nnoremap <SPACE> :w<CR>:Start! gulp components:compile && osascript -e 'tell application "Google Chrome" to tell the active tab of its first window to reload'<CR>
-" nnoremap <SPACE> :w<CR>:!osascript -e 'tell application "Google Chrome" to tell the active tab of its first window to reload'<CR><CR>
-" nnoremap <SPACE> :w<CR>
+" nnoremap <SPACE> :w<CR>:silent !osascript -e 'tell application "Google Chrome" to tell the active tab of its first window to reload'<CR>
 nnoremap <SPACE> :w<CR>
 
 " nnoremap <SPACE> :w<CR>:Start! gulp components:compile<CR><CR>
@@ -387,10 +418,6 @@ inoremap jk <Esc>
 inoremap kj <Esc>
 
 nnoremap <leader>p "+p
-
-" insert line below and above
-nnoremap <c-j> mao<esc>`a
-nnoremap <C-K> maO<ESC>`a
 
 " select all
 nmap <C-a> ggVG
@@ -664,6 +691,7 @@ let g:EasyMotion_smartcase = 1
 " binding.
 onoremap ms <Plug>(easymotion-s)
 map ms <Plug>(easymotion-s)
+map s <Plug>(easymotion-s)
 "
 " map <leader>f <Plug>(easymotion-f)
 " omap <leader>w <Plug>(easymotion-w)
@@ -869,5 +897,63 @@ vnoremap <A-s> y<Esc>:%s/<C-r>"//gc<Left><Left><Left>
 " ---------------------------------------------------------------------------
 " Hard Time
 " ---------------------------------------------------------------------------
-let g:hardtime_maxcount = 2
+let g:hardtime_default_on = 0
+let g:hardtime_maxcount = 3
 let g:hardtime_showmsg = 2
+
+
+" ---------------------------------------------------------------------------
+" Component Navigation
+" ---------------------------------------------------------------------------
+
+function! GoToRelated(filetype)
+  " getting the current component
+  let l:component_root = expand('%:p:h')
+
+  " extract component name from root
+  let l:parts = split(l:component_root, '/')
+  let l:component = l:parts[ len(l:parts) - 1 ]
+
+  if l:component == 'test'
+    let l:component_root = substitute(l:component_root, '/test$', '', '')
+    let l:component = l:parts[ len(l:parts) - 2 ]
+  endif
+
+  " create the path to target file
+  if a:filetype == 'demo'
+    let l:target = l:component_root . '/demo.html'
+  elseif a:filetype == 'test'
+    let l:target = l:component_root . '/test/basic-test.html'
+  else
+    let l:target = l:component_root . '/' . l:component . '.' . a:filetype
+  endif
+
+  " navigate
+  if bufexists(l:target)
+    execute "silent sbuffer " . fnameescape(l:target)
+    execute "normal \<c-w>\<c-p>:bd"
+  else
+    execute "silent e " . fnameescape(l:target)
+  end
+
+endfunction
+
+set winminheight=0
+nnoremap <c-k> <c-w>k<c-w>_
+nnoremap <c-j> <c-w>j<c-w>_
+
+command! GoToJS call GoToRelated('js')
+command! GoToCSS call GoToRelated('scss')
+command! GoToHTML call GoToRelated('html')
+command! GoToDemo call GoToRelated('demo')
+command! GoToTest call GoToRelated('test')
+
+" function! REPLSend(lines)
+"   call jobsend(g:last_term_job_id, add(a:lines, ''))
+" endfunction
+
+nnoremap <silent> \j :GoToJS<cr>
+nnoremap <silent> \c :GoToCSS<cr>
+nnoremap <silent> \h :GoToHTML<cr>
+nnoremap <silent> \d :GoToDemo<cr>
+nnoremap <silent> \t :GoToTest<cr>
