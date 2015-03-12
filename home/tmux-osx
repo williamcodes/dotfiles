@@ -1,0 +1,2 @@
+# enable clipboard via brew 'reattach-to-user-namespace' package
+set-option -g default-command "reattach-to-user-namespace -l zsh"
