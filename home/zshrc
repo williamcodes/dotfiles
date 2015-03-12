@@ -16,14 +16,20 @@ for file in $HOME/.zsh/*.zsh; do
   fi
 done
 
+# RBENV
 eval "$(rbenv init -)"
+
+# Node Version Manager
+source ~/.nvm/nvm.sh
 
 # use dvorak as the basis for spell checking
 # setopt DVORAK
 unsetopt correct_all
 
 # start tmux by default
-if [[ ! $TERM =~ screen ]]; then
-  $(tmux)
-fi
+# if [[ ! $TERM =~ screen ]]; then
+#   $(tmux)
+# fi
 
+export PATH="$HOME/.ndenv/bin:$PATH"
+eval "$(ndenv init -)"
