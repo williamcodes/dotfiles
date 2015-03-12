@@ -34,6 +34,7 @@ Plugin 'terryma/vim-multiple-cursors'
 
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-dispatch'
+Plugin 'mattn/emmet-vim'
 
 " training
 " Plugin 'kbarrette/mediummode'
@@ -363,6 +364,17 @@ nmap `6 6gt
 nmap `7 7gt
 nmap `8 8gt
 nmap `9 9gt
+
+nmap `m1 :tabm 0<CR>
+nmap `m2 :tabm 1<CR>
+nmap `m3 :tabm 2<CR>
+nmap `m4 :tabm 3<CR>
+nmap `m5 :tabm 4<CR>
+nmap `m6 :tabm 5<CR>
+nmap `m7 :tabm 6<CR>
+nmap `m8 :tabm 7<CR>
+nmap `m9 :tabm 8<CR>
+nmap `m0 :tabm 9<CR>
 
 if has('nvim')
   " easy exit terminal mode
