@@ -24,6 +24,15 @@ Add Custom Keyboard Shortcuts in Keyboard > Shortcuts
 
 # Manual Install
 
+## *NIX
+
+### Clone Dotfiles
+
+<!-- ### Install node version manager (and the build plugin) -->
+<!--  -->
+<!--     git clone https://github.com/riywo/ndenv ~/.ndenv -->
+<!--     git clone https://github.com/riywo/node&#45;build.git ~/.ndenv/plugins/node&#45;build -->
+<!--  -->
 ### Install Packages
 
     sudo apt-get install -y  \
