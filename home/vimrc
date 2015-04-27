@@ -412,7 +412,7 @@ nmap `c :tabnew<CR>
 nmap `m :tabm<SPACE>
 
 " use existing buffer
-set switchbuf +=useopen
+" set switchbuf +=useopen
 
 " nnoremap <SPACE> :w<CR>:Start! gulp components:compile && osascript -e 'tell application "Google Chrome" to tell the active tab of its first window to reload'<CR>
 " nnoremap <SPACE> :w<CR>:silent !osascript -e 'tell application "Google Chrome" to tell the active tab of its first window to reload'<CR>
