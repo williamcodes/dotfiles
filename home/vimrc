@@ -10,10 +10,11 @@ Plugin 'gmarik/Vundle.vim'
 
 " My Plugins here
 " text objects
-" Plugin 'kana/vim-textobj-user'
+Plugin 'kana/vim-textobj-user'
+Plugin 'kana/vim-textobj-indent'
+Plugin 'tek/vim-textobj-ruby'
 " Plugin 'kana/vim-textobj-line'
 " Plugin 'kana/vim-textobj-entire'
-" Plugin 'kana/vim-textobj-indent'
 " Plugin 'nelstrom/vim-textobj-rubyblock'
 " Plugin 'terryma/vim-expand-region'
 " Plugin 'camelcasemotion'
