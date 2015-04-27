@@ -25,6 +25,9 @@ export NVM_DIR=~/.nvm
 #JAVA
 export JAVA_HOME=$(/usr/libexec/java_home)
 
+# AWS Elastic Beanstalk
+# export PATH="$HOME/tools/AWS-ElasticBeanstalk-CLI-2.6.4/eb/linux/python2.7:$PATH"
+
 #ANDROID
 export ANDROID_HOME="$HOME/tools/android-sdk-linux"
 export PATH="$HOME/tools/android-sdk-linux/tools:$PATH"
