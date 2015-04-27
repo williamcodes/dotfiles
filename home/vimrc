@@ -464,6 +464,8 @@ nnoremap <silent> gr :CtrlPMRU<CR>
 
 " ctrlp - start in filename mode
 let g:ctrlp_by_filename = 1
+" ctrlp - show dot files
+let g:ctrlp_show_hidden = 1
 
 " repeat last command almost like dot
 nnoremap <silent> g. @:
