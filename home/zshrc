@@ -30,6 +30,3 @@ unsetopt correct_all
 # if [[ ! $TERM =~ screen ]]; then
 #   $(tmux)
 # fi
-
-export PATH="$HOME/.ndenv/bin:$PATH"
-eval "$(ndenv init -)"

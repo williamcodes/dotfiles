@@ -63,6 +63,7 @@ Plugin 'nanotech/jellybeans.vim'
 " integration - git
 Plugin 'tpope/vim-fugitive'
 Plugin 'mhinz/vim-signify'
+Plugin 'floobits/floobits-neovim'
 
 " integration - jshint
 Plugin 'wookiehangover/jshint.vim'
@@ -427,7 +428,8 @@ nmap `m :tabm<SPACE>
 
 " nnoremap <SPACE> :w<CR>:Start! gulp components:compile && osascript -e 'tell application "Google Chrome" to tell the active tab of its first window to reload'<CR>
 " nnoremap <SPACE> :w<CR>:silent !osascript -e 'tell application "Google Chrome" to tell the active tab of its first window to reload'<CR>
-nnoremap <SPACE> :w<CR>
+" noremap <SPACE> :w<CR>:call StripWhitespace ()<CR>a<CR>
+noremap <SPACE> :w<CR>
 
 " nnoremap <SPACE> :w<CR>:Start! gulp components:compile<CR><CR>
 " inoremap 5 "
@@ -477,7 +479,7 @@ nnoremap <silent> g. @:
 
 " fugative
 nnoremap gs :Gstatus<CR>
-nnoremap gm :Gmove 
+nnoremap gm :Gmove
 
 " reflow paragraph with Q in normal and visual mode
 nnoremap Q gqap
@@ -548,7 +550,7 @@ nnoremap g6 ^
 "
 
 " ---------------------------------------------------------------------------
-" Whitespace 
+" Whitespace
 " ---------------------------------------------------------------------------
 
 set nowrap                        " don't wrap lines
@@ -587,13 +589,13 @@ map <leader>v :view %%
 " Window Management
 " ---------------------------------------------------------------------------
 " opening and switching
-function! WinMove(key) 
+function! WinMove(key)
   let t:curwin = winnr()
   exec "wincmd ".a:key
   if (t:curwin == winnr()) "we havent moved
     if (match(a:key,'[jk]')) "were we going up/down
       wincmd v
-    else 
+    else
       wincmd s
     endif
     exec "wincmd ".a:key
@@ -687,8 +689,8 @@ endfunction
 " ---------------------------------------------------------------------------
 " Turn off active error checking for slow-to-compile languages
 "
-" there may be a way to speed up the checking but this fix works and I care 
-" more about fast buffer switching than syntax checking. 
+" there may be a way to speed up the checking but this fix works and I care
+" more about fast buffer switching than syntax checking.
 " ---------------------------------------------------------------------------
 " let g:syntastic_mode_map = { 'mode': 'active',
 "                            \ 'active_filetypes': [],
@@ -833,8 +835,13 @@ let g:splitjoin_split_mapping = '<leader><leader>j'
 let g:splitjoin_join_mapping = '<leader><leader>k'
 
 " ---------------------------------------------------------------------------
-" Fugative Helpers
+" Fugitive Helpers
 " ---------------------------------------------------------------------------
+set diffopt+=vertical
+nnoremap gic :Gcommit<CR>
+nnoremap gid :Gdiff<CR>
+nnoremap gis :Gstatus<CR>
+
 function! CloseDiff()
   if (&diff == 0 || getbufvar('#', '&diff') == 0)
         \ && (bufname('%') !~ '^fugitive:' && bufname('#') !~ '^fugitive:')
@@ -927,7 +934,7 @@ let g:mediummode_enabled=0
 nnoremap <leader>2 :%s/\<<C-r><C-w>\>//g<Left><Left>
 " ask for confirmation
 nnoremap <leader>3 :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
- 
+
 " Substitute selection globally
 vnoremap <C-s> y<Esc>:%s/<C-r>"//g<Left><Left>
 " ask for confirmation
@@ -945,7 +952,7 @@ vnoremap <A-s> y<Esc>:%s/<C-r>"//gc<Left><Left><Left>
 "     return ">0"
 "   endif
 " endfunction
-" 
+"
 " set foldmethod=expr
 " set foldexpr=CSSFolds()
 
@@ -1012,3 +1019,12 @@ nnoremap <silent> \c :GoToCSS<cr>
 nnoremap <silent> \h :GoToHTML<cr>
 nnoremap <silent> \d :GoToDemo<cr>
 nnoremap <silent> \t :GoToTest<cr>
+
+" ---------------------------------------------------------------------------
+" Highlight over 80 characters
+" ---------------------------------------------------------------------------
+"
+" Highlight long rows
+" ctermbg 52 is dark red
+highlight OverLength ctermbg=52 ctermfg=white guibg=#770000
+match OverLength /\%81v./
