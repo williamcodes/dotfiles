@@ -22,6 +22,9 @@ export PATH=$PATH:$GOPATH/bin
 # NODE
 export NVM_DIR=~/.nvm
 
+#JAVA
+export JAVA_HOME=$(/usr/libexec/java_home)
+
 #ANDROID
 export ANDROID_HOME="$HOME/tools/android-sdk-linux"
 export PATH="$HOME/tools/android-sdk-linux/tools:$PATH"
