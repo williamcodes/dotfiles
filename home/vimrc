@@ -371,15 +371,38 @@ nmap `7 7gt
 nmap `8 8gt
 nmap `9 9gt
 
+
 if has('nvim')
+  " fast tab page switching
+  tmap `1 <c-\><c-n>1gt
+  tmap `2 <c-\><c-n>2gt
+  tmap `3 <c-\><c-n>3gt
+  tmap `4 <c-\><c-n>4gt
+  tmap `5 <c-\><c-n>5gt
+  tmap `6 <c-\><c-n>6gt
+  tmap `7 <c-\><c-n>7gt
+  tmap `8 <c-\><c-n>8gt
+  tmap `9 <c-\><c-n>9gt
+
+  " move to other pane easily
+  nmap `h <c-\><c-n>gh
+  nmap `l <c-\><c-n>gl
+  nmap `k <c-\><c-n>gk
+  nmap `j <c-\><c-n>gj
+  tmap `h <c-\><c-n>gh
+  tmap `l <c-\><c-n>gl
+  tmap `k <c-\><c-n>gk
+  tmap `j <c-\><c-n>gj
+
   " easy exit terminal mode
-  tmap jk <c-\><c-n>
-  tmap kj <c-\><c-n>
+  " tmap jk <c-\><c-n>
+  " tmap kj <c-\><c-n>
   tmap <esc> <c-\><c-n>
 
   nmap `o :tabnew<CR>:terminal<CR>
   tmap `q exit<CR><CR><CR>
   autocmd TermCreate * startinsert
+  autocmd WinEnter term://* startinsert
 endif
 
 let g:taboo_tab_format=" %N "
