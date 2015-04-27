@@ -444,8 +444,7 @@ nnoremap g6 ^
 nnoremap g4 $
 
 " The Smash Escape - also without cursor movement
-inoremap jk <Esc>
-inoremap kj <Esc>
+inoremap dk <Esc>
 
 nnoremap <leader>p "+p
 
