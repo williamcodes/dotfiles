@@ -265,6 +265,7 @@ set wildignore+=*/bower_components/*
 set wildignore+=bower_components/*
 set wildignore+=*/vendor/*
 set wildignore+=*/public/*
+set wildignore+=*/dist/*
 
 " Disable temp and backup files
 
