@@ -20,7 +20,7 @@ done
 eval "$(rbenv init -)"
 
 # Node Version Manager
-source ~/.nvm/nvm.sh
+source $(brew --prefix nvm)/nvm.sh
 
 # use dvorak as the basis for spell checking
 # setopt DVORAK

@@ -19,6 +19,9 @@ export PATH="/usr/local/go/bin:$PATH"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+# NODE
+export NVM_DIR=~/.nvm
+
 #ANDROID
 export ANDROID_HOME="$HOME/tools/android-sdk-linux"
 export PATH="$HOME/tools/android-sdk-linux/tools:$PATH"
