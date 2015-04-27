@@ -593,6 +593,23 @@ function! WinMove(key)
   endif
 endfunction
 
+" A whole bunch of mappings to make window management easy and a little bit
+" more like tab management in other editors.
+"  - Ctrl-m will maximize the current window.
+"  - Ctrl-t creates a new window and maximizes it
+"  - Ctrl-j and k move up/down in window stack
+"    and maximize after the new bufffer is selected
+"  - Ctrl h and l move left/right between window stacks
+set winminheight=0
+
+nnoremap <silent> <C-m> :wincmd _ <cr>
+nnoremap <silent> <C-j> <C-W>J<C-W>20k<C-W>_
+nnoremap <silent> <C-k> <C-W>k<C-W>_
+nnoremap <silent> <C-h> :wincmd h <cr>
+nnoremap <silent> <C-l> :wincmd l <cr>
+nnoremap <silent> <C-w>m <C-w>_
+nnoremap <silent> <C-n> :tabnew<cr>
+
 " window navigation
 nnoremap gh :call WinMove('h')<cr>
 nnoremap gl :call WinMove('l')<cr>
