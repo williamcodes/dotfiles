@@ -437,12 +437,6 @@ nnoremap <leader>bp Orequire 'pry'; binding.pry<ESC>^
 " file name form command line
 cnoremap <leader>f <C-R>=expand("%")<CR>
 
-" easy switch to last buffer
-" nnoremap <leader><leader> <c-^>
-" let mapleader = 'g'
-nnoremap g6 ^
-nnoremap g4 $
-
 " The Smash Escape - also without cursor movement
 inoremap dk <Esc>
 
