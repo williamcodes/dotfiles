@@ -990,10 +990,6 @@ function! GoToRelated(filetype)
 
 endfunction
 
-set winminheight=0
-nnoremap <c-k> <c-w>k<c-w>_
-nnoremap <c-j> <c-w>j<c-w>_
-
 command! GoToJS call GoToRelated('js')
 command! GoToCSS call GoToRelated('scss')
 command! GoToHTML call GoToRelated('html')
