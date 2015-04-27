@@ -21,7 +21,6 @@ alias ls='ls -la'
 
 # ruby
 alias be='bundle exec'
-alias eb='export PATH=./bin:$PATH'
 
 # programs
 alias mou='open /Applications/Mou.app'
