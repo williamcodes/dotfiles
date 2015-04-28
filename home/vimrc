@@ -56,6 +56,9 @@ Plugin 'bling/vim-airline'
 Plugin 'nanotech/jellybeans.vim'
 " Plugin 'https://github.com/gorodinskiy/vim-coloresque.git'
 
+" integration - floobits
+Plugin 'floobits/floobits-neovim'
+
 " integration - tmux
 " Plugin 'christoomey/vim-tmux-navigator'
 " Plugin 'benmills/vimux'
@@ -63,7 +66,6 @@ Plugin 'nanotech/jellybeans.vim'
 " integration - git
 Plugin 'tpope/vim-fugitive'
 Plugin 'mhinz/vim-signify'
-Plugin 'floobits/floobits-neovim'
 
 " integration - jshint
 Plugin 'wookiehangover/jshint.vim'
@@ -585,6 +587,16 @@ nmap <leader><leader>st :call StripWhitespace ()<CR>
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
+
+" ---------------------------------------------------------------------------
+" Floobits
+" ---------------------------------------------------------------------------
+nnoremap ,fa :FlooAddBuf<CR>
+nnoremap ,fd :FlooDeleteBuf<CR>
+nnoremap ,fo :FlooToggleFollowMode<CR>
+nnoremap ,ff :FlooFollowUser<CR>
+nnoremap ,fs :FlooSummon<CR>
+nnoremap ,fl :FlooClearHighlights<CR>
 
 " ---------------------------------------------------------------------------
 " Window Management
