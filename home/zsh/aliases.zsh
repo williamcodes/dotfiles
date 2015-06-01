@@ -14,7 +14,7 @@ alias pubkey="more ~/.ssh/id_dsa.public | pbcopy | echo '=> Public key copied to
 alias ..='cd ..'
 
 # ls aliases
-alias ls='ls -la'
+# alias ls='ls -la'
 # alias la='ls -A --color'
 # alias l='ls -CF --color'
 # alias ls='ls -o --color --group-directories-first'

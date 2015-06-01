@@ -8,7 +8,6 @@ call vundle#begin()
 " required!
 Plugin 'gmarik/Vundle.vim'
 
-" My Plugins here
 " text objects
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-indent'
@@ -24,6 +23,8 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'tpope/vim-abolish.git'
 Plugin 'tpope/vim-rake.git'
 Plugin 'tpope/vim-bundler.git'
+Plugin 'tpope/vim-unimpaired.git'
+Plugin 'tpope/vim-repeat.git'
 Plugin 'tomtom/tcomment_vim.git'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree.git'
@@ -61,17 +62,16 @@ Plugin 'floobits/floobits-neovim'
 
 " integration - tmux
 " Plugin 'christoomey/vim-tmux-navigator'
-" Plugin 'benmills/vimux'
+Plugin 'benmills/vimux'
+nnoremap <leader>f :call VimuxRunCommand("clear; rake test")<CR>
 
 " integration - git
 Plugin 'tpope/vim-fugitive'
+" Plugin 'airblade/vim-gitgutter'
 Plugin 'mhinz/vim-signify'
 
-" integration - jshint
-Plugin 'wookiehangover/jshint.vim'
-
 "   testing
-Plugin 'skalnik/vim-vroom'
+" Plugin 'skalnik/vim-vroom'
 
 "   search
 Plugin 'mileszs/ack.vim'
@@ -102,7 +102,7 @@ Plugin 'tpope/vim-surround.git'
 
 
 " requires godlygeek/tabular is included before this
-Plugin 'plasticboy/vim-markdown'
+" Plugin 'plasticboy/vim-markdown'
 
 
 " auto manipulators
@@ -353,7 +353,8 @@ set mouse=a
 "  Remapping
 " ----------------------------------------------------------------------------
 " make esc insta fire (I don't expect to use keycodes)
-set ttimeoutlen=100
+set timeoutlen=250
+nnoremap <F7> :redraw!<CR>
 
 
 " ----------------------------------------------------------------------------
@@ -361,6 +362,8 @@ set ttimeoutlen=100
 " ----------------------------------------------------------------------------
 " alias leader in normal mode
 let mapleader=","
+
+" better copy paste
 
 " fast console log
 nmap <leader>cl Oconsole.log();<ESC>hha
@@ -411,7 +414,7 @@ if has('nvim')
 
   " easy exit terminal mode
   " tmap jk <c-\><c-n>
-  " tmap kj <c-\><c-n>
+  " tmap kj c-\><c-n>
   tmap <esc> <c-\><c-n>
 
   nmap `o :tabnew<CR>:terminal<CR>
@@ -432,7 +435,6 @@ nmap `m :tabm<SPACE>
 " nnoremap <SPACE> :w<CR>:Start! gulp components:compile && osascript -e 'tell application "Google Chrome" to tell the active tab of its first window to reload'<CR>
 " nnoremap <SPACE> :w<CR>:silent !osascript -e 'tell application "Google Chrome" to tell the active tab of its first window to reload'<CR>
 " noremap <SPACE> :w<CR>:call StripWhitespace ()<CR>a<CR>
-noremap <SPACE> :w<CR>
 
 " nnoremap <SPACE> :w<CR>:Start! gulp components:compile<CR><CR>
 " inoremap 5 "
@@ -451,10 +453,11 @@ nnoremap <leader>nf :NERDTreeFind<CR>
 
 nnoremap <leader>bp Orequire 'pry'; binding.pry<ESC>^
 " file name form command line
-cnoremap <leader>f <C-R>=expand("%")<CR>
+" cnoremap <leader>f <C-R>=expand("%")<CR>
 
 " The Smash Escape - also without cursor movement
-inoremap dk <Esc>
+" inoremap dk <Esc>
+inoremap dk <Esc>:w<CR>
 
 nnoremap <leader>p "+p
 
@@ -472,10 +475,14 @@ nnoremap <silent> gu :CtrlPBuffer<CR>
 nnoremap <silent> go :CtrlP<CR>
 nnoremap <silent> gr :CtrlPMRU<CR>
 
-" ctrlp - start in filename mode
-let g:ctrlp_by_filename = 1
+" ctrlp - start in full path mode
+let g:ctrlp_by_filename = 0
 " ctrlp - show dot files
 let g:ctrlp_show_hidden = 1
+" add space to accept mapping
+let g:ctrlp_prompt_mappings = {
+  \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>']
+  \ }
 
 " repeat last command almost like dot
 nnoremap <silent> g. @:
@@ -573,11 +580,11 @@ set listchars=""                  " Reset the listchars
 set listchars=tab:\ \             " a tab should display as "  ", trailing whitespace as "."
 set listchars+=trail:.            " show trailing spaces as dots
 set listchars+=extends:>          " The character to show in the last column when wrap is
-                                  " off and the line continues beyond the right of the screen
+" off and the line continues beyond the right of the screen
 set listchars+=precedes:<         " The character to show in the last column when wrap is
-                                  " off and the line continues beyond the right of the screen
+" off and the line continues beyond the right of the screen
 function! StripWhitespace ()
-    exec ':%s/ \+$//gc'
+  exec ':%s/ \+$//gc'
 endfunction
 nmap <leader><leader>st :call StripWhitespace ()<CR>
 
@@ -591,12 +598,12 @@ map <leader>v :view %%
 " ---------------------------------------------------------------------------
 " Floobits
 " ---------------------------------------------------------------------------
-nnoremap ,fa :FlooAddBuf<CR>
-nnoremap ,fd :FlooDeleteBuf<CR>
-nnoremap ,fo :FlooToggleFollowMode<CR>
-nnoremap ,ff :FlooFollowUser<CR>
-nnoremap ,fs :FlooSummon<CR>
-nnoremap ,fl :FlooClearHighlights<CR>
+" nnoremap ,fa :FlooAddBuf<CR>
+" nnoremap ,fd :FlooDeleteBuf<CR>
+" nnoremap ,fo :FlooToggleFollowMode<CR>
+" nnoremap ,ff :FlooFollowUser<CR>
+" nnoremap ,fs :FlooSummon<CR>
+" nnoremap ,fl :FlooClearHighlights<CR>
 
 " ---------------------------------------------------------------------------
 " Window Management
@@ -665,11 +672,11 @@ set formatoptions-=o "dont continue comments when pushing o/O
 
 "smart indent when entering insert mode with i on empty lines
 function! IndentWithI()
-    if len(getline('.')) == 0
-        return "\"_ddO"
-    else
-        return "i"
-    endif
+  if len(getline('.')) == 0
+    return "\"_ddO"
+  else
+    return "i"
+  endif
 endfunction
 nnoremap <expr> i IndentWithI()
 
@@ -677,24 +684,24 @@ nnoremap <expr> i IndentWithI()
 "dont do it when writing a commit log entry
 autocmd BufReadPost * call SetCursorPosition()
 function! SetCursorPosition()
-    if &filetype !~ 'commit\c'
-        if line("'\"") > 0 && line("'\"") <= line("$")
-            exe "normal! g`\""
-            normal! zz
-        endif
-    end
+  if &filetype !~ 'commit\c'
+    if line("'\"") > 0 && line("'\"") <= line("$")
+      exe "normal! g`\""
+      normal! zz
+    endif
+  end
 endfunction
 
 "define :HighlightLongLines command to highlight the offending parts of
 "lines that are longer than the specified length (defaulting to 80)
 command! -nargs=? HighlightLongLines call s:HighlightLongLines('<args>')
 function! s:HighlightLongLines(width)
-    let targetWidth = a:width != '' ? a:width : 79
-    if targetWidth > 0
-        exec 'match Todo /\%>' . (targetWidth) . 'v/'
-    else
-        echomsg "Usage: HighlightLongLines [natural number]"
-    endif
+  let targetWidth = a:width != '' ? a:width : 79
+  if targetWidth > 0
+    exec 'match Todo /\%>' . (targetWidth) . 'v/'
+  else
+    echomsg "Usage: HighlightLongLines [natural number]"
+  endif
 endfunction
 
 " ---------------------------------------------------------------------------
@@ -716,11 +723,14 @@ endif
 if filereadable(".jscsrc")
   let g:syntastic_javascript_checkers += ['jscs']
 endif
-let g:syntastic_css_checkers = ['']
-let g:syntastic_sass_checkers = ['']
 let g:syntastic_scss_checkers = ['']
+let g:syntastic_css_checkers = ['']
 let g:syntastic_html_checkers = []
-let g:syntastic_aggregate_errors = 1
+let g:syntastic_aggregate_errors = 0
+let g:syntastic_enable_highlighting = 0
+let g:syntastic_enable_signs = 1
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_warning_symbol = "⚠"
 
 " ---------------------------------------------------------------------------
 " CSS
@@ -753,7 +763,7 @@ endif
 " ----------------------------------------------------------------------------
 " easymotion
 " ----------------------------------------------------------------------------
-let g:EasyMotion_leader_key = 'm'
+" let g:EasyMotion_leader_key = '<space>'
 let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 " let g:EasyMotion_do_mapping = 1 " Disable default mappings
 
@@ -763,10 +773,22 @@ let g:EasyMotion_smartcase = 1
 " Bi-directional find motion
 " Jump to anywhere you want with minimal keystrokes, with just one key
 " binding.
-onoremap ms <Plug>(easymotion-s)
-map ms <Plug>(easymotion-s)
-map s <Plug>(easymotion-s)
-"
+" onoremap ms <Plug>(easymotion-s)
+" map ms <Plug>(easymotion-s)
+" map mf <Plug>(easymotion-f)
+map t <Plug>(easymotion-t)
+map f <Plug>(easymotion-f)
+nmap s <Plug>(easymotion-s)
+nmap <space>f <Plug>(easymotion-s)
+nmap <space>a A
+nmap <space>i I
+nmap <space>4 $
+nmap <space>6 ^
+
+" flush write
+nnoremap fl :w<CR>
+nmap <space> :w<CR>
+
 " map <leader>f <Plug>(easymotion-f)
 " omap <leader>w <Plug>(easymotion-w)
 " nmap <leader>w <Plug>(easymotion-w)
@@ -785,18 +807,21 @@ map s <Plug>(easymotion-s)
 " map <Leader>k <Plug>(easymotion-k)
 let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 
+nmap <space>g /
 " replace incremental search
-" map  / <Plug>(easymotion-sn)
-" omap / <Plug>(easymotion-tn)
+nmap / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-sn)
+nmap <space>s <Plug>(easymotion-sn)
+omap <space>s <Plug>(easymotion-tn)
 
 " extend n/N with more features like auto-highlight
-" map  n <Plug>(easymotion-next)
-" map  N <Plug>(easymotion-prev)
+map n <Plug>(easymotion-next)
+map N <Plug>(easymotion-prev)
 
 " ----------------------------------------------------------------------------
 " scrolling at edges
 " ----------------------------------------------------------------------------
-set scrolloff=8      " Number of lines from vertical edge to start scrolling
+set scrolloff=3      " Number of lines from vertical edge to start scrolling
 set sidescrolloff=5 " Number of cols from horizontal edge to start scrolling
 set sidescroll=1     " Number of cols to scroll at a time
 
@@ -836,10 +861,10 @@ nmap <leader><leader>z :so $VIMRUNTIME/syntax/hitest.vim
 " ---------------------------------------------------------------------------
 nnoremap - :Switch<CR>
 let g:switch_custom_definitions =
-    \ [
-    \   { '\(\k\+\)(&:\(\S\+\))': '\1 { |x| x\.\2 }' },
-    \   { '\(\k\+\)\s\={ |\(\k\+\)| \2.\(\S\+\) }': '\1(&:\3)' },
-    \ ]
+      \ [
+      \   { '\(\k\+\)(&:\(\S\+\))': '\1 { |x| x\.\2 }' },
+      \   { '\(\k\+\)\s\={ |\(\k\+\)| \2.\(\S\+\) }': '\1(&:\3)' },
+      \ ]
 
 " ---------------------------------------------------------------------------
 " SplitJoin
@@ -879,37 +904,39 @@ nnoremap <Leader>gD :call CloseDiff()<cr>
 " ---------------------------------------------------------------------------
 " Smooth Srolling
 " ---------------------------------------------------------------------------
+
 function! SmoothScroll(up)
-    if a:up
-        " let scrollaction="3"
-        let scrollaction="4k"
-    else
-        " let scrollaction="3"
-        let scrollaction="4j"
-    endif
-    exec "normal " . scrollaction
+  if a:up
+    " move window and cursor
+    let scrollaction="33k"
+  else
+    " move window and cursor
+    let scrollaction="33j"
+  endif
+  exec "normal " . scrollaction
+  redraw
+  let counter=1
+  while counter<&scroll/2
+    let counter+=1
+    sleep 6m
     redraw
-    let counter=1
-    while counter<&scroll/4
-        let counter+=1
-        sleep 6m
-        redraw
-        exec "normal " . scrollaction
-        exec "normal zz"
-    endwhile
+    exec "normal " . scrollaction
+  endwhile
 endfunction
 
-" nnoremap K :call SmoothScroll(1)<Enter>
-" nnoremap J :call SmoothScroll(0)<Enter>
-map K {
-map J }
+nnoremap <C-k> :call SmoothScroll(1)<Enter>
+nnoremap <C-j> :call SmoothScroll(0)<Enter>
+nnoremap K :call SmoothScroll(1)<Enter>
+nnoremap J :call SmoothScroll(0)<Enter>
+" map K {
+" map J }
 
 " ---------------------------------------------------------------------------
 " Git Gutter
 " ---------------------------------------------------------------------------
-let g:gitgutter_realtime = 0
-let g:gitgutter_eager = 0
-let g:gitgutter_sign_column_always = 1
+" let g:gitgutter_realtime = 0
+" let g:gitgutter_eager = 0
+" let g:gitgutter_sign_column_always = 1
 
 " ---------------------------------------------------------------------------
 " Vroom
@@ -958,7 +985,7 @@ vnoremap <A-s> y<Esc>:%s/<C-r>"//gc<Left><Left><Left>
 " function! CSSFolds()
 "   let thisline = getline(v:lnum)
 "   if match(thisline, '^[a-zA-Z.#@*/]\+') >= 0
-"     return ">1"
+"     return "1"
 "   elseif match(thisline, '^\s*$')
 "     return '1'
 "   else

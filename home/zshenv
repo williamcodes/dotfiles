@@ -9,6 +9,8 @@ export LS_COLORS="di=36;40:ln=35;40:so=33;40:pi=33;40:ex=32;40:bd=34;46:cd=34;43
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.bin:$PATH"
 export PATH="$ZSH/bin:$PATH"
+# XHOME bin stubs
+export PATH="$HOME/code/xhome/web/bin:$PATH"
 
 export PATH="/usr/local/bin:$PATH"
 
@@ -38,3 +40,4 @@ export PATH="$ANDROID_HOME/platform-tools:$PATH"
 # MISC
 export EDITOR='vim'
 export ZDOTDIR=$HOME
+

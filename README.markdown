@@ -194,8 +194,34 @@ it to servers:
   - change `/etc/ssh/sshd_config` `PasswordAuthenticate` to `no`
   - `sudo service ssh restart`
 
-## Thanks
+# TODO
 
-I forked [Zach Holeman's](http://github.com/holman) and later merged in 
-[Ryan Bate's](http://github.com/ryanb)' dotfiles. This repository is now
-considerably different, but they were fantastic inspiration.
+DONE:
+  make s a motion
+  add vim-repeat
+  remap spacebar write to freeup spacebar namespace
+  add space bar namespace for navigation
+  add unimpaired
+  mechanism to change html tags
+  better scrolling
+
+DOING:
+
+TODO:
+  Change error colors to be more subtle
+  snippets via snipmate
+  single command to open browser next to terminal in split
+  integrate https://github.com/suan/vim-instant-markdown
+  javascript function text object
+  create list of commands to practice on daily
+  add mappings for unimpaired
+  make `m# move tab in tmux
+  getting silver search to work better (or find something else)
+  better global search/replace
+  wtf is with our colos
+  better multi-line comments in js/css
+  steal colorscheme fallback from andrew fallows
+  stop markdown from auto collapsing
+  steal fast snippet editing shortcuts from andrew
+  github-falvored-marked
+  task-paper
