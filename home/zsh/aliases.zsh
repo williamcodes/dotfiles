@@ -27,6 +27,10 @@ alias mou='open /Applications/Mou.app'
 
 # git
 alias grvd='git review develop'
+alias gcma='git commit --amend'
+alias gcod='git checkout develop'
+alias gcob='git checkout -b'
+alias gst='git status'
 
 # alias gl='git pull --prune'
 # alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
