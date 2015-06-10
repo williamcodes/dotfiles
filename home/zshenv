@@ -2,8 +2,8 @@
 export SHELL=$(which zsh)
 
 # LSCOLORS (see http://geoff.greer.fm/lscolors/) BSD
-export LSCOLORS="gxfxdxdxcxegedabagacad"
-export LS_COLORS="di=36;40:ln=35;40:so=33;40:pi=33;40:ex=32;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:"
+export LSCOLORS="fxfxcxdxbxegedabagacad"
+export LS_COLORS="di=34;40:ln=35;40:so=33;40:pi=33;40:ex=32;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:"
 
 # PATH
 export PATH="$HOME/bin:$PATH"
