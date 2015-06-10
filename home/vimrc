@@ -60,10 +60,13 @@ Plugin 'nanotech/jellybeans.vim'
 " integration - floobits
 Plugin 'floobits/floobits-neovim'
 
+" integration - testing
+Plugin 'geekjuice/vim-spec'
+
 " integration - tmux
 " Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'benmills/vimux'
-nnoremap <leader>f :call VimuxRunCommand("clear; rake test")<CR>
+
 
 " integration - git
 Plugin 'tpope/vim-fugitive'
@@ -226,7 +229,7 @@ let g:airline_symbols.branch = '⎇'
 set statusline=%t
 
 
-" 
+"
 "   " Start the status line
 "   set statusline=%f\ %m\ %r
 "   set statusline+=%{fugitive#statusline()}
@@ -271,6 +274,9 @@ set wildignore+=bower_components/*
 set wildignore+=*/vendor/*
 set wildignore+=*/public/*
 set wildignore+=*/dist/*
+
+" osx
+set wildignore+=.DS_Store
 
 " Disable temp and backup files
 
@@ -356,10 +362,25 @@ set mouse=a
 set timeoutlen=250
 nnoremap <F7> :redraw!<CR>
 
+" ----------------------------------------------------------------------------
+" Training
+" ----------------------------------------------------------------------------
+
+" no /, use <c-;> instead
+" inoremap <c-;> /
+" inoremap / <nop>
+"
+" inoremap / <nop>
+
+" no backspace, use c-h instead
+" cmap <BS> <nop>
+" imap <BS> <nop>
+
 
 " ----------------------------------------------------------------------------
 "  Mappings
 " ----------------------------------------------------------------------------
+
 " alias leader in normal mode
 let mapleader=","
 
@@ -777,9 +798,8 @@ let g:EasyMotion_smartcase = 1
 " map ms <Plug>(easymotion-s)
 " map mf <Plug>(easymotion-f)
 map t <Plug>(easymotion-t)
-map f <Plug>(easymotion-f)
+nmap f <Plug>(easymotion-sn)
 nmap s <Plug>(easymotion-s)
-nmap <space>f <Plug>(easymotion-s)
 nmap <space>a A
 nmap <space>i I
 nmap <space>4 $
@@ -809,10 +829,17 @@ let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 
 nmap <space>g /
 " replace incremental search
-nmap / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-sn)
-nmap <space>s <Plug>(easymotion-sn)
-omap <space>s <Plug>(easymotion-tn)
+" nmap / <Plug>(easymotion-sn)
+" omap / <Plug>(easymotion-sn)
+nmap / <nop>
+omap / <nop>
+nmap f <Plug>(easymotion-sn)
+omap f <Plug>(easymotion-tn)
+
+" use <space> for <cr> when in easymotion-cmdline
+au VimEnter * :EMCommandLineNoreMap <space> <cr>
+" disable backspace, use <c-h> instead
+au VimEnter * :EMCommandLineNoreMap <bs> <nop>
 
 " extend n/N with more features like auto-highlight
 map n <Plug>(easymotion-next)
@@ -1068,3 +1095,16 @@ nnoremap <silent> \t :GoToTest<cr>
 " ctermbg 52 is dark red
 highlight OverLength ctermbg=52 ctermfg=white guibg=#770000
 match OverLength /\%81v./
+
+" ----------------------------------------------------------------------------
+" Vim Spec
+" ----------------------------------------------------------------------------
+let g:rspec_command = ":call VimuxRunCommand('clear; rspec {spec}')"
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>f :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
+set cursorline
+
+nmap <leader>f :VimuxRunCommand('clear; rspec spec/main_spec.rb')<CR>
