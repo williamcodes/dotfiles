@@ -1,4 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/Users/William.Jeffries/floobits/williamcodes/xfinity_home'
 let g:netrw_dirhist_2='/Users/William.Jeffries/Documents/Projects/xfinity_home'
+let g:netrw_dirhist_3='/Users/William.Jeffries/floobits/thedeeno/ips'
+let g:netrw_dirhist_4='/Users/William.Jeffries/floobits/thedeeno/ips/member-web'
+let g:netrw_dirhist_5='/Users/William.Jeffries/floobits/thedeeno/ips/member-web/config'
+let g:netrw_dirhist_6='/Users/William.Jeffries/floobits/thedeeno/ips/member-web'
+let g:netrw_dirhist_7='/Users/William.Jeffries/floobits/thedeeno/ips'
+let g:netrw_dirhist_8='/Users/William.Jeffries/floobits/thedeeno'
+let g:netrw_dirhist_9='/Users/William.Jeffries/floobits/thedeeno/ips'

@@ -30,6 +30,9 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'terryma/vim-multiple-cursors'
 
+" markdown
+Plugin 'suan/vim-instant-markdown'
+
 " these are making vim slow to start
 " Plugin 'tpope/vim-projectionist.git'
 " Plugin 'tpope/vim-rails.git'
@@ -83,6 +86,7 @@ Plugin 'rking/ag.vim'
 " syntax
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-haml.git'
 Plugin 'groenewege/vim-less'
 Plugin 'chakrit/upstart.vim'

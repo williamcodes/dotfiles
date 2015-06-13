@@ -208,6 +208,7 @@ DONE:
 DOING:
 
 TODO:
+  add tag completion and closing tag completion (emmet?)
   Change error colors to be more subtle
   snippets via snipmate
   single command to open browser next to terminal in split
