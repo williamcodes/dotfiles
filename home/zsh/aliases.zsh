@@ -60,6 +60,7 @@ alias gbr="git branch"
 alias gbra="git branch --all"
 alias gbrd="git branch -D"
 alias gpr="git pull-request"
+alias st="open -a SourceTree"
 
 # alias gl='git pull --prune'
 # alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
