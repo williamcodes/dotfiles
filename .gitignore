@@ -2,6 +2,7 @@ home/vim/backup/
 home/vim/tmp/
 home/vim/bundle/
 home/vim/undo/
+home/vim/spell/
 .zcompdump
 *.log
 home/npmrc

@@ -1112,3 +1112,15 @@ map <Leader>a :call RunAllSpecs()<CR>
 set cursorline
 
 nmap <leader>f :VimuxRunCommand('clear; rspec spec/main_spec.rb')<CR>
+
+" ----------------------------------------------------------------------------
+" Markdown
+" ----------------------------------------------------------------------------
+
+" add spellcheck to markdown files and git commits
+" Note: you can use zg to add words to the dictionary
+autocmd BufRead,BufNewFile *.md setlocal spell
+autocmd FileType gitcommit setlocal spell
+
+" enable word autocomplete with CTRL-N or CTRL-P in insert mode
+set complete+=kspell
