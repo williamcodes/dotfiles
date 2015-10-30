@@ -841,10 +841,10 @@ nmap <space>g /
 nmap f <Plug>(easymotion-sn)
 omap f <Plug>(easymotion-tn)
 
-" use <space> for <cr> when in easymotion-cmdline
-au VimEnter * :EMCommandLineNoreMap <space> <cr>
-" disable backspace, use <c-h> instead
-au VimEnter * :EMCommandLineNoreMap <bs> <nop>
+" " use <space> for <cr> when in easymotion-cmdline
+" au VimEnter * :EMCommandLineNoreMap <space> <cr>
+" " disable backspace, use <c-h> instead
+" au VimEnter * :EMCommandLineNoreMap <bs> <nop>
 
 " extend n/N with more features like auto-highlight
 map n <Plug>(easymotion-next)
