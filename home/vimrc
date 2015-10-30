@@ -836,8 +836,8 @@ nmap <space>g /
 " replace incremental search
 " nmap / <Plug>(easymotion-sn)
 " omap / <Plug>(easymotion-sn)
-nmap / <nop>
-omap / <nop>
+" nmap / <nop>
+" omap / <nop>
 nmap f <Plug>(easymotion-sn)
 omap f <Plug>(easymotion-tn)
 
