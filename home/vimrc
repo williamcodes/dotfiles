@@ -29,6 +29,7 @@ Plugin 'tomtom/tcomment_vim.git'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'slim-template/vim-slim'
 
 " markdown
 Plugin 'suan/vim-instant-markdown'
