@@ -1,9 +1,9 @@
-# thedeeno's ~/
+# welcome ~/
 My development environment
 
 ```
 # install tools and dependencies + download source codes
-curl -s https://raw.githubusercontent.com/thedeeno/dotfiles/master/install | sh
+curl -s https://raw.githubusercontent.com/williamcodes/dotfiles/master/install | sh
 
 # link dotfiles
 (cd $HOME/code/dotfiles; ./relink)
@@ -204,13 +204,14 @@ DONE:
   add unimpaired
   mechanism to change html tags
   better scrolling
+  get rid of space being enter for easymotion search
 
 DOING:
 
 TODO:
   add tag completion and closing tag completion (emmet?)
   Change error colors to be more subtle
-  snippets via snipmate
+  snippets via UltiSnips
   single command to open browser next to terminal in split
   integrate https://github.com/suan/vim-instant-markdown
   javascript function text object
