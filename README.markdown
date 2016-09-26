@@ -71,7 +71,7 @@ Add Custom Keyboard Shortcuts in Keyboard > Shortcuts
 
 ### Install Dotfiles
 
-    git clone git://github.com/thedeeno/dotfiles ~/code/dotfiles 
+    git clone git://github.com/williamcodes/dotfiles ~/code/dotfiles 
     cd ~/code/dotfiles
     rake install
 
@@ -86,7 +86,7 @@ Download and Install
 ### Install TMUX from source
 
     sudo apt-get install libevent-1.4 libevent-dev libncurses5-dev
-    git clone git://git.code.sf.net/p/tmux/tmux-code ~/code/tmux-code 
+    git clone git://git.code.sf.net/p/tmux/tmux-code ~/code/tmux-code
     git tag -l
     git checkout tags/1.9a
 
@@ -130,7 +130,7 @@ https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source
     :BundleInstall
 
 ### Compile Plugins (downloaded with vundle)
-  
+
 ```sh
 sudo apt-get install cmake python-dev
 cd ~/.vim/bundle/YouCompleteMe
@@ -138,10 +138,10 @@ cd ~/.vim/bundle/YouCompleteMe
 ```
 
 ### Setup Pry
-  
+
 Install pry plugins and runtime development gems:
 
-    gem install          \ 
+    gem install          \
       pry                \
       pry-doc            \
       pry-debugger       \
@@ -168,7 +168,7 @@ The latest instructions are [here](http://code.google.com/p/phantomjs/wiki/Build
 You're Done.
 
 ## Notes
-- `c` is an autocomplete shortcut for `~/code`. For example, 
+- `c` is an autocomplete shortcut for `~/code`. For example,
   `c myp<tab>` will autocomplete to `~/code/myproject`.
 - `h` autocompletes your home directory.
 - `check [filename]` is a quick script that tells you whether a domain is
@@ -180,13 +180,13 @@ You're Done.
 After generating a new key pair on a new machine do the following to add
 it to servers:
 
-- login to servers with lish 
+- login to servers with lish
   - change `/etc/ssh/sshd_config` `PasswordAuthenticate` to `yes`
   - `sudo service ssh restart`
 - on client
   - `ssh-copy-id username@host` # to append pub key to server user
 - on server
-  - copy appended key in `$HOME/.ssh/authorized_keys` 
+  - copy appended key in `$HOME/.ssh/authorized_keys`
   - append copy to `/home/<gitolite-user>/.ssh/authorized_keys` honoring the command prefix
 - verify ssh only login
 - verify `git clone <user>@<host>:gitolite-admin.git`

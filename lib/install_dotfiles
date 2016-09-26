@@ -1,5 +1,5 @@
 #!/bin/bash
 
 log "install" "dotfiles"
-git clone https://github.com/thedeeno/dotfiles.git $HOME/.dotfiles
+git clone https://github.com/williamcodes/dotfiles.git $HOME/.dotfiles
 (cd $HOME/.dotfiles; ./relink)
